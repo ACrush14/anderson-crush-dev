@@ -12,7 +12,7 @@ import { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-type ProjectCategory = 'Todos' | 'Full Stack' | 'Front-end' | 'Back-end';
+type ProjectCategory = 'Todos' | 'Front-end' | 'Game Dev' | 'Hardware';
 
 interface Project {
   title: string;
@@ -28,103 +28,73 @@ const projectsDataMap: Record<string, Project[]> = {
   pt: [
     {
       title: 'Site Portfólio Pessoal',
-      description: 'Este próprio site! Desenvolvido com Next.js, TailwindCSS e animações com Framer Motion. Design moderno e responsivo com suporte a tema claro/escuro.',
+      description: 'Este próprio site! Desenvolvido com Next.js, TypeScript e TailwindCSS. Design moderno, responsivo, com suporte a tema claro/escuro e dois idiomas.',
       technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
-      githubUrl: 'https://github.com/ACrush14',
+      githubUrl: 'https://github.com/ACrush14/anderson-crush-dev',
       demoUrl: null,
       category: 'Front-end',
       highlight: true,
     },
     {
-      title: 'API REST com Node.js',
-      description: 'API RESTful completa com autenticação JWT, CRUD completo, validação de dados e documentação.',
-      technologies: ['Node.js', 'Express.js', 'PostgreSQL', 'JWT'],
-      githubUrl: 'https://github.com/ACrush14',
+      title: 'NARAK',
+      description: 'Jogo de plataforma desenvolvido na engine Godot. Projeto colaborativo com mecânicas de movimentação, fases e inimigos.',
+      technologies: ['Godot', 'GDScript'],
+      githubUrl: 'https://github.com/brenalemos09/BiblioUnifor_DEV_AB',
       demoUrl: null,
-      category: 'Back-end',
+      category: 'Game Dev',
+      highlight: true,
     },
     {
-      title: 'Dashboard React',
-      description: 'Dashboard interativo com gráficos, tabelas e filtros. Consome API externa e exibe dados em tempo real.',
-      technologies: ['React', 'TypeScript', 'TailwindCSS', 'Chart.js'],
-      githubUrl: 'https://github.com/ACrush14',
+      title: 'Joguinho Godot',
+      description: 'Mini-jogo desenvolvido na engine Godot durante a disciplina de Experimentação de Protótipos na UNIFOR.',
+      technologies: ['Godot', 'GDScript'],
+      githubUrl: 'https://github.com/ACrush14/T166-22---Experimentacao-de-prototipos',
       demoUrl: null,
-      category: 'Front-end',
+      category: 'Game Dev',
     },
     {
-      title: 'E-commerce Full Stack',
-      description: 'Aplicação de e-commerce completa com carrinho de compras, autenticação de usuários e painel administrativo.',
-      technologies: ['Next.js', 'Node.js', 'MongoDB', 'Stripe'],
+      title: 'Robô Arduino',
+      description: 'Robô que anda, desenvolvido com Arduino durante a disciplina de Experimentação Orientada na UNIFOR. Controle de motores e movimentação autônoma.',
+      technologies: ['Arduino', 'C++', 'Eletrônica'],
       githubUrl: 'https://github.com/ACrush14',
       demoUrl: null,
-      category: 'Full Stack',
-    },
-    {
-      title: 'App de Tarefas',
-      description: 'Aplicativo de gerenciamento de tarefas com drag-and-drop, filtros por status e sincronização em tempo real.',
-      technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-      githubUrl: 'https://github.com/ACrush14',
-      demoUrl: null,
-      category: 'Full Stack',
-    },
-    {
-      title: 'Landing Page Responsiva',
-      description: 'Landing page moderna e responsiva com animações CSS, seções de depoimentos e formulário de contato funcional.',
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'EmailJS'],
-      githubUrl: 'https://github.com/ACrush14',
-      demoUrl: null,
-      category: 'Front-end',
+      category: 'Hardware',
     },
   ],
   en: [
     {
       title: 'Personal Portfolio',
-      description: 'This very website! Built with Next.js, TailwindCSS and Framer Motion animations. Modern responsive design with light/dark theme support.',
+      description: 'This very website! Built with Next.js, TypeScript and TailwindCSS. Modern responsive design with light/dark mode and two-language support.',
       technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
-      githubUrl: 'https://github.com/ACrush14',
+      githubUrl: 'https://github.com/ACrush14/anderson-crush-dev',
       demoUrl: null,
       category: 'Front-end',
       highlight: true,
     },
     {
-      title: 'REST API with Node.js',
-      description: 'Complete RESTful API with JWT authentication, full CRUD, data validation and documentation.',
-      technologies: ['Node.js', 'Express.js', 'PostgreSQL', 'JWT'],
-      githubUrl: 'https://github.com/ACrush14',
+      title: 'NARAK',
+      description: 'Platformer game built with the Godot engine. Collaborative project featuring movement mechanics, levels and enemies.',
+      technologies: ['Godot', 'GDScript'],
+      githubUrl: 'https://github.com/brenalemos09/BiblioUnifor_DEV_AB',
       demoUrl: null,
-      category: 'Back-end',
+      category: 'Game Dev',
+      highlight: true,
     },
     {
-      title: 'React Dashboard',
-      description: 'Interactive dashboard with charts, tables and filters. Consumes external API and displays real-time data.',
-      technologies: ['React', 'TypeScript', 'TailwindCSS', 'Chart.js'],
-      githubUrl: 'https://github.com/ACrush14',
+      title: 'Godot Mini-game',
+      description: 'Mini-game built with the Godot engine during the Prototype Experimentation course at UNIFOR.',
+      technologies: ['Godot', 'GDScript'],
+      githubUrl: 'https://github.com/ACrush14/T166-22---Experimentacao-de-prototipos',
       demoUrl: null,
-      category: 'Front-end',
+      category: 'Game Dev',
     },
     {
-      title: 'Full Stack E-commerce',
-      description: 'Complete e-commerce with shopping cart, user authentication and admin panel.',
-      technologies: ['Next.js', 'Node.js', 'MongoDB', 'Stripe'],
+      title: 'Arduino Robot',
+      description: 'Walking robot built with Arduino during the Guided Experimentation course at UNIFOR. Motor control and autonomous movement.',
+      technologies: ['Arduino', 'C++', 'Electronics'],
       githubUrl: 'https://github.com/ACrush14',
       demoUrl: null,
-      category: 'Full Stack',
-    },
-    {
-      title: 'Task Management App',
-      description: 'Task app with drag-and-drop, status filters and real-time sync.',
-      technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-      githubUrl: 'https://github.com/ACrush14',
-      demoUrl: null,
-      category: 'Full Stack',
-    },
-    {
-      title: 'Responsive Landing Page',
-      description: 'Modern responsive landing page with CSS animations, testimonials and functional contact form.',
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'EmailJS'],
-      githubUrl: 'https://github.com/ACrush14',
-      demoUrl: null,
-      category: 'Front-end',
+      category: 'Hardware',
     },
   ],
 };
@@ -134,7 +104,7 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>('Todos');
   const swiperRef = useRef<SwiperType | null>(null);
 
-  const categories: ProjectCategory[] = ['Todos', 'Full Stack', 'Front-end', 'Back-end'];
+  const categories: ProjectCategory[] = ['Todos', 'Front-end', 'Game Dev', 'Hardware'];
   const allProjects = projectsDataMap[language] ?? projectsDataMap['pt'];
   const filteredProjects = activeCategory === 'Todos' ? allProjects : allProjects.filter(p => p.category === activeCategory);
   const sortedProjects = [...filteredProjects].sort((a, b) => (b.highlight ? 1 : 0) - (a.highlight ? 1 : 0));
