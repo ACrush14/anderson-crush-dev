@@ -6,14 +6,16 @@ import { FaDownload, FaCog, FaGraduationCap, FaUniversity, FaLaptopCode } from '
 import {
   SiPython, SiJavascript, SiReact, SiNodedotjs, SiExpress, SiTypescript,
   SiNextdotjs, SiHtml5, SiCss, SiTailwindcss, SiGit, SiGithub,
-  SiMongodb, SiPostgresql, SiMysql, SiDocker,
+  SiPostgresql, SiMysql, SiGodotengine, SiUnity, SiDocker,
 } from 'react-icons/si';
+import { FaTasks } from 'react-icons/fa';
 import ParticlesBackground from './ParticlesBackground';
 
 const skills = [
   'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Express.js',
   'Python', 'HTML', 'CSS', 'TailwindCSS', 'Git', 'GitHub',
-  'PostgreSQL', 'MySQL', 'MongoDB', 'Docker', 'REST APIs', 'Agile',
+  'PostgreSQL', 'MySQL', 'Godot', 'Unity', 'Docker', 'REST APIs',
+  'Agile', 'Método Kanban', 'Método Scrum',
 ];
 
 const skillIcons: Record<string, React.ElementType> = {
@@ -31,10 +33,13 @@ const skillIcons: Record<string, React.ElementType> = {
   'GitHub': SiGithub,
   'PostgreSQL': SiPostgresql,
   'MySQL': SiMysql,
-  'MongoDB': SiMongodb,
+  'Godot': SiGodotengine,
+  'Unity': SiUnity,
   'Docker': SiDocker,
   'REST APIs': FaCog,
-  'Agile': FaCog,
+  'Agile': FaTasks,
+  'Método Kanban': FaTasks,
+  'Método Scrum': FaTasks,
 };
 
 export default function About() {
