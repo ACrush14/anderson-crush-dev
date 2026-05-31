@@ -1,10 +1,6 @@
 // src/data/blogData.ts
-// =============================================================
-// FONTE ÚNICA DE DADOS DO BLOG
-// Para adicionar um post: copie um bloco de objeto, cole no
-// final do array e preencha os campos.
-// O `slug` vira a URL: /blog/o-filme-antes-de-blade-runner
-// =============================================================
+// Inline images: <figure class="blog-image"><img src="..." alt="..." /><figcaption>...</figcaption></figure>
+// YouTube embed: <div class="blog-video"><iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe></div>
 
 export interface BlogPost {
   slug: string;
@@ -25,17 +21,25 @@ export const blogPosts: BlogPost[] = [
     description: 'Um projeto audiovisual sobre arquitetura oriental, com comparações entre pesquisa acadêmica e referências inesperadas da cultura pop — incluindo o jogo Sonic Unleashed.',
     image: 'https://projetobatente.com.br/wp-content/uploads/2018/07/arquitetura-chinesa-destaque.jpg',
     content: `
-      <p>Apresento aqui um material em vídeo sobre arquitetura chinesa, desenvolvido a partir da minha pesquisa acadêmica e de um seminário na faculdade. O projeto nasceu da curiosidade de investigar como elementos da cultura construtiva oriental aparecem — muitas vezes sem que percebamos — em referências do cotidiano.</p>
+      <p>Olá, caros leitores! Meu nome é Anderson Crush e sou estudante de Arquitetura. Produzi um material em vídeo sobre Arquitetura chinesa fazendo um paralelo com o pouco que aprendi na faculdade até o momento, e gostaria de compartilhar com vocês.</p>
       <br/>
-      <p>A inspiração inicial veio de um lugar inusitado: o jogo Sonic Unleashed, que constrói cidades fictícias baseadas em locais reais do mundo, incluindo a China. Isso me motivou a realizar comparações sistemáticas entre os elementos do jogo e o que encontrei na pesquisa acadêmica — uma forma de tornar o conteúdo mais acessível e visualmente interessante.</p>
+      <p>O start pra produção desse conteúdo foi a minha participação para seminário em dupla na faculdade sobre arquitetura chinesa. Com o trabalho concluído e apresentado, fiquei inquieto pois sabia que o que fiz dificilmente seria lembrado por mim mesmo daqui algum tempo se aquela pesquisa não ganhasse um significado maior. E no meio de tantas ideias buscando uma solução, me lembrei de um jogo chamado Sonic Unleashed, onde existem cidades fictícias baseadas em várias cidades reais, inclusive na China. A partir disso me instigou o desejo de ver a comparação dos elementos que aparecem ao nível do jogo com os elementos que abordei e estudei em minha pesquisa de Faculdade. Como isso não seria uma produção tão simples, a nível de organização decidi dividir em quatro pequenas partes e abordar sobre elas em vídeo.</p>
       <br/>
-      <p>O projeto foi estruturado em quatro partes. A primeira apresenta o conceito de arquitetura com referências profissionais. A segunda aborda os elementos mais comuns da arquitetura chinesa: cores, características formais, tipologias e suas relações com a religião e a filosofia oriental.</p>
+      <p>A primeira parte explica melhor o que eu defino e acredito ser arquitetura, somei com referências de frases de profissionais e termos-chaves sobre o assunto, explicando o motivo de arquitetura ser um pouco mais do que algumas pessoas imaginam. Na segunda parte falo dos elementos mais comuns da arquitetura chinesa, das cores, características, tipos de arquitetura, comparações com a religião, e muito mais — essa parte foi mais fácil já que era o produto do seminário que citei no início.</p>
+      <figure class="blog-image">
+        <img src="https://projetobatente.com.br/wp-content/uploads/2018/07/arquitetura-chinesa-arcos.png" alt="Arcos da arquitetura chinesa" />
+      </figure>
+      <p>Já na terceira parte, falo de alguns notáveis projetos que possuem elementos chineses e fiz o paralelo entre Projeto "versus" Realidade da China. Nesse capítulo abordo principalmente o quão perto a arquitetura está do desenho Avatar: A Lenda de Aang.</p>
+      <figure class="blog-image">
+        <img src="https://projetobatente.com.br/wp-content/uploads/2018/07/arquitetura-chinesa-soldados.png" alt="Arquitetura chinesa — soldados de terracota" />
+      </figure>
+      <p>No último capítulo componho um paralelo constante entre imagens do nível Chun-nan (o nível da China de Sonic Unleashed) e arquitetura chinesa, demonstrando se construções, cores e elementos estão corretos e quais não estão. Sem dúvida foi o capítulo mais trabalhoso.</p>
+      <figure class="blog-image">
+        <img src="https://projetobatente.com.br/wp-content/uploads/2018/07/arquitetura-chinesa-nivelchun.png" alt="Nível Chun-nan — Sonic Unleashed comparado à arquitetura chinesa" />
+      </figure>
+      <p>Para os que estão interessados no processo: de início fiz o script e logo após decidi gravar minha voz, por último comecei o trabalho em um editor de vídeo (pela primeira vez) e adicionei os áudios e as imagens buscando sempre algo bem intuitivo. O vídeo está apenas em inglês infelizmente, mas pretendo fazer uma edição em português.</p>
       <br/>
-      <p>Na terceira parte, apresento projetos notáveis que incorporam elementos da arquitetura chinesa, estabelecendo paralelos entre ficção e realidade — incluindo referências ao desenho Avatar: A Lenda de Aang, que reproduz com surpreendente fidelidade elementos arquitetônicos da China.</p>
-      <br/>
-      <p>O capítulo final compara diretamente imagens do nível Chun-nan de Sonic Unleashed com construções chinesas reais, verificando a precisão das cores, formas e elementos construtivos. A proximidade é notável e revela o cuidado dos designers do jogo com a pesquisa histórica.</p>
-      <br/>
-      <p>O processo de produção envolveu roteiro, gravação de narração e edição de vídeo. O material foi desenvolvido inteiramente em inglês, com planos para uma versão em português. É um projeto do qual tenho muito orgulho, e que abriu meu interesse por criar conteúdo na interseção entre arquitetura, filosofia e cultura pop.</p>
+      <p>No geral, a produção do vídeo foi algo que me deixou muito satisfeito e com o desejo de produzir outros. Para quando e qual a frequência ainda não sei, mas já penso em outros assuntos como filosofia e arquitetura pós-moderna. Assim que o segundo vídeo sair, nos veremos aqui com certeza. Por agora agradeço o espaço e espero ler o feedback de vocês nos comentários. Até mais.</p>
     `,
   },
   {
@@ -46,19 +50,15 @@ export const blogPosts: BlogPost[] = [
     description: 'Um projeto polêmico de 45 andares em Fortaleza acendeu o debate sobre identidade urbana, o silenciamento da crítica e o egoísmo que empobrece a arquitetura.',
     image: 'https://projetobatente.com.br/wp-content/uploads/2019/01/hissa-destaque.jpg',
     content: `
-      <p>Em dezembro de 2018, na cidade de Fortaleza, professores e estudantes se viram diante de uma discussão urgente sobre o futuro arquitetônico da cidade. Em um contexto marcado por um modelo coronelista de desenvolvimento urbano — no qual quem detém o capital define onde e como as novas construções acontecem —, uma nova fase estava se desenhando no horizonte.</p>
+      <p>Em Dezembro de 2018, na cidade de Fortaleza, muitos professores e estudantes se preocuparam com a forma arquitetônica que tomará nossa cidade. Tendo em vista um estilo muito coronelista, onde as pessoas que detém o capital escolhem onde estarão novas construções, uma nova fase está ocorrendo. Claro que não somos a única cidade onde acontece uma mudança dessas. A Torre Eiffel, a arquitetura do ferro e Adolf Loos, e o Barroco receberam críticas em todos os lugares que se transformaram em grandes comemorações arquitetônicas, com tombamentos e incentivo ao turismo. Porém, Fortaleza possui um lado interessante. Suas praias se parecem muito com praias turísticas do mundo todo, com altos prédios aproveitando a vista para o mar. Uma foto da beira mar de Fortaleza é confundida com cidades como Dubai ou Santa Mônica — e isso é algo que arquitetos cearenses detestam.</p>
       <br/>
-      <p>Não é privilégio de Fortaleza. A Torre Eiffel, a arquitetura do ferro, Adolf Loos e o Barroco foram duramente criticados em seus tempos, e hoje são celebrações arquitetônicas tombadas e incentivadas pelo turismo. A história da arquitetura é, em grande parte, uma história de rejeição seguida de reconhecimento tardio.</p>
+      <p>Tudo isso me leva a um projeto de 45 andares, no qual boa parte dos nossos arquitetos criticaram pela grande perda de identidade paisagística de nossas praias de cultura cearense para uma plástica mais… Internacional. Nossos prédios de 25 andares e 600m² de pavimento total são os maiores que possuímos, mas 45 andares é um prédio que fere até o Plano Diretor e a Lei de Uso e Ocupação do Solo. Mas quem iria estar por trás disso? O renomado e clássico escritório, Nasser Hissa.</p>
       <br/>
-      <p>Mas Fortaleza tem uma particularidade. Suas praias se assemelham a orlas turísticas do mundo inteiro, com torres aproveitando a vista para o mar. Uma foto da Beira Mar fortalezense pode ser facilmente confundida com Dubai ou Santa Mônica — algo que arquitetos cearenses veem com preocupação crescente.</p>
+      <p>O escritório de arquitetura identidade de Fortaleza conseguiu colocar estudantes e arquitetos contra eles. Diversas reclamações foram feitas ao ponto de desativarem os comentários sobre a sua postagem do prédio de 45 andares. Isso, compilado às atuais brigas de censura que estamos passando, além de pegar muito mal para o escritório, me remete a uma questão: provavelmente as obras de grande polêmica no passado foram criticadas, mas depois muito elogiadas. Mesmo com isso, existia censura por parte do arquiteto? Poderiam reprimir uma carta aberta criticando a arquitetura de ferro e da Torre Eiffel?</p>
       <br/>
-      <p>O estopim do debate foi um projeto de 45 andares que gerou reação imediata da classe arquitetônica. O argumento central: o prédio não apenas desfigura a identidade paisagística das praias como fere o Plano Diretor e a Lei de Uso e Ocupação do Solo. O escritório responsável pelo projeto foi o Nasser Hissa.</p>
+      <p>Não se deve censurar críticas. Óbvio que se pode não gostar das mesmas, ignorá-las, mas apagar comentários feitos aos seus projetos significa que é um projeto só seu, feito apenas para você, sem se importar com as pessoas que lhe assistem, nas pessoas que a utilizarão e viverão no entorno. Deve-se observar que os universitários de hoje serão os profissionais de amanhã.</p>
       <br/>
-      <p>A resposta do escritório ao debate público foi silenciar os comentários na postagem do projeto. Das mais de 150 manifestações originais, apenas 5 eram elogios — o resto, críticas. A seletividade na moderação expôs algo mais profundo do que uma simples divergência estética.</p>
-      <br/>
-      <p>Apagar comentários é construir um projeto apenas para si, sem se importar com quem o assiste. É uma postura que contradiz a natureza da arquitetura, que por definição é uma arte pública — ela existe no espaço que todos compartilham, e ninguém tem o direito de subtraí-la do debate coletivo.</p>
-      <br/>
-      <p>Os universitários de hoje serão os profissionais de amanhã. Censurar a crítica deles não é proteger um projeto: é roubar-lhes o direito de participar da construção da cidade em que vão trabalhar. E é exatamente esse egoísmo que empobrece a arquitetura — não a ousadia de um projeto polêmico, mas a recusa em dialogar sobre ele.</p>
+      <p>No fim das contas foram permitidas apenas observações a favor do projeto, onde de 150 comentários, ficaram apenas 5 elogiando o "belo" prédio de 45 andares. Não é difícil perceber o egoísmo em tal escritório.</p>
     `,
   },
   {
@@ -69,29 +69,31 @@ export const blogPosts: BlogPost[] = [
     description: 'Metrópolis (1927) de Fritz Lang antecede Blade Runner em cinquenta anos e inventou os conceitos de ficção científica que o cinema continua copiando até hoje.',
     image: 'https://projetobatente.com.br/wp-content/uploads/2019/02/2.png',
     content: `
-      <p>Há algum tempo, tive um trabalho de faculdade cujo tema era livre. Achei incríveis as escolhas dos meus colegas, mas decidi ir fundo em um campo pouco explorado na arquitetura, ainda que constantemente tangenciado: as artes visuais — cinema, jogos eletrônicos, séries, animações.</p>
+      <p>Recentemente, tive um trabalho de faculdade no qual o tema era a escolha do aluno. Achei incríveis os temas sugeridos aos meus colegas, mas decidi ir fundo em um campo pouco conhecido, mas muito tangenciado: as artes visuais.</p>
       <br/>
-      <p>Na minha pesquisa, queria entender como o futuro da arquitetura é imaginado. E toda vez que perguntava, a resposta era a mesma: pesquise Blade Runner. De fato, tudo que veio depois de Blade Runner é claramente inspirado ou copiado de lá — os replicantes, os androides, as cidades verticais e aéreas. Até Samurai Jack e a Cidade das Nuvens de Bespin, em Star Wars V, são tributários diretos desse universo.</p>
+      <p>Quando digo "artes visuais" estou me referindo ao cinema, aos jogos eletrônicos, às séries, aos desenhos animados. É claro que isso pode ser um trabalho mais específico ao estudante de design gráfico, mas esse debate é para outra hora.</p>
       <br/>
-      <p>Mas Blade Runner é o pico de popularidade, não a origem. Existe um filme que antecede Blade Runner em pelo menos cinquenta anos e que contém, de forma ainda mais densa, os conceitos de ficção científica que vieram a dominar o imaginário do século XX: robôs, replicantes, a divisão social absoluta entre os que vivem em cima e os que sustentam tudo por baixo. Esse filme se chama Metrópolis, de Fritz Lang.</p>
+      <p>Na minha pesquisa, eu queria descobrir como seria o futuro da arquitetura, e toda vez que eu perguntava, muitos diziam para pesquisar sobre Blade Runner. E realmente, tudo que veio depois de Blade Runner é claramente inspirado ou copiado de lá. Conceitos como "Robôs" ou "Replicantes", "Androides" e cidades aéreas. Alguns exemplos de inspirações por Blade Runner apresentados na pesquisa foram o desenho animado "Samurai Jack" e a Cidade das Nuvens, no Planeta Bespin no filme "Star Wars V: O Império Contra-Ataca".</p>
       <br/>
-      <h2>A origem de um imaginário</h2>
+      <p>Mas Blade Runner é o auge da popularidade, e não as origens de tais conceitos. Um filme consegue superar Blade Runner por pelo menos 50 anos em seus diversos conceitos de ficção científica, robôs e a divisão social entre os ricos de cima e os pobres de baixo. O nome desse filme se chama "Metrópolis" de Fritz Lang.</p>
       <br/>
-      <p>Metrópolis é de 1927. Fritz Lang o desenvolveu a partir de uma imersão direta no crescimento urbano de sua época e nos projetos que estavam redesenhando o futuro das cidades. O Plano Cidade de Le Corbusier, a Torre Einstein e o livro Amerika de Erich Mendelsohn, e a Figura Abstrata de Oskar Schlemmer influenciaram o filme de forma tão intensa que seus elementos são reconhecíveis até hoje.</p>
+      <p>Metrópolis é um filme de 1927, desenvolvido pelo alemão Fritz Lang, inspirado diretamente pelo crescimento e futuros projetos de Arranha-céus. Os projetos "Plano Cidade" de Le Corbusier; A Torre Einstein e o livro "Amerika" de Erich Mendelsohn e a "Figura Abstrata" de Oskar Schlemmer influenciaram o filme de tal forma que certos elementos são usados até hoje.</p>
+      <figure class="blog-image">
+        <img src="https://projetobatente.com.br/wp-content/uploads/2019/02/Figura-02-Abstrakte-Figur-de-Oskar-Schlemmer.jpg" alt="Abstrakte Figur — Oskar Schlemmer" />
+        <figcaption>Abstrakte Figur — Oskar Schlemmer</figcaption>
+      </figure>
+      <p>O filme se passa em um futuro, com a grande Metrópolis comandada por um Senhor. A grande cidade é mantida graças aos trabalhadores que ficam embaixo, numa espécie de Submundo, onde ninguém pode conversar e muito menos descansar de seu trabalho. É um conceito em que as pessoas da cidade dominam as máquinas, e as máquinas dominam as pessoas do Submundo.</p>
       <br/>
-      <p>A história se passa em uma megalópole do futuro, comandada por um Senhor. A cidade funciona porque os trabalhadores vivem em um Submundo — um subsolo onde não se descansa, não se conversa, apenas se trabalha. É uma geometria de poder brutal: as pessoas da cidade dominam as máquinas, e as máquinas dominam os trabalhadores do Submundo.</p>
+      <p>O filho do Senhor descobre um dia que o Submundo existe, e fica apavorado com o que aconteceu. Ele pergunta a seu Pai, o Senhor de Metrópolis: onde estão as mãos que ergueram essa cidade? E o Pai nada responde.</p>
       <br/>
-      <p>O filho do Senhor, ao descobrir o Submundo, fica horrorizado. Ele pergunta ao pai: onde estão as mãos que ergueram essa cidade? O pai não responde. Essa cena, com menos de dois minutos, resume uma questão que a arquitetura ainda não respondeu direito.</p>
+      <p>Além desse enredo entre o Pai e o filho, algumas histórias paralelas acontecem, sendo a mais importante um cientista que tenta reviver a mulher morta do Senhor de Metrópolis no corpo de um robô. E esse robô se parece muito com o C-3PO, um androide do universo "Star Wars".</p>
+      <figure class="blog-image">
+        <img src="https://projetobatente.com.br/wp-content/uploads/2019/02/1.png" alt="O robô de Metrópolis — ancestral do C-3PO" />
+        <figcaption>O robô de Metrópolis — ancestral direto do C-3PO</figcaption>
+      </figure>
+      <p>Quando o filme foi lançado, recebeu diversas críticas, principalmente negativas. Seu retorno foi menos de 2% do orçamento, e o filme original não existe mais. Porém, graças a um pequeno museu na Argentina, o filme pôde ser reconstruído através de trechos do museu e de outros trechos encontrados arquivados em outros países.</p>
       <br/>
-      <p>Paralelamente ao enredo principal, um cientista tenta reviver a mulher morta do Senhor dentro de um corpo robótico. Esse robô é visivelmente o ancestral direto do C-3PO de Star Wars — uma conexão visual que poucos espectadores de hoje percebem, mas que está ali, registrada décadas antes.</p>
-      <br/>
-      <h2>O filme que quase desapareceu</h2>
-      <br/>
-      <p>Quando foi lançado, Metrópolis recebeu críticas predominantemente negativas. O retorno de bilheteria foi de menos de 2% do orçamento. E o filme original, em sua versão completa, deixou de existir.</p>
-      <br/>
-      <p>Foi um pequeno museu na Argentina que tornou possível sua reconstrução, ao guardar trechos que ninguém mais tinha. Combinado com fragmentos encontrados em arquivos de outros países, o filme foi sendo reconstituído ao longo do tempo. Hoje, 95% da metragem original está recuperada.</p>
-      <br/>
-      <p>Ele está disponível no YouTube em diversas versões — uma em português com 118 minutos (corte de 1927) e uma em inglês com 148 minutos (restauração de 2010), além de análises e materiais de making-of. Para quem estuda arquitetura, ficção científica ou simplesmente quer entender de onde veio o visual do futuro que o cinema nos vendeu por décadas, Metrópolis não é opcional. É ponto de partida.</p>
+      <p>Hoje, 95% do filme está completo, e ele está disponível no YouTube em diversas versões. Uma versão em português com 118 minutos (1927) e em inglês com 148 minutos (2010) existem, além de análises e de Making-Of do filme.</p>
     `,
   },
   {
@@ -99,26 +101,30 @@ export const blogPosts: BlogPost[] = [
     title: 'Documentário: A Estética Tecnológica na Arquitetura',
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
-    description: 'Em vez de slides, um minidocumentário: como Fuller, Prouve, Frei Otto, Renzo Piano e Francis Keré resolveram problemas complexos com soluções mínimas — e o que isso significa para a arquitetura hoje.',
+    description: 'Em vez de slides, um minidocumentário: como Fuller, Prouve, Frei Otto, Renzo Piano e Francis Keré resolveram problemas complexos com soluções mínimas.',
     image: 'https://projetobatente.com.br/wp-content/uploads/2019/04/documentario-a-estetica-tecnologica-na-arquitetura-dymaxion-house.jpg',
     content: `
-      <p>Em um dos trabalhos da cadeira de Teoria e História da Arquitetura e do Urbanismo, decidi me desafiar. Enquanto a maioria dos colegas optava por apresentações em slides, escolhi produzir um minidocumentário. O tema era a estética tecnológica na arquitetura — um movimento que, ao longo do século XX, transformou radicalmente a forma como pensamos estrutura, forma e função.</p>
+      <p>Em um dos trabalhos da cadeira de Teoria e História da Arquitetura e do Urbanismo, eu decidi me desafiar. Em vez de produzir uma apresentação em slides como normalmente se pede, considerei fazer um vídeo, um minidocumentário.</p>
       <br/>
-      <p>A introdução do documentário parte de uma constatação simples: em algum momento, cerca de cem anos atrás, o tempo e o espaço encolheram. O transporte ficou mais barato, mais rápido e mais acessível. Guerras se intensificaram. Economias se fortaleceram. E foi nesse contexto de aceleração e ruptura que o modernismo arquitetônico floresceu — e com ele, a estética tecnológica.</p>
+      <p>Nesse trabalho, foi cobrado falar sobre a Estética Tecnológica na Arquitetura, no qual puxamos os arquitetos Buckminster Fuller, Jean Prouve, Frei Otto, Richard Rodger, Renzo Piano e Francis Keré. Cada um desses arquitetos foi muito importante desde os primeiros projetos das casas e do carro Dymaxion de Buckminster Fuller até os tempos atuais da arquitetura de Gando projetada por Francis Keré.</p>
       <br/>
-      <h2>Os arquitetos do movimento</h2>
+      <p>Na introdução do documentário, é especificado o começo dos tempos modernos, que pode ser resumida como "em algum momento, a 100 anos atrás, o tempo e o espaço diminuíram e todos enlouqueceram". Nessa época, transportes ficaram mais baratos e nos levavam muito mais longe, como nós tratamos a arte mudou. Praças públicas viraram sinônimos de regimes brutais. As Guerras se intensificaram mas a economia ficou bem mais forte. Nessa época, o Modernismo arquitetônico começa a ter força, e com isso, a estética tecnológica começou a se formar.</p>
       <br/>
-      <p>Buckminster Fuller foi um dos pioneiros. Seus conceitos de "4D" e "Dymaxion" — uma combinação de Dynamic, Maximum e Tension — resultaram em projetos radicais como o Dymaxion Car e o Dymaxion House, nos anos 1940 e 50. Mas foi a Cúpula Geodésica que o imortalizou: uma estrutura de triângulos metálicos interconectados que lembra a molécula C60 e resolve o problema de cobrir grandes vãos com o mínimo de material.</p>
+      <p>Buckminster Fuller foi o primeiro arquiteto famoso nesse contexto, com os termos em 4D e a Dymaxion, que significa Dynamic, Maximum e Tension. Nesse caso, o uso máximo da tensão dinâmica com o menor uso de energia. Seus dois mais famosos projetos são o Dymaxion Car e o Dymaxion House pelos anos 40 e 50 nos Estados Unidos. Ele também desenvolveu o famoso Domo Geodésico — são diversos triângulos metálicos conectados para formar um domo, muito parecido com o formato químico do C60.</p>
       <br/>
-      <p>Jean Prouve começou como ferreiro e transformou esse ponto de partida em uma filosofia construtiva. Ele mesclou design e construção prática, desenvolvendo móveis e casas que podiam ser montadas em menos de uma semana. A popularidade não veio imediatamente, mas a lógica era irrefutável: construir rápido, construir bem, construir para as pessoas.</p>
+      <p>Jean Prouve já começou como um simples forjador complementando o design com a praticidade das construções. Ele desenvolveu móveis famosos e casas que são construídas em menos de uma semana, que não fizeram muito sucesso.</p>
       <br/>
-      <p>Frei Otto projetou o Estádio Olímpico de Munique para os Jogos de 1972 — uma cobertura que parece uma teia de aranha suspensa no ar, radicalmente diferente de tudo que existia até então. Era estrutura como poesia.</p>
+      <p>No Frei Otto, falamos da construção do estádio de Munique usado nas olimpíadas em 1972, no qual sua telha tem uma estética moderna simulando uma grande teia de aranha.</p>
       <br/>
-      <p>Richard Rogers e Renzo Piano, no Centro Georges Pompidou, levaram a estética tecnológica ao extremo: toda a estrutura, as tubulações, os cabos e os pilares expostos para fora, deixando o interior completamente livre. Do outro lado do edifício, uma praça pública aberta. O Pompidou é simultaneamente uma máquina, um museu e uma declaração política sobre o espaço urbano.</p>
+      <p>Um dos meus projetos favoritos analisados é o Richard Rodgers e o Renzo Piano: o Georges Pompidou, um projeto no qual metade do terreno foi usado como a estrutura toda nua, com cabos, canos e pilares expostos. A outra metade do terreno é totalmente vazia, fazendo uma grande praça pública ao lado de um prédio de uso público.</p>
       <br/>
-      <p>Francis Keré fechou o documentário com uma perspectiva diferente. Formado na Europa, ele voltou à sua cidade natal em Gando, no Burkina Faso, e aplicou processos participativos com materiais locais e mão de obra comunitária. A estética tecnológica aqui não é sobre expor estruturas metálicas — é sobre usar o que existe para construir o que faz sentido para quem vai usar.</p>
+      <p>Por último, o Francis Keré, que veio de Gando, teve um grande investimento para aprender arquitetura na Europa, no qual ele incentivou em sua terra natal o processo participativo. Nisso, a comunidade local usa os materiais locais para suas construções. Todos trabalham para ter construções para a comunidade local. Keré desenvolveu matérias confortáveis apenas com tratamentos dos materiais ali alocados.</p>
       <br/>
-      <p>O que une todos esses arquitetos é uma mesma obsessão: resolver problemas complexos com soluções mínimas, priorizando conforto e estética sem desperdiçar recursos. É um legado que a arquitetura contemporânea ainda está aprendendo a honrar.</p>
+      <p>Todos esses grandes arquitetos e seus projetos nos dão algo novo a aprender e ver. Todos são gênios, resolvem grandes problemas com soluções mínimas, pensando no conforto e na estética deles. E aí, qual projeto te inspirou?</p>
+      <br/>
+      <div class="blog-video">
+        <iframe src="https://www.youtube.com/embed/FMJOfMHBNi0" title="Documentário: A Estética Tecnológica na Arquitetura" allowfullscreen></iframe>
+      </div>
     `,
   },
   {
@@ -126,26 +132,26 @@ export const blogPosts: BlogPost[] = [
     title: 'Como Lidar com Sentimentos Negativos na Arquitetura',
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
-    description: 'Inveja, insegurança e raiva fazem parte da jornada em arquitetura. Um guia honesto sobre autoconhecimento e autocontrole para quem está no meio do curso e sente que o trabalho do outro é sempre melhor.',
+    description: 'Inveja, insegurança e raiva fazem parte da jornada em arquitetura. Um guia honesto sobre autoconhecimento e autocontrole para quem está no meio do curso.',
     image: 'https://projetobatente.com.br/wp-content/uploads/2019/06/Destaque.jpg',
     content: `
-      <p>Em nossa jornada acadêmica, sempre nos deparamos com pessoas que fazem projetos que nos fazem questionar o motivo de estarmos na arquitetura. Bate aquele sentimento de insegurança, a dúvida sobre o que estamos fazendo, se o próximo sempre pode nos superar. A grama do vizinho sempre é mais verde — e na faculdade de arquitetura, essa frase ganha uma dimensão quase física, porque o trabalho do outro está literalmente exposto na parede ao lado do seu.</p>
+      <p>Em nossa jornada acadêmica, sempre nos deparamos com pessoas que fazem projetos que nos fazem questionar o motivo de estarmos na arquitetura. Dá aquele sentimento de insegurança no que estamos fazendo, se o próximo sempre pode superar a gente. Dá até aquela inveja do qual vemos o trabalho do outro, tão bem feito e criativo, e olhamos para o nosso como se fosse algo tão ruim… Aquele sentimento competitivo no qual sempre nos questiona do que nós fazemos. Lembra aquela famosa frase: "a grama do vizinho sempre é mais verde".</p>
       <br/>
-      <p>Boas e más notícias: esse sentimento é profundamente humano. Aprender a conviver com a inveja e o pensamento negativo é tão necessário quanto aprender a desenhar — e assim como o desenho, é uma habilidade que se treina.</p>
+      <p>Bem, boas e más notícias: esse sentimento faz muita parte de nós, seres humanos. É uma grande característica nossa, e assim como aprendemos a conviver com coisas da vida que nos incomodam, a inveja e o pensamento negativo também fazem parte disso.</p>
       <br/>
-      <p>A primeira coisa a lembrar é que cada um entra na arquitetura em um momento diferente. Cada pessoa carrega uma história distinta, com formas diferentes de processar o mundo e os projetos. Nenhum olhar é igual. E é exatamente essa diferença que faz com que turmas que recebem o mesmo briefing produzam projetos completamente diferentes — todos válidos, todos reveladores de quem os fez.</p>
+      <p>A primeira coisa que devemos sempre lembrar é que cada um entra na arquitetura em um tempo diferente, e pra isso basta olhar as pessoas ao seu redor. Cada um tem uma história pessoal diferente, com diferentes formas de lidar com os sentimentos. Todos têm olhos diferentes, e devemos sempre ver nossas qualidades em nosso trabalho.</p>
       <br/>
-      <p>Lembre-se dos seus projetos coletivos. Mesmo partindo do mesmo terreno e do mesmo programa, cada um chegou a um resultado único. Isso não é fraqueza — é metodologia. É a sua forma particular de associar referências, sentimentos e intenções. Use o melhor do que você tem, em vez de desperdiçar energia tentando ser o que o outro é.</p>
+      <p>Lembre-se de seus projetos que você fez com a turma. Provavelmente todos pegamos a mesma área de estudo, mas sempre saímos com projetos muito diferentes, e isso sempre sai com metodologias criativas diferentes, que complementam parte da nossa história. Então lembre-se sempre que cada um tem sempre um jeito diferente de associar seus projetos, e você deve usar o melhor do que tem em você para produzir eles.</p>
       <br/>
-      <p>Pense por que você está na arquitetura e onde quer chegar com ela. Esse exercício de olhar para dentro, em vez de comparar com o de fora, é o que distingue quem cresce de quem estagna.</p>
+      <p>Devemos pensar a razão de estarmos na Arquitetura, e também onde queremos chegar com ela. E para isso, devemos olhar para nós mesmos onde devemos chegar, evitando olhar o outro com a inveja.</p>
       <br/>
-      <p>Se a inveja persistir, converta-a em pergunta: por que aquela pessoa faz projetos melhores? Ela apresenta de forma mais clara? As soluções dela parecem mais criativas? Tem mais tempo de prática? O caminho dela pode ter começado antes — e isso não é uma sentença, é um dado. Converse com ela. Pergunte como ela trabalha. A palavra tem um poder enorme, e muita gente aprende mais em uma conversa franca do que em meses de tentativa e erro solitários.</p>
+      <p>Conversar com quem você sente inveja é uma solução, para esquecer esse sentimento do que ele é melhor, e começar a pensar o PORQUÊ dessa pessoa ser melhor. Será que é porque ela faz coisas apresentáveis? Ele dá soluções que parecem mais criativas? Tem mais facilidade em mexer com Arquitetura? O tempo de trabalho e arquitetura dessas outras pessoas podem ter começado muito antes. Sempre valorize o poder da palavra, para conhecer como outros fazem os seus projetos. Quem sabe você também não aprende uma coisa nova?</p>
       <br/>
-      <p>Agora, se os sentimentos negativos tomarem conta e nada funcionar — libere. Todos temos raiva. Todos temos momentos de angústia real. A questão não é nunca sentir, mas saber para onde canalizar.</p>
+      <p>Agora, vamos supor que os sentimentos ruins estão lhe dominando. Você não consegue pensar em nada positivo, a inveja lhe dominou e você precisa liberar a sua raiva de alguma forma, e para isso eu digo: libere! Todos temos sentimentos angustiantes e de raiva, e vale a pena o autoconhecimento para liberar esses sentimentos sem magoar as pessoas!</p>
       <br/>
-      <p>Tenha um hobby relaxante: tocar um instrumento, ver filmes, cozinhar. Ou um hobby mais explosivo: correr, lutar, malhar. Um colega me contou que, quando nada funciona, ele grava um vídeo falando de tudo que está sentindo — a raiva, a frustração, a explicação de por que está assim. Quando termina, ele apaga. Até lá, a raiva já passou. Outro colega compra marca-textos e joga contra a parede até se sentir melhor. Cada um tem o seu método.</p>
+      <p>Então tenha um hobby relaxante, como tocar violão ou ver filmes do gênero que você gosta. Ou tenha um hobby mais explosivo, como correr muito ou lutar alguma arte marcial. Um colega me contou que, quando nada funciona para ele, ele começa a gravar um vídeo falando dos sentimentos de raiva, a explicação dele estar sentindo assim, e quando ele acaba, ele apaga, pois até lá a raiva passou. Um outro colega, mais extremo, gosta de comprar coisas como marca-textos e jogar contra a parede até ele se sentir melhor, e é incrível como ele se sente, parece que a raiva nunca parou sobre ele.</p>
       <br/>
-      <p>O mais importante: seu sentimento não é exclusivo, e não te define. O que te define é o que você faz depois que ele passa. Cada um tem seu tempo na arquitetura — e esse tempo é seu.</p>
+      <p>Então, saiba que seu sentimento não é exclusivo, mas o mais importante é possuir um autoconhecimento sobre esse sentimento e, a partir disso, saber como lidar e tirar esse sentimento. Cada um tem seu tempo na arquitetura, e não se deve desmotivar isso.</p>
     `,
   },
   {
@@ -153,30 +159,30 @@ export const blogPosts: BlogPost[] = [
     title: 'O Estoril',
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
-    description: 'De casa de veraneio a cassino de soldados americanos, de refúgio de intelectuais na ditadura a sede da Secretaria de Turismo — a história do Estoril e o que ela revela sobre Fortaleza e seus esquecimentos.',
+    description: 'De casa de veraneio a cassino de soldados americanos, de refúgio de intelectuais na ditadura a sede da Secretaria de Turismo — a história do Estoril e o que ela revela sobre Fortaleza.',
     image: 'https://projetobatente.com.br/wp-content/uploads/2019/08/Estoril-Queiroz-Netto-destaque.jpg',
     content: `
-      <p>Desde o início da faculdade, ouvi professores mencionando o Estoril como um grande marco da boêmia de Fortaleza. Durante um trabalho acadêmico, fui até lá pela primeira vez. Encontrei o edifício em curso de decadência, com poucas pessoas andando pela Rua dos Tabajaras. Aquele contraste — entre a grandeza que os professores descreviam e o silêncio que eu encontrei — motivou três meses de pesquisa, desenvolvida junto com Victoria Lima.</p>
+      <p>O Estoril de Fortaleza vai fazer 100 anos desde o início da sua construção, e é um belo prédio situado na Praia de Iracema contando um pouco de seu famoso legado. Mas todo grande desapego também se vê um grande fim. Esse texto vai informar o porquê de eu querer estudar o Estoril, assim como dissertar sobre o que ele é, além de algumas opiniões sobre o mesmo.</p>
       <br/>
-      <h2>As origens: 1920</h2>
+      <h2>Motivo de Estudo</h2>
       <br/>
-      <p>Em 1920, um pernambucano chamado José Magalhães Porto construiu uma casa na antiga Praia do Peixe e a nomeou em homenagem à sua esposa, Dona Moreninha. Esse investimento isolado foi suficiente para iniciar um processo de transformação urbana na região, que seria posteriormente rebatizada como Praia de Iracema.</p>
+      <p>Desde o começo da faculdade, um prédio que eu sempre ouvia falar entre os professores como um grande marco da boêmia de Fortaleza era o Estoril, e eu fiquei fascinado em saber sobre o que aquela construção realmente era. Em um dos meus trabalhos, tive a oportunidade de conhecer a edificação, onde hoje é a atual SECULTFOR (Secretaria de Turismo de Fortaleza). Para um lugar tão conhecido e lembrado, o local estava em um curso de decadência, com poucas pessoas andando pela rua dos Tabajaras em uma tarde comum. E eu sempre fiquei intrigado em saber dessa situação no qual o Estoril se impôs.</p>
       <br/>
-      <p>Em 1930, a família se mudou e o local foi convertido em restaurante. O Estoril começava sua vida pública.</p>
+      <p>Assim, decidi fazer um artigo científico, afim de conseguir algo a mais no currículo, e depois de falar com diversos professores, vi que o interessante é olhar dentro de si e ver o que você realmente quer explorar. Decidi, dessa forma, falar sobre o Estoril. Artigos como esse são uma batalha para serem concluídos, e é um milagre já possuírem textos assim. Então, aqui vai um texto dos 3 meses de preparo e pesquisa feita por mim e pela Victória Lima.</p>
       <br/>
-      <h2>A Segunda Guerra e os americanos</h2>
+      <h2>Resumo estendido</h2>
       <br/>
-      <p>Em 1944, durante a Segunda Guerra Mundial, uma base americana instalada em Fortaleza ocupou o Estoril. O espaço foi transformado em cassino exclusivo para soldados — e para as chamadas "coca-colas", como eram conhecidas as jovens da alta sociedade que frequentavam o local. Era um Fortaleza paralelo, fechado, cosmopolita por imposição da guerra.</p>
+      <p>Um pernambucano chamado José Magalhães Porto realizou um sonho: uma casa localizada na antiga Praia do Peixe no ano de 1920, dando o nome em homenagem a sua mulher Dona Moreninha.</p>
       <br/>
-      <h2>A boêmia e a ditadura</h2>
+      <p>Com a construção dessa moradia na Praia do Peixe, investimentos imobiliários começam aos poucos a ser voltados para a região, agora com o nome Praia de Iracema. Já em 1930, a família de Magalhães não morava mais por lá, e se tornou um restaurante.</p>
       <br/>
-      <p>Em 1948, os americanos foram embora e a boêmia voltou. O Estoril se tornou ponto de encontro de intelectuais, músicos, poetas, artistas, escritores e pessoas de esquerda. Num período em que a ditadura tornava o espaço público hostil, o Estoril funcionou como um refúgio — um lugar onde as ideias circulavam mesmo quando a rua não permitia.</p>
+      <p>Na época da segunda guerra mundial, existia uma base americana em Fortaleza, e os americanos tomaram conta do Estoril em 1944, tornando-se um famoso cassino na época, restrito apenas aos soldados e às belas moças ricas chamadas de "coca-cola". Esse local de grande apreciação boêmica se tornou um ponto totalmente sem cultura, onde os americanos faziam o que bem entendiam naquele lugar.</p>
       <br/>
-      <h2>O presente impreciso</h2>
+      <p>Em 1948, os americanos deixam o lugar e a boêmia volta de novo a assumir o Estoril, onde se tornou um ponto entre intelectuais, músicos, poetas, artistas, escritores, pessoas de esquerda. Pouco ficaram os registros da época entre 1950 e 1980, mas as suas memórias ainda estão nas cabeças das pessoas que aproveitaram o Estoril na sua grande época.</p>
       <br/>
-      <p>A expansão construtiva na Praia de Iracema alterou completamente a região ao redor. A orla verticalizada foi avançando, e o Estoril foi perdendo o contexto que lhe dava sentido. Hoje, funciona como sede da Secretaria Municipal de Turismo — uma ironia que não escapa a quem conhece sua história.</p>
+      <p>O avanço das construções na Praia de Iracema fez com que o lugar mudasse completamente. E mesmo com o Estoril aguentando um "refúgio" de intelectuais na época da ditadura, a região e sua estrutura receberam uma queda.</p>
       <br/>
-      <p>Seu destino ainda é impreciso. O que resta é a pergunta que motiva qualquer estudo de patrimônio: o que uma cidade decide lembrar, e o que ela escolhe esquecer? O Estoril é, por enquanto, uma resposta incômoda para as duas perguntas.</p>
+      <p>Hoje, o Estoril está de pé, sendo a sede atual da Secretaria Municipal de Turismo, mas o seu destino ainda é impreciso. Muitos dos que trabalham lá insistem que a secretaria está lá até algum outro uso. Mas até quando?</p>
     `,
   },
   {
@@ -187,23 +193,25 @@ export const blogPosts: BlogPost[] = [
     description: 'A crença popular de que arquitetura é repleta de cálculos não resiste a uma análise honesta dos currículos reais. O que o curso exige de matemática — e o que ele exige de você.',
     image: 'https://projetobatente.com.br/wp-content/uploads/2020/01/01-Imagem-Capa-1.jpg',
     content: `
-      <p>Em reuniões de família, a conversa sempre chega num ponto previsível. Quando alguém descobre que você estuda arquitetura, vem a frase: "Arquitetura tem muito cálculo." Dito com uma mistura de admiração e alerta, como se o curso fosse uma armadilha matemática disfarçada de prancheta e perspectiva.</p>
+      <p>No período de férias, muitas pessoas acabam se encontrando com familiares para comemorar as festividades, e nisso me veio uma frase muito interessante sobre o que as pessoas pré-julgam em arquitetura. Não deveria ser muito difícil, afinal é uma das profissões mais valorizadas, com algumas condições de salário um tanto privilegiadas, e ainda temos um peso nas nossas ações, pois temos grande parcela nos planejamentos de cidades. Mesmo assim, muita gente não entende o que realmente é a faculdade de arquitetura.</p>
       <br/>
-      <p>Essa percepção é quase universal — e quase completamente equivocada.</p>
+      <p>O que eu mais ouvi constantemente foi, "Mas arquitetura tem muito cálculo!". Toda vez que eu ouço falar nessa frase, eu me pergunto se eu realmente estou aprendendo coisas como integral, estatística ou qualquer outro grande assunto desse ramo.</p>
       <br/>
-      <p>Ao observar os currículos de cinco universidades cearenses, apenas uma oferece disciplinas consistentes de cálculo até o sexto semestre. As demais concentram o conteúdo matemático em medições práticas: somas, cálculos de área, percentuais de rampa. Operações que qualquer pessoa com ensino médio completo reconhece. Se cálculo fosse o núcleo do curso, arquitetura estaria muito mais próxima da engenharia — e os currículos mostram que os caminhos divergiram faz tempo.</p>
+      <p>Das faculdades que pesquisei sobre arquitetura e urbanismo do Ceará, apenas 1 das 5 tinha, de forma consistente, uma cadeira de cálculo até o 6° semestre. Não é o cálculo que é importante, são medições. Óbvio que mexemos com soma e área, mas essencialmente não chega a ir muito além disso. Se realmente fosse um grande setor de cálculo, o nome não deveria estar mais ligado a engenharia? Existe sim uma vertente de politécnico na arquitetura, mas é uma vertente muito específica. Mas para não dizer que não tem cálculo, as faculdades oferecem cadeiras optativas como "Cálculo para arquitetura e Urbanismo" e "Estatística para urbanismo".</p>
+      <figure class="blog-image">
+        <img src="https://projetobatente.com.br/wp-content/uploads/2020/01/02-Maquete-de-Casa.jpg" alt="Maquete eletrônica de casa" />
+        <figcaption>Maquete Eletrônica.</figcaption>
+      </figure>
+      <p>Se comparar a grade curricular da UFC de 1981 e da de 2012.2, é muito fácil ver de onde vem esse grande mito dos cálculos na arquitetura de hoje em dia. Para os de 1981, você tinha apenas cadeiras referentes a cálculos, medidas, comunicação e expressão, técnicas de materiais e por aí vai. "Introdução a Arquitetura e Urbanismo" era apenas no 3° período, e o "Projeto Arquitetônico I" era apenas no 4° período. Apenas a partir do 6° Período se parava de ter cadeiras com cálculos (exceto optativas). Certamente dá para entender de onde vem tais pensamentos sobre "arquitetura tem muito cálculo".</p>
       <br/>
-      <h2>O que a história dos currículos revela</h2>
+      <p>Se comparar essas duas grades, arquitetura é uma faculdade muito mais aplicada a humanas e pensamentos sociológicos do que a matemática pura. Apenas usamos matemática para fazer alguns cálculos e fórmulas básicas, não é nada que uma boa pedagogia sobre o assunto não possa ensinar. Coisas como Fórmula de Blondel (cálculo da escada), cálculo de rampas em %, cálculo de área feitos por computador ou formas geométricas básicas, medidas em centímetros, metros, quilômetros… Isso faz parte da grade curricular de arquitetura hoje.</p>
+      <figure class="blog-image">
+        <img src="https://projetobatente.com.br/wp-content/uploads/2020/01/03-C%C3%A1culo-de-Escada.png" alt="Fórmula de Blondel para cálculo de escada" />
+        <figcaption>Fórmula de Blondel</figcaption>
+      </figure>
+      <p>Hoje existe apenas uma cadeira de cálculo constantemente usada em diversas universidades, que é "cálculo estrutural". Ele é o cálculo da dimensão de elementos para sustentar elementos construtivos. Algumas faculdades têm entre uma e duas cadeiras sobre esse assunto, alguns até três. Entretanto ele é específico para Arquitetura, o curso na área de construção que é conhecido por não ter cálculo. Da experiência que possuo, tivemos pré-dimensionamento, análise estrutural e a produção de uma viga, além de projetar usando um tipo específico de material estrutural. Certamente eu usei mais cálculo de rampa, escada e coberta do que eu usei nesses materiais, isso porque são coisas básicas.</p>
       <br/>
-      <p>Comparando o currículo da UFC de 1981 com o de 2012, a diferença é clara. O currículo antigo priorizava disciplinas de cálculo e medidas; o projeto arquitetônico em si só começava no quarto período. O currículo contemporâneo inverteu essa lógica — o projeto entra cedo, e as ferramentas técnicas vêm como suporte, não como pré-requisito.</p>
-      <br/>
-      <p>A arquitetura contemporânea privilegia abordagens humanitárias e sociológicas. A Fórmula de Blondel para dimensionamento de escadas, os cálculos de inclinação de rampas, a geometria aplicada ao desenho técnico — tudo isso integra o currículo, mas são conteúdos acessíveis com boa pedagogia, não obstáculos que exigem formação em cálculo diferencial.</p>
-      <br/>
-      <h2>O que realmente permanece</h2>
-      <br/>
-      <p>A exceção real é o cálculo estrutural. Essa disciplina específica, presente de forma consistente nos currículos atuais, aborda o dimensionamento de elementos construtivos — vigas, pilares, lajes — com apoio de ferramentas computacionais que facilitam a compreensão dos processos. É necessário, é técnico, e exige atenção. Mas é uma disciplina, não o curso inteiro.</p>
-      <br/>
-      <p>O que a faculdade de arquitetura realmente exige não é aptidão matemática acima da média. É capacidade de observar, de sintetizar referências de campos completamente diferentes, de defender uma ideia sob pressão e de recomeçar quando ela não funciona. Para isso, nenhuma calculadora ajuda.</p>
+      <p>A docência de arquitetura pós 2010 virou algo muito mais de medidas e humanas do que cálculo. Só possui cadeiras essenciais de cálculo que vão ao ramo de construção, e são vistos de formas muito superficiais. Fora isso, a arquitetura no Ceará tem foco muito mais sociológico do que numérico, e a tendência é ter cada vez menos cálculo. Ainda assim, arquitetura usa tão pouco de cálculo que não consideraria algo marcante na grade de hoje em dia.</p>
     `,
   },
   {
@@ -211,22 +219,25 @@ export const blogPosts: BlogPost[] = [
     title: 'GTA San Andreas na visão de um estudante de arquitetura',
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
-    description: 'Durante a pandemia, revisitar GTA San Andreas com olhos de arquitetura revelou como Los Angeles, São Francisco e Las Vegas de 1992 foram recriadas digitalmente — e o que cidades virtuais ensinam sobre o espaço urbano real.',
+    description: 'Durante a pandemia, revisitar GTA San Andreas com olhos de arquitetura revelou como Los Angeles, São Francisco e Las Vegas de 1992 foram recriadas digitalmente.',
     image: 'https://projetobatente.com.br/wp-content/uploads/2020/06/01-Imagem-Capa.jpg',
     content: `
-      <p>Numa situação de pandemia que pegou absolutamente todos de surpresa, tive uma conversa interessante com amigos nas nossas chamadas online. Decidimos fazer algo diferente: cada um assistiria ao outro terminar um jogo do início ao fim. O meu foi Grand Theft Auto: San Andreas.</p>
-      <br/>
-      <p>Grand Theft Auto é uma franquia da antiga DMA Design — hoje conhecida como Rockstar North —, fundada em 1987 na Escócia por estudantes de computação. O que começou como um experimento de design de jogos abertos se tornou uma das franquias mais influentes da história do entretenimento.</p>
-      <br/>
-      <h2>O espaço urbano como personagem</h2>
-      <br/>
-      <p>GTA San Andreas se passa em um conjunto de três cidades diretamente inspiradas em Los Angeles, São Francisco e Las Vegas de 1992. Não são cópias — são interpretações. A Rockstar recriou a lógica urbana dessas cidades: a escala das avenidas, a relação entre bairros ricos e periferias, a presença do mar e das montanhas como elementos estruturantes do território.</p>
-      <br/>
-      <p>Para um estudante de arquitetura, jogar GTA San Andreas com atenção é uma aula de leitura urbana. A cidade não é um cenário passivo — ela tem hierarquias, tem zonas de transição, tem centros e periferias com lógicas próprias. O jogador aprende a se orientar não por mapas, mas por marcos visuais: torres, praças, a linha do horizonte. Exatamente como nos orientamos em cidades reais.</p>
-      <br/>
-      <p>O protagonista é um personagem simples e carismático, que não tem medo de sujar as mãos para cumprir seus objetivos. Mas o que me interessava não era a narrativa — era o território em que ela acontecia. Cada missão é um pretexto para atravessar a cidade de uma forma diferente, perceber como os bairros se relacionam, como o tecido urbano muda à medida que você se afasta do centro.</p>
-      <br/>
-      <p>GTA é um grande exemplo de um mundo ao estilo Hollywood que você pode explorar ativamente, descobrindo novos elementos a cada deslocamento. É ficção, mas a ficção foi construída sobre pesquisa urbana real — e essa sobreposição é exatamente o tipo de relação entre cultura pop e arquitetura que me interessa estudar.</p>
+      <p>Numa situação de pandemia que pegou absolutamente todos de surpresa, tive uma conversa interessante com alguns amigos nas nossas chamadas online, e decidimos fazer algo diferente do costume: cada um de nós ia assistir ao outro terminar um jogo completo, e o meu encontro de jogo foi com um game popular chamado Grand Theft Auto: San Andreas (GTA:SA).</p>
+      <figure class="blog-image">
+        <img src="https://projetobatente.com.br/wp-content/uploads/2020/06/02-Las-Venturas.png" alt="Las Venturas — GTA San Andreas" />
+        <figcaption>Las Venturas — inspirada em Las Vegas.</figcaption>
+      </figure>
+      <p>Grand Theft Auto é uma franquia da antiga conhecida DMA Design, hoje conhecida como Rockstar North, fundada em 1987 na Escócia por estudantes de computação. O GTA III, de 2001, foi o primeiro grande jogo de mundo aberto interativo em 3D, uma cidade inspirada em Nova York do ano 2000. Arquitetos raramente reconheceram esse feito.</p>
+      <figure class="blog-image">
+        <img src="https://projetobatente.com.br/wp-content/uploads/2020/06/03-Carl-Johnson.jpg" alt="Carl Johnson — protagonista de GTA San Andreas" />
+        <figcaption>Carl Johnson — protagonista de GTA: San Andreas.</figcaption>
+      </figure>
+      <p>Em específico, eu gostaria de falar sobre o GTA: SA, onde se passa num conjunto de três cidades diretamente inspiradas de Los Angeles, São Francisco e Las Vegas em 1992. No decorrer da história, você é um criminoso que sai por aí explorando a cidade e fazendo favores para outras pessoas. A narrativa começa com brutalidade policial — estabelecendo o comentário social do jogo sobre racismo sistêmico dentro das forças da lei.</p>
+      <figure class="blog-image">
+        <img src="https://projetobatente.com.br/wp-content/uploads/2020/06/04-San-Fierro.png" alt="San Fierro — GTA San Andreas" />
+        <figcaption>San Fierro — inspirada em São Francisco.</figcaption>
+      </figure>
+      <p>Grand Theft Auto: San Andreas se trata de um personagem simples e carismático, que não tem medo de sujar suas mãos para conseguir cumprir seu objetivo. GTA é um grande exemplo de um mundo ao estilo Hollywood que você pode explorar e conhecer novos elementos dentro da cidade, com uma modelagem muito bem feita, cidades extremamente bem planejadas e densas. A indústria do entretenimento reconhece esse feito. A academia, ainda não.</p>
     `,
   },
   {
@@ -237,31 +248,21 @@ export const blogPosts: BlogPost[] = [
     description: 'Do grupo de estudos de jogos que durou menos de um mês ao TCC recomeçado do zero — uma trajetória honesta e irregular por dentro do curso mais interdisciplinar do ensino superior.',
     image: 'https://projetobatente.com.br/wp-content/uploads/2021/05/Capa-Percurso-Crush.jpg',
     content: `
-      <p>Enquanto verificava as postagens do Projeto Batente, li o artigo do Ricardo Muratori sobre "Arquitetura: será que eu levo jeito pra esse negócio?" e isso me fez pensar na minha própria trajetória. Decidi escrever sobre algo que estava guardando há algum tempo.</p>
+      <p>Enquanto estava verificando as postagens do Projeto Batente, vi o artigo do Ricardo Muratori sobre "Arquitetura: será que eu levo jeito pra esse negócio?" e isso me fez pensar da minha grande trajetória de arquitetura. Decidi então deixar de escrever sobre algo que eu já estava pensando há algum tempo sobre a instigação que esse artigo me deu.</p>
       <br/>
-      <p>O artigo do Muratori fala sobre o que é ser arquiteto a partir de três perfis. O primeiro: pessoa organizada, tecnológica, produtiva — ele sugere não fazer arquitetura. O segundo: pessoa de humanas, que valoriza museus e relações sociais — também sugere não fazer. O terceiro: alguém que gosta de muitas coisas ao mesmo tempo, um purê de ecletismo, capaz de apreciar artes completamente diferentes sem se limitar a nenhuma — aí sim, arquitetura.</p>
+      <p>O artigo essencialmente fala do ponto de vista do Muratori sobre a pergunta do que é ser arquiteto e o que é arquitetura. Pergunta essa que nem nós arquitetos temos tanta certeza da resposta. Então ele dá três exemplos: o primeiro é sobre uma pessoa que gosta de tecnologia, é organizada e produtiva; e o segundo é sobre alguém que é da área de humanas e valoriza museus e relações sociais. Nesses dois primeiros exemplos, ele sugere não fazer arquitetura. Porém, quando ele descreve o terceiro exemplo como uma pessoa que gosta de muitas coisas, um grande purê de ecletismo musical e conseguir apreciar diversas artes sem se limitar, então é um forte sinal de que você deveria fazer arquitetura.</p>
       <br/>
-      <p>Quando li, me senti identificado de uma forma que raramente acontece. Era uma conversa sobre arquitetura fora dos seus limites convencionais — sobre a paixão pelo projeto em si, independente de tamanho ou vertente.</p>
+      <p>Quando eu li essa matéria me senti extremamente identificado, pois era conversar sobre arquitetura de uma forma que não é conversada comumente, extrapolando os seus limites, e pensando na paixão de um projeto palpável, não interessando seu tamanho e vertente. O simples fato dessa grande mescla de ideias fazerem sentido para você é o suficiente para procurar fazer arquitetura.</p>
       <br/>
-      <h2>O começo e os erros</h2>
+      <p>Lembro quando comecei a cursar arquitetura e estava numa grande vontade de criar um grupo de estudo de jogos, tentando juntar arquitetura, sistemas de informação e design para um projeto de jogo eletrônico. A burocracia foi um tanto difícil e exigiu muito de minha determinação para conseguir tirar o grupo do papel e fazer reuniões. E quando as reuniões chegaram, a falta de um orientador com experiência prévia simplesmente complicou tudo, e em menos de um mês o grupo já tinha se desfeito. E mesmo assim, eu sei que dei um grande passo à minha carreira em ter feito algo que acreditava e ter errado. Tentar e errar é algo não só extremamente comum na vida, mas arrisco a dizer que errar dentro da arquitetura é respirar o que a arquitetura tem de melhor.</p>
       <br/>
-      <p>Quando comecei o curso, quis criar um grupo de estudos de jogos eletrônicos, juntando arquitetura, sistemas de informação e design para desenvolver um projeto de jogo. A burocracia foi pesada. Levou muito da minha determinação tirar o grupo do papel. Quando as reuniões finalmente aconteceram, a ausência de um orientador com experiência específica complicou tudo — e em menos de um mês o grupo já havia se desfeito.</p>
+      <p>Nos semestres seguintes, lembro que tive diversas singularidades por dentro da academia. Algumas eram comuns, como participar do programa de monitoria e participar dentro do escritório modelo da faculdade. Outras vertentes eram mais malucas, como participar de um programa de mentoria para o exterior, ler livros técnicos sobre arte, começar a criticar diversos filmes e, pela primeira vez, implementar referências das minhas paixões de jogos dentro da arquitetura.</p>
       <br/>
-      <p>Mesmo assim, sei que foi um passo importante. Tentar e errar dentro da arquitetura não é fracasso — é respirar o que a arquitetura tem de melhor. O erro é parte do método.</p>
+      <p>Cada projeto foi importante para o meu aprendizado. Cada hora no estágio foi importante para ver o valor do meu trabalho. Cada nova tentativa de fazer algo inovador e falhar miseravelmente era um aprendizado novo, um questionamento se valia a pena persistir e aprender mais ou passar para uma outra maluquice, e com isso consegui seguir até o começo do meu TCC, onde estou estagnado.</p>
       <br/>
-      <h2>A trajetória irregular</h2>
+      <p>Meu TCC começou sendo um desastre. Tive falhas de comunicação com meu orientador em questão, e tive a sorte de ser acolhido de última hora por um professor que me ensinou novos olhares dentro da arquitetura. Meu atual orientador passou horas comigo para analisar um bom tema e tentar seguir em frente com ele. Fiquei muito feliz, e o tema (que é um projeto urbanístico para o Assentamento Precário Moura Brasil) foi se desenvolvendo… até que eu vi que não queria escrever sobre aquilo. Eu queria escrever sobre as minhas paixões, os meus planos, os meus estudos para desenvolver uma proposta, e me senti mal em não conseguir desenvolver algo para uma comunidade. Mas aí veio uma frase que aprendi: "No TCC, você deve escrever sobre algo que você acredita, no que você tem fé e o que você quer divulgar" — e depois de muito pensar, decidi recomeçar sobre algo que acredito.</p>
       <br/>
-      <p>Nos semestres seguintes, acumulei experiências em todas as direções. Monitoria, escritório modelo da faculdade, programa de mentoria para o exterior, leitura de livros técnicos de arte, análise de filmes, e — pela primeira vez — implementação de referências de jogos eletrônicos dentro de projetos arquitetônicos.</p>
-      <br/>
-      <p>Cada projeto foi um aprendizado. Cada hora no estágio me ensinou o valor do meu trabalho. Cada tentativa de inovar e falhar miseravelmente colocou a mesma pergunta: vale a pena persistir ou partir para outra maluquice? E a resposta, sempre, foi seguir.</p>
-      <br/>
-      <h2>O TCC recomeçado</h2>
-      <br/>
-      <p>Meu TCC começou como um desastre. Falhas de comunicação com o orientador inicial me deixaram sem chão. Tive a sorte de ser acolhido de última hora por um professor que me ensinou novos olhares dentro da arquitetura. Juntos, desenvolvemos um tema — um projeto urbanístico para o Assentamento Precário Moura Brasil. O trabalho avançou. E então percebi que não era sobre aquilo que eu queria escrever.</p>
-      <br/>
-      <p>Senti que não conseguiria dar o que a comunidade merecia. Então, uma frase que aprendi caiu no momento certo: "No TCC, você deve escrever sobre algo que você acredita, no que você tem fé e o que você quer divulgar." Recomeçar foi a decisão mais honesta que tomei no curso.</p>
-      <br/>
-      <p>O novo tema gira em torno das minhas paixões reais — jogos eletrônicos, times interdisciplinares, a relação entre cultura digital e espaço construído. Ainda estou construindo. Mas desta vez, estou construindo sobre o que acredito.</p>
+      <p>E sobre o que eu acredito? Bem, eu tive diversos projetos com referências a jogos eletrônicos, e sempre dei muito valor a times interdisciplinares, então verei como fazer algo nos próximos meses em relação à escrita do meu TCC.</p>
     `,
   },
 ];
