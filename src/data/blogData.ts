@@ -23,7 +23,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
     description: 'Um projeto audiovisual sobre arquitetura oriental, com comparações entre pesquisa acadêmica e referências inesperadas da cultura pop — incluindo o jogo Sonic Unleashed.',
-    image: '/blog/arquitetura-chinesa.jpg',
+    image: 'https://projetobatente.com.br/wp-content/uploads/2018/07/arquitetura-chinesa-destaque.jpg',
     content: `
       <p>Apresento aqui um material em vídeo sobre arquitetura chinesa, desenvolvido a partir da minha pesquisa acadêmica e de um seminário na faculdade. O projeto nasceu da curiosidade de investigar como elementos da cultura construtiva oriental aparecem — muitas vezes sem que percebamos — em referências do cotidiano.</p>
       <br/>
@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
     description: 'Um projeto polêmico de 45 andares em Fortaleza acendeu o debate sobre identidade urbana, o silenciamento da crítica e o egoísmo que empobrece a arquitetura.',
-    image: '/blog/arquitetura-individualista.jpg',
+    image: 'https://projetobatente.com.br/wp-content/uploads/2019/01/hissa-destaque.jpg',
     content: `
       <p>Em dezembro de 2018, na cidade de Fortaleza, professores e estudantes se viram diante de uma discussão urgente sobre o futuro arquitetônico da cidade. Em um contexto marcado por um modelo coronelista de desenvolvimento urbano — no qual quem detém o capital define onde e como as novas construções acontecem —, uma nova fase estava se desenhando no horizonte.</p>
       <br/>
@@ -67,7 +67,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
     description: 'Metrópolis (1927) de Fritz Lang antecede Blade Runner em cinquenta anos e inventou os conceitos de ficção científica que o cinema continua copiando até hoje.',
-    image: '/blog/metropolis.jpg',
+    image: 'https://projetobatente.com.br/wp-content/uploads/2019/02/2.png',
     content: `
       <p>Há algum tempo, tive um trabalho de faculdade cujo tema era livre. Achei incríveis as escolhas dos meus colegas, mas decidi ir fundo em um campo pouco explorado na arquitetura, ainda que constantemente tangenciado: as artes visuais — cinema, jogos eletrônicos, séries, animações.</p>
       <br/>
@@ -100,7 +100,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
     description: 'Em vez de slides, um minidocumentário: como Fuller, Prouve, Frei Otto, Renzo Piano e Francis Keré resolveram problemas complexos com soluções mínimas — e o que isso significa para a arquitetura hoje.',
-    image: '/blog/estetica-tecnologica.jpg',
+    image: 'https://projetobatente.com.br/wp-content/uploads/2019/04/documentario-a-estetica-tecnologica-na-arquitetura-dymaxion-house.jpg',
     content: `
       <p>Em um dos trabalhos da cadeira de Teoria e História da Arquitetura e do Urbanismo, decidi me desafiar. Enquanto a maioria dos colegas optava por apresentações em slides, escolhi produzir um minidocumentário. O tema era a estética tecnológica na arquitetura — um movimento que, ao longo do século XX, transformou radicalmente a forma como pensamos estrutura, forma e função.</p>
       <br/>
@@ -127,7 +127,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
     description: 'Inveja, insegurança e raiva fazem parte da jornada em arquitetura. Um guia honesto sobre autoconhecimento e autocontrole para quem está no meio do curso e sente que o trabalho do outro é sempre melhor.',
-    image: '/blog/sentimentos-negativos.jpg',
+    image: 'https://projetobatente.com.br/wp-content/uploads/2019/06/Destaque.jpg',
     content: `
       <p>Em nossa jornada acadêmica, sempre nos deparamos com pessoas que fazem projetos que nos fazem questionar o motivo de estarmos na arquitetura. Bate aquele sentimento de insegurança, a dúvida sobre o que estamos fazendo, se o próximo sempre pode nos superar. A grama do vizinho sempre é mais verde — e na faculdade de arquitetura, essa frase ganha uma dimensão quase física, porque o trabalho do outro está literalmente exposto na parede ao lado do seu.</p>
       <br/>
@@ -154,7 +154,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
     description: 'De casa de veraneio a cassino de soldados americanos, de refúgio de intelectuais na ditadura a sede da Secretaria de Turismo — a história do Estoril e o que ela revela sobre Fortaleza e seus esquecimentos.',
-    image: '/blog/estoril.jpg',
+    image: 'https://projetobatente.com.br/wp-content/uploads/2019/08/Estoril-Queiroz-Netto-destaque.jpg',
     content: `
       <p>Desde o início da faculdade, ouvi professores mencionando o Estoril como um grande marco da boêmia de Fortaleza. Durante um trabalho acadêmico, fui até lá pela primeira vez. Encontrei o edifício em curso de decadência, com poucas pessoas andando pela Rua dos Tabajaras. Aquele contraste — entre a grandeza que os professores descreviam e o silêncio que eu encontrei — motivou três meses de pesquisa, desenvolvida junto com Victoria Lima.</p>
       <br/>
@@ -185,7 +185,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
     description: 'A crença popular de que arquitetura é repleta de cálculos não resiste a uma análise honesta dos currículos reais. O que o curso exige de matemática — e o que ele exige de você.',
-    image: '/blog/calculo-arquitetura.jpg',
+    image: 'https://projetobatente.com.br/wp-content/uploads/2020/01/01-Imagem-Capa-1.jpg',
     content: `
       <p>Em reuniões de família, a conversa sempre chega num ponto previsível. Quando alguém descobre que você estuda arquitetura, vem a frase: "Arquitetura tem muito cálculo." Dito com uma mistura de admiração e alerta, como se o curso fosse uma armadilha matemática disfarçada de prancheta e perspectiva.</p>
       <br/>
@@ -212,7 +212,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
     description: 'Durante a pandemia, revisitar GTA San Andreas com olhos de arquitetura revelou como Los Angeles, São Francisco e Las Vegas de 1992 foram recriadas digitalmente — e o que cidades virtuais ensinam sobre o espaço urbano real.',
-    image: '/blog/gta-san-andreas.jpg',
+    image: 'https://projetobatente.com.br/wp-content/uploads/2020/06/01-Imagem-Capa.jpg',
     content: `
       <p>Numa situação de pandemia que pegou absolutamente todos de surpresa, tive uma conversa interessante com amigos nas nossas chamadas online. Decidimos fazer algo diferente: cada um assistiria ao outro terminar um jogo do início ao fim. O meu foi Grand Theft Auto: San Andreas.</p>
       <br/>
@@ -235,7 +235,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Anderson Crush',
     date: '31 de Maio de 2026',
     description: 'Do grupo de estudos de jogos que durou menos de um mês ao TCC recomeçado do zero — uma trajetória honesta e irregular por dentro do curso mais interdisciplinar do ensino superior.',
-    image: '/blog/trajetoria-arquitetura.jpg',
+    image: 'https://projetobatente.com.br/wp-content/uploads/2021/05/Capa-Percurso-Crush.jpg',
     content: `
       <p>Enquanto verificava as postagens do Projeto Batente, li o artigo do Ricardo Muratori sobre "Arquitetura: será que eu levo jeito pra esse negócio?" e isso me fez pensar na minha própria trajetória. Decidi escrever sobre algo que estava guardando há algum tempo.</p>
       <br/>
