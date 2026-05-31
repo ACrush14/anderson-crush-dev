@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { FaTimes } from 'react-icons/fa';
@@ -11,15 +11,6 @@ export default function ContactModal() {
   const [status, setStatus] = useState('');
   const [contactPreference, setContactPreference] = useState('Via WhatsApp');
 
-  useEffect(() => {
-    if (!sessionStorage.getItem('contactModalSeen')) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        sessionStorage.setItem('contactModalSeen', 'true');
-      }, 3000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
