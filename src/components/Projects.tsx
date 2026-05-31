@@ -255,17 +255,6 @@ export default function Projects() {
         </div>
       </ParticlesBackground>
 
-      <style jsx global>{`
-        .swiper-button-next, .swiper-button-prev { display: none !important; }
-        .swiper-pagination-bullet { background: #374151 !important; opacity: 0.5; }
-        .swiper-pagination-bullet-active {
-          background: #22C55E !important; opacity: 1;
-          width: 24px; border-radius: 2px;
-          box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
-        }
-        .swiper { padding-left: 4px; padding-right: 4px; }
-        .swiper-wrapper { align-items: stretch; }
-      `}</style>
     </section>
   );
 }

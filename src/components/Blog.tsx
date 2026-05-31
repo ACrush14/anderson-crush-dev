@@ -10,7 +10,6 @@ import { blogPosts } from '@/data/blogData';
 export default function Blog() {
   const { t } = useLanguage();
 
-  // Mostra até 3 posts mais recentes (os últimos do array)
   const recentPosts = [...blogPosts].reverse().slice(0, 3);
 
   return (
@@ -29,12 +28,9 @@ export default function Blog() {
               <RevealOnScroll key={post.slug} delay={index * 0.1}>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="block bg-[#111111] overflow-hidden flex flex-col border border-gray-800
-                    hover:border-[#22C55E]/60 transition-all duration-300 h-full
-                    hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.1)]"
+                  className="block bg-[#111111] overflow-hidden flex flex-col border border-gray-800 hover:border-[#22C55E]/60 transition-all duration-300 h-full hover:-translate-y-2 hover:shadow-[0_0_30px_rgba(34,197,94,0.1)]"
                 >
-                  {/* Imagem de capa */}
-                  {post.image && (
+                  {post.image ? (
                     <div className="relative w-full h-44 overflow-hidden">
                       <Image
                         src={post.image}
@@ -43,17 +39,15 @@ export default function Blog() {
                         className="object-cover transition-transform duration-500 hover:scale-105"
                       />
                     </div>
+                  ) : (
+                    <div className="h-[3px] bg-[#22C55E]" />
                   )}
-
-                  {/* Sem imagem: barra verde no topo */}
-                  {!post.image && <div className="h-[3px] bg-[#22C55E]" />}
 
                   <div className="p-6 flex flex-col flex-grow">
                     <p className="text-xs text-gray-500 mb-3 font-mono uppercase tracking-wider">
                       {post.date}
                     </p>
-                    <h3 className="text-xl font-bold mb-3 font-heading text-white
-                      hover:text-[#22C55E] transition-colors leading-snug">
+                    <h3 className="text-xl font-bold mb-3 font-heading text-white hover:text-[#22C55E] transition-colors leading-snug">
                       {post.title}
                     </h3>
                     <p className="text-gray-400 flex-grow text-sm leading-relaxed">

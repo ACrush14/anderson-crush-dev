@@ -19,6 +19,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://anderson-crush-dev.vercel.app'),
   title: "Anderson Crush | Developer",
   description: "Portfólio de Anderson Crush, Desenvolvedor Full Stack.",
 };
