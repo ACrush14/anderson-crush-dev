@@ -12,7 +12,7 @@ import { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-type ProjectCategory = 'Todos' | 'Front-end' | 'Game Dev' | 'Hardware';
+type ProjectCategory = 'Todos' | 'Front-end' | 'Mobile' | 'Game Dev' | 'Hardware';
 
 interface Project {
   title: string;
@@ -36,13 +36,28 @@ const projectsDataMap: Record<string, Project[]> = {
       highlight: true,
     },
     {
-      title: 'NARAK',
-      description: 'Jogo de plataforma desenvolvido na engine Godot. Projeto colaborativo com mecânicas de movimentação, fases e inimigos.',
+      title: 'BiblioUnifor Dev AB',
+      description: 'Aplicativo mobile para gestão de biblioteca universitária, desenvolvido como projeto acadêmico na UNIFOR.',
+      technologies: ['Kotlin', 'XML', 'Android'],
+      githubUrl: 'https://github.com/ACrush14/BiblioUnifor_DEV_AB',
+      demoUrl: null,
+      category: 'Mobile',
+    },
+    {
+      title: 'Conjunto Discreto',
+      description: 'Jogo interativo desenvolvido para a disciplina de Natureza Discreta na UNIFOR, explorando conceitos de Conjuntos Numéricos de forma lúdica.',
       technologies: ['Godot', 'GDScript'],
-      githubUrl: 'https://github.com/brenalemos09/BiblioUnifor_DEV_AB',
+      githubUrl: 'https://github.com/ACrush14/ConjuntoDiscreto',
       demoUrl: null,
       category: 'Game Dev',
-      highlight: true,
+    },
+    {
+      title: 'Calculadora Lógica',
+      description: 'Calculadora de expressões lógicas com suporte a operadores booleanos.',
+      technologies: ['JavaScript', 'HTML', 'CSS'],
+      githubUrl: 'https://github.com/ACrush14/calculadora-logica',
+      demoUrl: null,
+      category: 'Front-end',
     },
     {
       title: 'Joguinho Godot',
@@ -72,13 +87,28 @@ const projectsDataMap: Record<string, Project[]> = {
       highlight: true,
     },
     {
-      title: 'NARAK',
-      description: 'Platformer game built with the Godot engine. Collaborative project featuring movement mechanics, levels and enemies.',
+      title: 'BiblioUnifor Dev AB',
+      description: 'Mobile app for university library management, developed as an academic project at UNIFOR.',
+      technologies: ['Kotlin', 'XML', 'Android'],
+      githubUrl: 'https://github.com/ACrush14/BiblioUnifor_DEV_AB',
+      demoUrl: null,
+      category: 'Mobile',
+    },
+    {
+      title: 'Discrete Set',
+      description: 'Interactive game built for the Discrete Nature course at UNIFOR, exploring Numerical Sets concepts in a playful way.',
       technologies: ['Godot', 'GDScript'],
-      githubUrl: 'https://github.com/brenalemos09/BiblioUnifor_DEV_AB',
+      githubUrl: 'https://github.com/ACrush14/ConjuntoDiscreto',
       demoUrl: null,
       category: 'Game Dev',
-      highlight: true,
+    },
+    {
+      title: 'Logic Calculator',
+      description: 'Logic expression calculator with support for boolean operators.',
+      technologies: ['JavaScript', 'HTML', 'CSS'],
+      githubUrl: 'https://github.com/ACrush14/calculadora-logica',
+      demoUrl: null,
+      category: 'Front-end',
     },
     {
       title: 'Godot Mini-game',
@@ -104,7 +134,7 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>('Todos');
   const swiperRef = useRef<SwiperType | null>(null);
 
-  const categories: ProjectCategory[] = ['Todos', 'Front-end', 'Game Dev', 'Hardware'];
+  const categories: ProjectCategory[] = ['Todos', 'Front-end', 'Mobile', 'Game Dev', 'Hardware'];
   const allProjects = projectsDataMap[language] ?? projectsDataMap['pt'];
   const filteredProjects = activeCategory === 'Todos' ? allProjects : allProjects.filter(p => p.category === activeCategory);
   const sortedProjects = [...filteredProjects].sort((a, b) => (b.highlight ? 1 : 0) - (a.highlight ? 1 : 0));
