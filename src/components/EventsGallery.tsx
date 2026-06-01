@@ -5,8 +5,9 @@ import ParticlesBackground from './ParticlesBackground';
 import RevealOnScroll from './RevealOnScroll';
 
 const eventImages = [
-  { src: '/profile.png', alt: 'Anderson Crush - Foto de perfil' },
-  { src: '/profile-photo.jpg', alt: 'Anderson Crush' },
+  { src: '/instagram-tech-talk.jpg', alt: 'Anderson Crush - Tech Talk' },
+  { src: '/instagram-nasa.jpg', alt: 'Anderson Crush - NASA Space Apps Challenge' },
+  { src: '/instagram-carousel.jpg', alt: 'Anderson Crush - Projeto Arduino' },
 ];
 
 const allImages = [...eventImages, ...eventImages, ...eventImages, ...eventImages];
