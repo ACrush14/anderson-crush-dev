@@ -8,6 +8,8 @@ const eventImages = [
   { src: '/instagram-tech-talk.jpg', alt: 'Anderson Crush - Tech Talk' },
   { src: '/instagram-nasa.jpg', alt: 'Anderson Crush - NASA Space Apps Challenge' },
   { src: '/instagram-carousel.jpg', alt: 'Anderson Crush - Projeto Arduino' },
+  { src: '/ead-unifor-1.png', alt: 'Anderson Crush - EAD Unifor 1' },
+  { src: '/ead-unifor-2.png', alt: 'Anderson Crush - EAD Unifor 2' },
 ];
 
 const allImages = [...eventImages, ...eventImages, ...eventImages, ...eventImages];
