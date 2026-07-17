@@ -12,7 +12,7 @@ import { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-type ProjectCategory = 'Todos' | 'Front-end' | 'Mobile' | 'Game Dev' | 'Hardware';
+type ProjectCategory = 'Todos' | 'Full-stack' | 'Front-end' | 'Mobile' | 'Game Dev' | 'Hardware';
 
 interface Project {
   title: string;
@@ -26,6 +26,15 @@ interface Project {
 
 const projectsDataMap: Record<string, Project[]> = {
   pt: [
+    {
+      title: 'CondoManage',
+      description: 'Plataforma completa de gestão de condomínios com autenticação real, isolamento multi-tenant, IA (Google Gemini) para reservas por linguagem natural, PIX real via Mercado Pago e portaria com QR Code/botão de pânico em tempo real.',
+      technologies: ['Next.js', 'PostgreSQL', 'TypeScript', 'Google Gemini', 'Mercado Pago'],
+      githubUrl: 'https://github.com/ACrush14/SistemaCondominio',
+      demoUrl: 'https://sistemacondominio-nine.vercel.app/apresentacao',
+      category: 'Full-stack',
+      highlight: true,
+    },
     {
       title: 'Site Portfólio Pessoal',
       description: 'Este próprio site! Desenvolvido com Next.js, TypeScript e TailwindCSS. Design moderno, responsivo, com suporte a tema claro/escuro e dois idiomas.',
@@ -86,6 +95,15 @@ const projectsDataMap: Record<string, Project[]> = {
     },
   ],
   en: [
+    {
+      title: 'CondoManage',
+      description: 'Full condominium management platform with real authentication, multi-tenant data isolation, AI (Google Gemini) for natural-language booking, real PIX payments via Mercado Pago, and a front-desk module with QR Code access and a real-time panic button.',
+      technologies: ['Next.js', 'PostgreSQL', 'TypeScript', 'Google Gemini', 'Mercado Pago'],
+      githubUrl: 'https://github.com/ACrush14/SistemaCondominio',
+      demoUrl: 'https://sistemacondominio-nine.vercel.app/apresentacao',
+      category: 'Full-stack',
+      highlight: true,
+    },
     {
       title: 'Personal Portfolio',
       description: 'This very website! Built with Next.js, TypeScript and TailwindCSS. Modern responsive design with light/dark mode and two-language support.',
@@ -152,7 +170,7 @@ export default function Projects() {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>('Todos');
   const swiperRef = useRef<SwiperType | null>(null);
 
-  const categories: ProjectCategory[] = ['Todos', 'Front-end', 'Mobile', 'Game Dev', 'Hardware'];
+  const categories: ProjectCategory[] = ['Todos', 'Full-stack', 'Front-end', 'Mobile', 'Game Dev', 'Hardware'];
   const allProjects = projectsDataMap[language] ?? projectsDataMap['pt'];
   const filteredProjects = activeCategory === 'Todos' ? allProjects : allProjects.filter(p => p.category === activeCategory);
   const sortedProjects = [...filteredProjects].sort((a, b) => (b.highlight ? 1 : 0) - (a.highlight ? 1 : 0));

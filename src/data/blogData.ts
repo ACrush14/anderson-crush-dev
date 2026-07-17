@@ -265,4 +265,48 @@ export const blogPosts: BlogPost[] = [
       <p>E sobre o que eu acredito? Bem, eu tive diversos projetos com referências a jogos eletrônicos, e sempre dei muito valor a times interdisciplinares, então verei como fazer algo nos próximos meses em relação à escrita do meu TCC.</p>
     `,
   },
+  {
+    slug: 'condomanage-o-projeto-que-me-ensinou-full-stack-de-verdade',
+    title: 'CondoManage: o projeto que me ensinou full stack de verdade',
+    author: 'Anderson Crush',
+    date: '16 de Julho de 2026',
+    description: 'Sai da teoria e fui construir um sistema de gestão de condomínios de ponta a ponta — banco de dados real, autenticação real, IA real, PIX real. E os bugs que encontrei pelo caminho ensinaram mais do que qualquer tutorial.',
+    image: '/blog/condomanage/painel-sindico.png',
+    content: `
+      <p>Todo mundo que me acompanha por aqui já percebeu que arquitetura, cinema e jogos ocupam a maior parte do que eu escrevo. Mas há alguns meses decidi encarar um projeto de um tipo bem diferente: aprender, na prática e sem atalho, o que realmente significa integrar um frontend a um backend inteiro — com banco de dados de verdade, autenticação de verdade, e todas as dores de cabeça que só aparecem quando o sistema sai do papel. O resultado se chama <strong>CondoManage</strong>, uma plataforma de gestão de condomínios, e virou de longe o projeto mais completo que já construí.</p>
+      <br/>
+      <p>A ideia nasceu simples: um painel pro síndico, uma tela pra portaria, uma área pro morador. Mas cada funcionalidade que eu ia adicionando puxava a próxima, e o que começou como um exercício de integração virou um sistema com Postgres real hospedado na nuvem, login com senha em hash e sessão JWT, isolamento de dados por condomínio (multi-tenant de verdade, não só uma tabela de "clientes"), um assistente de IA que entende pedidos de reserva escritos em português corrido, e até cobrança via PIX de verdade, integrada com a API do Mercado Pago.</p>
+      <br/>
+      <h2>Os bugs que só aparecem em produção</h2>
+      <br/>
+      <p>A parte mais valiosa não foi escrever a funcionalidade nova — foi descobrir os jeitos silenciosos como um sistema real pode te enganar. Um exemplo: implementei um QR Code de liberação de visitantes com validade de 24 horas. Testando, percebi que um código já expirado ainda passava como válido. O motivo? Eu tinha guardado o horário de expiração numa coluna <code>TIMESTAMP</code> comum no Postgres — sem fuso horário. Quando o banco devolve esse valor pro Node.js, ele assume o fuso horário local do processo, que não necessariamente bate com o fuso que o banco usou pra gravar. Resultado: comparação errada, sem nenhum erro visível, só um comportamento sutilmente incorreto. A correção foi trocar pra <code>TIMESTAMPTZ</code> (com fuso), mas o aprendizado real foi entender que "funciona no teste rápido" e "está correto" são coisas bem diferentes quando datas e fusos horários entram em jogo.</p>
+      <br/>
+      <p>Outro momento que me marcou: construí uma tela pra um síndico vincular sua conta a mais de um condomínio (a plataforma é multi-tenant — pensada pra atender vários prédios, não só um). Fiz a rota, testei, funcionou. Só que, revisando com mais calma depois, percebi que a rota checava se o usuário-alvo tinha permissão, mas nunca checava se quem estava fazendo a chamada tinha autoridade sobre os condomínios que estava tentando conceder. Ou seja: qualquer conta logada conseguia se auto-conceder acesso a qualquer prédio da plataforma, só apontando pro próprio ID. Reproduzi o ataque de propósito pra confirmar o tamanho do problema antes de corrigir — e foi um lembrete forte de que "a chamada funcionou" e "a chamada deveria ser permitida" são duas perguntas completamente diferentes.</p>
+      <figure class="blog-image">
+        <img src="/blog/condomanage/area-morador.png" alt="Área do Morador do CondoManage, com financeiro e PIX real" />
+        <figcaption>Área do Morador — financeiro com PIX real via Mercado Pago.</figcaption>
+      </figure>
+      <h2>Uma pergunta simples que revelou um buraco grande</h2>
+      <br/>
+      <p>Uma das partes mais recentes do projeto começou com uma pergunta simples que eu mesmo me fiz: "isso funciona direito no celular?". A resposta, depois de olhar de verdade, foi não. A barra lateral do sistema tinha uma largura fixa de 256 pixels e nenhuma adaptação pra tela pequena — numa tela de celular real, ela sozinha tomava quase 70% da largura disponível, sem nenhum jeito de escondê-la. Corrigi transformando a barra num menu em formato de gaveta: em telas pequenas ela fica escondida por padrão, e um botão de menu no topo a chama pra dentro, com uma transição suave e um fundo escurecido atrás. Simples de descrever, mas só apareceu porque parei pra perguntar em vez de assumir que "provavelmente está tudo bem".</p>
+      <figure class="blog-image">
+        <img src="/blog/condomanage/mobile-menu.png" alt="Menu em formato de gaveta, testado em tela real de celular" />
+        <figcaption>O menu em gaveta, testado numa tela real de 390px de largura.</figcaption>
+      </figure>
+      <h2>Vendo o sistema rodando de verdade</h2>
+      <br/>
+      <p>Gravei um vídeo curto navegando pelo sistema de ponta a ponta — login como síndico, reservas, ocorrências, portaria, troca pra uma conta de morador, financeiro com PIX, enquetes, e o tal do menu mobile em ação. Sem cortes de edição, sem preparação de tela por trás — é exatamente o que acontece quando alguém usa o sistema de verdade.</p>
+      <figure class="blog-image">
+        <video controls muted loop playsinline preload="metadata" poster="/blog/condomanage/demo-poster.jpg">
+          <source src="/blog/condomanage/demo.mp4" type="video/mp4" />
+        </video>
+        <figcaption>Demonstração real do CondoManage — 33 segundos, sem edição.</figcaption>
+      </figure>
+      <h2>O que fica desse projeto</h2>
+      <br/>
+      <p>O CondoManage ainda não é um produto pronto pra vender pra terceiros — falta ativar credenciais de produção em alguns serviços externos, adicionar camadas extras de segurança, e construir um fluxo de onboarding self-service. Mas como exercício de aprendizado, ele cumpriu (e continua cumprindo) exatamente o que eu queria: entender, na prática, o que realmente significa integrar um sistema de ponta a ponta, e aprender a desconfiar do próprio código até prová-lo certo com um teste de verdade, não só "parece que funciona".</p>
+      <br/>
+      <p>Quem quiser ver o sistema rodando ao vivo, montei uma <a href="https://sistemacondominio-nine.vercel.app/apresentacao" target="_blank" rel="noopener noreferrer">página de apresentação completa</a>, e o código-fonte está aberto no <a href="https://github.com/ACrush14/SistemaCondominio" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+    `,
+  },
 ];

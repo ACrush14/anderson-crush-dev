@@ -90,7 +90,8 @@ input:focus, textarea:focus {
 .blog-image {
   margin: 2rem 0;
 }
-.blog-image img {
+.blog-image img,
+.blog-image video {
   width: 100%;
   height: auto;
   display: block;
