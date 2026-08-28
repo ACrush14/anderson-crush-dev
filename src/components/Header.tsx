@@ -44,8 +44,8 @@ export default function Header() {
 
         <div className="hidden md:flex items-center space-x-1">
           <Link href="/#about" className={navLinkClass}>{t.about}</Link>
-          <Link href="/#journey" className={navLinkClass}>{t.journey}</Link>
           <Link href="/#projects" className={navLinkClass}>{t.projects}</Link>
+          <Link href="/#journey" className={navLinkClass}>{t.journey}</Link>
           <Link href="/#blog" className={navLinkClass}>{t.blog}</Link>
           <Link href="/#contact" className={navLinkClass}>{t.contact}</Link>
         </div>
@@ -90,8 +90,8 @@ export default function Header() {
             <div className="flex flex-col items-center py-4 space-y-2">
               {[
                 { href: '/#about', label: t.about },
-                { href: '/#journey', label: t.journey },
                 { href: '/#projects', label: t.projects },
+                { href: '/#journey', label: t.journey },
                 { href: '/#blog', label: t.blog },
                 { href: '/#contact', label: t.contact },
               ].map(({ href, label }) => (

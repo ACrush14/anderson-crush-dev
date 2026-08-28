@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -13,12 +13,15 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { blogPosts } from '@/data/blogData';
 import 'swiper/css';
 
+type BlogTab = 'tech' | 'architecture';
+
 export default function Blog() {
   const { t } = useLanguage();
   const swiperRef = useRef<SwiperType | null>(null);
+  const [activeTab, setActiveTab] = useState<BlogTab>('tech');
 
-  // Mais recentes primeiro
-  const posts = [...blogPosts].reverse();
+  // Mais recentes primeiro, filtrados pela aba ativa
+  const posts = [...blogPosts].reverse().filter((post) => post.category === activeTab);
 
   return (
     <section id="blog" className="relative overflow-hidden">
@@ -27,7 +30,7 @@ export default function Blog() {
 
           {/* Cabeçalho com navegação */}
           <RevealOnScroll>
-            <div className="container mx-auto px-6 flex items-end justify-between mb-10">
+            <div className="container mx-auto px-6 flex items-end justify-between mb-8">
               <div>
                 <p className="text-[#22C55E] font-mono text-xs uppercase tracking-[0.25em] mb-2">
                   // artigos
@@ -57,7 +60,42 @@ export default function Blog() {
             </div>
           </RevealOnScroll>
 
+          {/* Abas: Tech & Produto (linha editorial atual) / Arquitetura (legado) */}
+          <RevealOnScroll delay={0.05}>
+            <div className="container mx-auto px-6 flex flex-wrap gap-3 mb-10">
+              <button
+                onClick={() => setActiveTab('tech')}
+                className={`font-mono text-sm px-4 py-2 transition-all duration-300 border-b-2
+                  ${activeTab === 'tech'
+                    ? 'text-[#22C55E] border-[#22C55E] bg-[#22C55E]/10'
+                    : 'text-gray-500 border-transparent hover:text-gray-300 hover:border-gray-600'
+                  }`}
+              >
+                {`> ${t.blogTabTech}`}
+              </button>
+              <button
+                onClick={() => setActiveTab('architecture')}
+                className={`font-mono text-sm px-4 py-2 transition-all duration-300 border-b-2
+                  ${activeTab === 'architecture'
+                    ? 'text-[#22C55E] border-[#22C55E] bg-[#22C55E]/10'
+                    : 'text-gray-500 border-transparent hover:text-gray-300 hover:border-gray-600'
+                  }`}
+              >
+                {`> ${t.blogTabArchitecture}`}
+              </button>
+            </div>
+          </RevealOnScroll>
+
+          {posts.length === 0 && (
+            <RevealOnScroll delay={0.1}>
+              <p className="container mx-auto px-6 text-gray-500 font-mono text-sm mb-10">
+                {t.blogEmptyTab}
+              </p>
+            </RevealOnScroll>
+          )}
+
           {/* Carrossel — sangra até a borda direita da tela */}
+          {posts.length > 0 && (
           <RevealOnScroll delay={0.1}>
             <div className="pl-6 md:pl-[max(1.5rem,calc((100vw-1280px)/2+1.5rem))]">
               <Swiper
@@ -121,8 +159,10 @@ export default function Blog() {
               </Swiper>
             </div>
           </RevealOnScroll>
+          )}
 
           {/* Setas mobile — centralizadas abaixo */}
+          {posts.length > 0 && (
           <div className="md:hidden flex justify-center gap-3 mt-8">
             <button
               onClick={() => swiperRef.current?.slidePrev()}
@@ -139,6 +179,7 @@ export default function Blog() {
               <FiChevronRight size={20} />
             </button>
           </div>
+          )}
 
         </div>
       </ParticlesBackground>

@@ -14,8 +14,8 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
-      <Journey />
       <Projects />
+      <Journey />
       <EventsGallery />
       <Blog />
       <Contact />

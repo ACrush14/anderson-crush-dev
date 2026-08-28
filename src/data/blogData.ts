@@ -10,10 +10,13 @@ export interface BlogPost {
   description: string;
   image: string;
   content: string;
+  /** 'tech' = software, IA, produto (linha editorial atual). 'architecture' = arquivo/legado de arquitetura e cultura pop. */
+  category: 'tech' | 'architecture';
 }
 
 export const blogPosts: BlogPost[] = [
   {
+    category: 'architecture',
     slug: 'arquitetura-chinesa-em-video',
     title: 'Arquitetura Chinesa em Vídeo',
     author: 'Anderson Crush',
@@ -43,6 +46,7 @@ export const blogPosts: BlogPost[] = [
     `,
   },
   {
+    category: 'architecture',
     slug: 'problema-da-arquitetura-individualista',
     title: 'O Problema da Arquitetura Individualista',
     author: 'Anderson Crush',
@@ -62,6 +66,7 @@ export const blogPosts: BlogPost[] = [
     `,
   },
   {
+    category: 'architecture',
     slug: 'o-filme-antes-de-blade-runner',
     title: 'O Filme Antes de Blade Runner',
     author: 'Anderson Crush',
@@ -97,6 +102,7 @@ export const blogPosts: BlogPost[] = [
     `,
   },
   {
+    category: 'architecture',
     slug: 'documentario-a-estetica-tecnologica-na-arquitetura',
     title: 'Documentário: A Estética Tecnológica na Arquitetura',
     author: 'Anderson Crush',
@@ -128,6 +134,7 @@ export const blogPosts: BlogPost[] = [
     `,
   },
   {
+    category: 'architecture',
     slug: 'como-lidar-com-sentimentos-negativos-na-arquitetura',
     title: 'Como Lidar com Sentimentos Negativos na Arquitetura',
     author: 'Anderson Crush',
@@ -155,6 +162,7 @@ export const blogPosts: BlogPost[] = [
     `,
   },
   {
+    category: 'architecture',
     slug: 'o-estoril',
     title: 'O Estoril',
     author: 'Anderson Crush',
@@ -186,6 +194,7 @@ export const blogPosts: BlogPost[] = [
     `,
   },
   {
+    category: 'architecture',
     slug: 'arquitetura-tem-realmente-tanto-calculo-quanto-falam',
     title: 'Arquitetura tem realmente tanto cálculo quanto falam?',
     author: 'Anderson Crush',
@@ -215,6 +224,7 @@ export const blogPosts: BlogPost[] = [
     `,
   },
   {
+    category: 'architecture',
     slug: 'gta-san-andreas-na-visao-de-um-estudante-de-arquitetura',
     title: 'GTA San Andreas na visão de um estudante de arquitetura',
     author: 'Anderson Crush',
@@ -241,6 +251,7 @@ export const blogPosts: BlogPost[] = [
     `,
   },
   {
+    category: 'architecture',
     slug: 'minha-trajetoria-pessoal-por-dentro-da-arquitetura',
     title: 'Minha trajetória pessoal por dentro da arquitetura',
     author: 'Anderson Crush',
@@ -266,6 +277,7 @@ export const blogPosts: BlogPost[] = [
     `,
   },
   {
+    category: 'tech',
     slug: 'condomanage-o-projeto-que-me-ensinou-full-stack-de-verdade',
     title: 'CondoManage: o projeto que me ensinou full stack de verdade',
     author: 'Anderson Crush',
