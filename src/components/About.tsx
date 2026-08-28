@@ -11,9 +11,10 @@ import {
 import { FaTasks } from 'react-icons/fa';
 import ParticlesBackground from './ParticlesBackground';
 
-// Core stack (full-stack + IA aplicada) primeiro, ferramentas de apoio depois.
-const skills = [
-  'Next.js', 'TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Google Gemini API',
+// Core stack (full-stack + IA aplicada) em destaque; o resto entra como apoio compacto.
+const coreStack = ['Next.js', 'TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Google Gemini API'];
+
+const secondaryStack = [
   'JavaScript', 'Express.js', 'Python', 'TailwindCSS', 'REST APIs', 'Docker',
   'Git', 'GitHub', 'MySQL', 'HTML', 'CSS', 'Godot', 'Unity',
   'Agile', 'Método Kanban', 'Método Scrum',
@@ -104,13 +105,37 @@ export default function About() {
                 <h3 className="text-sm font-mono mb-8 text-gray-400 inline-flex items-center gap-2 uppercase tracking-widest px-6 py-2 border border-gray-800 bg-black">
                   <FaCog className="text-[#22C55E] animate-spin-slow" /> Tech Stack &amp; Tools
                 </h3>
-                <div className="flex flex-wrap justify-center gap-2 max-w-5xl">
-                  {skills.map((skill) => {
+
+                {/* Core Stack — grid compacto e refinado, destaque máximo */}
+                <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#22C55E]/70 mb-4">
+                  {t.coreStackTitle}
+                </p>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 max-w-3xl w-full mb-10">
+                  {coreStack.map((skill) => {
                     const IconComponent = skillIcons[skill] || FaCog;
                     return (
-                      <div key={skill} className="group flex items-center gap-2 px-4 py-2 bg-[#111111] border border-gray-800 hover:border-[#22C55E]/60 hover:bg-[#111111] transition-all cursor-default hover:-translate-y-1">
-                        <IconComponent className="text-gray-500 text-sm group-hover:text-[#22C55E] transition-colors shrink-0" />
-                        <span className="text-gray-400 text-xs font-mono group-hover:text-white transition-colors">{skill}</span>
+                      <div
+                        key={skill}
+                        className="group flex flex-col items-center justify-center gap-2 py-5 px-2 bg-[#111111] border border-gray-800 hover:border-[#22C55E]/70 hover:shadow-[0_0_20px_rgba(34,197,94,0.12)] transition-all cursor-default hover:-translate-y-1"
+                      >
+                        <IconComponent className="text-gray-400 text-xl group-hover:text-[#22C55E] transition-colors" />
+                        <span className="text-gray-300 text-[10px] font-mono text-center leading-tight group-hover:text-white transition-colors">{skill}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Ferramentas de apoio — compactas, peso visual menor */}
+                <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-gray-600 mb-4">
+                  {t.secondaryStackTitle}
+                </p>
+                <div className="flex flex-wrap justify-center gap-2 max-w-3xl">
+                  {secondaryStack.map((skill) => {
+                    const IconComponent = skillIcons[skill] || FaCog;
+                    return (
+                      <div key={skill} className="group flex items-center gap-1.5 px-3 py-1.5 bg-black border border-gray-900 hover:border-gray-700 transition-all cursor-default">
+                        <IconComponent className="text-gray-600 text-xs group-hover:text-gray-400 transition-colors shrink-0" />
+                        <span className="text-gray-600 text-[10px] font-mono group-hover:text-gray-300 transition-colors">{skill}</span>
                       </div>
                     );
                   })}

@@ -9,6 +9,8 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 type ProjectCategory = 'Full-stack' | 'Front-end' | 'Mobile' | 'Game Dev' | 'Hardware';
 
+type MockupVariant = 'dashboard' | 'hero' | 'grid';
+
 interface Project {
   title: string;
   description: string;
@@ -22,6 +24,65 @@ interface Project {
   metrics?: string[];
   /** Link opcional para o artigo de bastidores no blog. */
   caseStudySlug?: string;
+  /** Mockup de tela abstrato (CSS), representando o tipo de UI do projeto. */
+  mockup?: MockupVariant;
+}
+
+/** Mockup de tela em CSS puro — janela de navegador com uma representação abstrata da UI do projeto. */
+function ProjectMockup({ variant }: { variant: MockupVariant }) {
+  return (
+    <div className="relative w-full h-36 bg-black border-b border-gray-800 overflow-hidden shrink-0">
+      {/* Barra do navegador */}
+      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-gray-900 bg-[#0a0a0a]">
+        <span className="w-2 h-2 rounded-full bg-gray-700" />
+        <span className="w-2 h-2 rounded-full bg-gray-700" />
+        <span className="w-2 h-2 rounded-full bg-gray-700" />
+      </div>
+
+      {variant === 'dashboard' && (
+        <div className="flex h-[calc(100%-2rem)]">
+          <div className="w-1/4 h-full bg-[#0d0d0d] border-r border-gray-900 p-2 space-y-1.5">
+            <div className="h-1.5 w-full bg-[#22C55E]/40" />
+            <div className="h-1.5 w-3/4 bg-gray-800" />
+            <div className="h-1.5 w-3/4 bg-gray-800" />
+            <div className="h-1.5 w-2/3 bg-gray-800" />
+          </div>
+          <div className="flex-1 p-3 grid grid-cols-3 gap-2">
+            <div className="col-span-2 h-full bg-[#111111] border border-gray-900 flex items-end p-1.5 gap-1">
+              {[40, 65, 50, 80, 60, 90].map((h, i) => (
+                <div key={i} style={{ height: `${h}%` }} className="flex-1 bg-[#22C55E]/50" />
+              ))}
+            </div>
+            <div className="space-y-2">
+              <div className="h-1/2 bg-[#111111] border border-gray-900" />
+              <div className="h-[calc(50%-0.5rem)] bg-[#111111] border border-[#22C55E]/30" />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {variant === 'hero' && (
+        <div className="h-[calc(100%-2rem)] p-4 flex flex-col justify-center gap-2">
+          <div className="h-2 w-1/3 bg-[#22C55E]/50" />
+          <div className="h-3 w-2/3 bg-gray-700" />
+          <div className="h-3 w-1/2 bg-gray-700" />
+          <div className="h-1.5 w-3/4 bg-gray-900 mt-1" />
+          <div className="mt-2 h-4 w-20 bg-[#22C55E]/40" />
+        </div>
+      )}
+
+      {variant === 'grid' && (
+        <div className="h-[calc(100%-2rem)] p-3 grid grid-cols-5 gap-1.5">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div
+              key={i}
+              className={`aspect-square border ${i % 3 === 0 ? 'border-[#22C55E]/40 bg-[#22C55E]/10' : 'border-gray-900 bg-[#111111]'}`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
 
 const flagshipProjectsMap: Record<string, Project[]> = {
@@ -34,6 +95,7 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       demoUrl: 'https://sistemacondominio-nine.vercel.app/apresentacao',
       category: 'Full-stack',
       highlight: true,
+      mockup: 'dashboard',
       metrics: [
         'Multi-tenant real, com isolamento de dados por condomínio',
         'IA (Google Gemini) para reservas em linguagem natural',
@@ -50,6 +112,7 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       demoUrl: null,
       category: 'Front-end',
       highlight: true,
+      mockup: 'hero',
       metrics: [
         'Next.js 15 + TypeScript + TailwindCSS',
         'Internacionalização PT/EN e tema claro/escuro',
@@ -64,6 +127,7 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       demoUrl: 'https://smashcompedium.vercel.app',
       category: 'Front-end',
       highlight: true,
+      mockup: 'grid',
       metrics: [
         'Base de dados de personagens e mecânicas do jogo',
         'Interface responsiva com filtros dinâmicos',
@@ -80,6 +144,7 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       demoUrl: 'https://sistemacondominio-nine.vercel.app/apresentacao',
       category: 'Full-stack',
       highlight: true,
+      mockup: 'dashboard',
       metrics: [
         'Real multi-tenant setup with per-building data isolation',
         'AI (Google Gemini) for natural-language booking',
@@ -96,6 +161,7 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       demoUrl: null,
       category: 'Front-end',
       highlight: true,
+      mockup: 'hero',
       metrics: [
         'Next.js 15 + TypeScript + TailwindCSS',
         'PT/EN i18n and light/dark theme',
@@ -110,6 +176,7 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       demoUrl: 'https://smashcompedium.vercel.app',
       category: 'Front-end',
       highlight: true,
+      mockup: 'grid',
       metrics: [
         'Character and game-mechanics database',
         'Responsive UI with dynamic filters',
@@ -235,7 +302,8 @@ export default function Projects() {
           {flagshipProjects.map((project, index) => (
             <RevealOnScroll key={project.title} delay={0.1 * index}>
               <div className="relative overflow-hidden flex flex-col h-full bg-[#111111]/90 backdrop-blur-sm border border-gray-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:border-[#22C55E]/50 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] group/card">
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#22C55E] to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#22C55E] to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20" />
+                {project.mockup && <ProjectMockup variant={project.mockup} />}
                 <div className="p-6 flex-grow flex flex-col relative z-10">
                   <div className="flex justify-between items-start mb-6">
                     <div className="p-2 bg-gray-900 text-[#22C55E] group-hover/card:text-green-300 transition-colors">
