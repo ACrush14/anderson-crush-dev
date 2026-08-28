@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { FaGithub, FaStar } from 'react-icons/fa';
 import { FiExternalLink, FiTerminal, FiCode, FiChevronDown, FiCheckCircle } from 'react-icons/fi';
 import RevealOnScroll from './RevealOnScroll';
@@ -24,22 +25,40 @@ interface Project {
   metrics?: string[];
   /** Link opcional para o artigo de bastidores no blog. */
   caseStudySlug?: string;
-  /** Mockup de tela abstrato (CSS), representando o tipo de UI do projeto. */
+  /** Mockup de tela abstrato (CSS) usado como fallback quando não há screenshot real. */
   mockup?: MockupVariant;
+  /** Screenshot real do projeto (public/), exibido dentro da janela de navegador. */
+  screenshot?: string;
+  screenshotAlt?: string;
+  /** Texto exibido na barra de endereço da janela de navegador. */
+  urlLabel?: string;
 }
 
-/** Mockup de tela em CSS puro — janela de navegador com uma representação abstrata da UI do projeto. */
-function ProjectMockup({ variant }: { variant: MockupVariant }) {
+/** Janela de navegador com screenshot real do projeto — cai para um mockup abstrato em CSS se não houver imagem. */
+function ProjectMockup({ variant, screenshot, screenshotAlt, urlLabel }: { variant: MockupVariant; screenshot?: string; screenshotAlt?: string; urlLabel?: string }) {
   return (
-    <div className="relative w-full h-36 bg-black border-b border-gray-800 overflow-hidden shrink-0">
+    <div className="relative w-full h-40 bg-black border-b border-gray-800 overflow-hidden shrink-0">
       {/* Barra do navegador */}
-      <div className="flex items-center gap-1.5 px-3 py-2 border-b border-gray-900 bg-[#0a0a0a]">
+      <div className="relative z-10 flex items-center gap-1.5 px-3 py-2 border-b border-gray-900 bg-[#0a0a0a]">
         <span className="w-2 h-2 rounded-full bg-gray-700" />
         <span className="w-2 h-2 rounded-full bg-gray-700" />
         <span className="w-2 h-2 rounded-full bg-gray-700" />
+        {urlLabel && <span className="ml-2 text-[9px] font-mono text-gray-600 truncate">{urlLabel}</span>}
       </div>
 
-      {variant === 'dashboard' && (
+      {screenshot && (
+        <div className="relative h-[calc(100%-2rem)]">
+          <Image
+            src={screenshot}
+            alt={screenshotAlt || ''}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover object-top"
+          />
+        </div>
+      )}
+
+      {!screenshot && variant === 'dashboard' && (
         <div className="flex h-[calc(100%-2rem)]">
           <div className="w-1/4 h-full bg-[#0d0d0d] border-r border-gray-900 p-2 space-y-1.5">
             <div className="h-1.5 w-full bg-[#22C55E]/40" />
@@ -61,7 +80,7 @@ function ProjectMockup({ variant }: { variant: MockupVariant }) {
         </div>
       )}
 
-      {variant === 'hero' && (
+      {!screenshot && variant === 'hero' && (
         <div className="h-[calc(100%-2rem)] p-4 flex flex-col justify-center gap-2">
           <div className="h-2 w-1/3 bg-[#22C55E]/50" />
           <div className="h-3 w-2/3 bg-gray-700" />
@@ -71,7 +90,7 @@ function ProjectMockup({ variant }: { variant: MockupVariant }) {
         </div>
       )}
 
-      {variant === 'grid' && (
+      {!screenshot && variant === 'grid' && (
         <div className="h-[calc(100%-2rem)] p-3 grid grid-cols-5 gap-1.5">
           {Array.from({ length: 10 }).map((_, i) => (
             <div
@@ -96,6 +115,9 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       category: 'Full-stack',
       highlight: true,
       mockup: 'dashboard',
+      screenshot: '/projects/condomanage.jpg',
+      screenshotAlt: 'Dashboard do Síndico no CondoManage',
+      urlLabel: 'sistemacondominio-nine.vercel.app',
       metrics: [
         'Multi-tenant real, com isolamento de dados por condomínio',
         'IA (Google Gemini) para reservas em linguagem natural',
@@ -113,6 +135,9 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       category: 'Front-end',
       highlight: true,
       mockup: 'hero',
+      screenshot: '/projects/portfolio.jpg',
+      screenshotAlt: 'Hero do site pessoal de Anderson Crush',
+      urlLabel: 'anderson-crush-dev.vercel.app',
       metrics: [
         'Next.js 15 + TypeScript + TailwindCSS',
         'Internacionalização PT/EN e tema claro/escuro',
@@ -128,6 +153,9 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       category: 'Front-end',
       highlight: true,
       mockup: 'grid',
+      screenshot: '/projects/smash-compendium.jpg',
+      screenshotAlt: 'Página inicial do Smash Compendium',
+      urlLabel: 'smashcompedium.vercel.app',
       metrics: [
         'Base de dados de personagens e mecânicas do jogo',
         'Interface responsiva com filtros dinâmicos',
@@ -145,6 +173,9 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       category: 'Full-stack',
       highlight: true,
       mockup: 'dashboard',
+      screenshot: '/projects/condomanage.jpg',
+      screenshotAlt: "CondoManage's manager dashboard",
+      urlLabel: 'sistemacondominio-nine.vercel.app',
       metrics: [
         'Real multi-tenant setup with per-building data isolation',
         'AI (Google Gemini) for natural-language booking',
@@ -162,6 +193,9 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       category: 'Front-end',
       highlight: true,
       mockup: 'hero',
+      screenshot: '/projects/portfolio.jpg',
+      screenshotAlt: "Anderson Crush's personal site hero section",
+      urlLabel: 'anderson-crush-dev.vercel.app',
       metrics: [
         'Next.js 15 + TypeScript + TailwindCSS',
         'PT/EN i18n and light/dark theme',
@@ -177,6 +211,9 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       category: 'Front-end',
       highlight: true,
       mockup: 'grid',
+      screenshot: '/projects/smash-compendium.jpg',
+      screenshotAlt: 'Smash Compendium homepage',
+      urlLabel: 'smashcompedium.vercel.app',
       metrics: [
         'Character and game-mechanics database',
         'Responsive UI with dynamic filters',
@@ -303,7 +340,14 @@ export default function Projects() {
             <RevealOnScroll key={project.title} delay={0.1 * index}>
               <div className="relative overflow-hidden flex flex-col h-full bg-[#111111]/90 backdrop-blur-sm border border-gray-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:border-[#22C55E]/50 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] group/card">
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#22C55E] to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 z-20" />
-                {project.mockup && <ProjectMockup variant={project.mockup} />}
+                {project.mockup && (
+                  <ProjectMockup
+                    variant={project.mockup}
+                    screenshot={project.screenshot}
+                    screenshotAlt={project.screenshotAlt}
+                    urlLabel={project.urlLabel}
+                  />
+                )}
                 <div className="p-6 flex-grow flex flex-col relative z-10">
                   <div className="flex justify-between items-start mb-6">
                     <div className="p-2 bg-gray-900 text-[#22C55E] group-hover/card:text-green-300 transition-colors">
