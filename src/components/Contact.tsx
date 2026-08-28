@@ -1,11 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { FaPaperPlane } from 'react-icons/fa';
+import { FaPaperPlane, FaDownload, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
 import ParticlesBackground from './ParticlesBackground';
 import RevealOnScroll from './RevealOnScroll';
 import { useLanguage } from '@/contexts/LanguageContext';
 import emailjs from '@emailjs/browser';
+
+const LINKEDIN_URL = 'https://www.linkedin.com/in/andersondelimacomputacao/';
+const WHATSAPP_URL = 'https://wa.me/5585982060172?text=' + encodeURIComponent('Olá! Tenho interesse em discutir uma oportunidade profissional.');
 
 export default function Contact() {
   const [status, setStatus] = useState('');
@@ -44,9 +47,42 @@ export default function Contact() {
             <h2 className="text-4xl font-bold text-center mb-4 font-heading text-[#22C55E]">
               {t.contactTitle}
             </h2>
-            <p className="text-center mb-12 max-w-2xl mx-auto text-gray-400">
+            <p className="text-center mb-8 max-w-2xl mx-auto text-gray-400">
               {t.contactSubtitle}
             </p>
+          </RevealOnScroll>
+
+          <RevealOnScroll delay={0.15}>
+            <div className="max-w-xl mx-auto mb-12">
+              <p className="text-center text-[10px] uppercase tracking-[0.25em] text-gray-600 font-mono mb-4">
+                {t.contactQuickLinksTitle}
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <a
+                  href="/Curriculo_Anderson_Crush.pdf"
+                  download
+                  className="inline-flex items-center gap-2 border border-gray-700 text-gray-200 font-mono text-sm py-2.5 px-5 hover:border-[#22C55E] hover:text-[#22C55E] transition-all"
+                >
+                  <FaDownload size={14} /> {t.contactQuickCv}
+                </a>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-gray-700 text-gray-200 font-mono text-sm py-2.5 px-5 hover:border-[#22C55E] hover:text-[#22C55E] transition-all"
+                >
+                  <FaLinkedin size={14} /> {t.contactQuickLinkedin}
+                </a>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-gray-700 text-gray-200 font-mono text-sm py-2.5 px-5 hover:border-[#22C55E] hover:text-[#22C55E] transition-all"
+                >
+                  <FaWhatsapp size={14} /> {t.contactQuickWhatsapp}
+                </a>
+              </div>
+            </div>
           </RevealOnScroll>
 
           <RevealOnScroll delay={0.2}>

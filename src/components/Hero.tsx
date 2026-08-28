@@ -3,6 +3,9 @@
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import { FaDownload, FaEnvelope } from 'react-icons/fa';
+import { FiArrowRight } from 'react-icons/fi';
 import InteractiveBackground from './InteractiveBackground';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -58,6 +61,11 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="text-center md:text-left"
           >
+            <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 border border-[#22C55E]/30 bg-[#22C55E]/5 font-mono text-xs text-[#22C55E]">
+              <span className="w-1.5 h-1.5 bg-[#22C55E] animate-pulse" />
+              {t.heroAvailability}
+            </div>
+
             <h1 className="text-4xl md:text-6xl font-extrabold mb-4 font-heading text-[#E5E5E5]">
               {t.heroGreeting}{' '}
               <span className="text-[#22C55E]">Anderson Crush</span>
@@ -78,6 +86,35 @@ export default function Hero() {
                 repeat={Infinity}
                 className="font-mono text-[#22C55E]"
               />
+            </div>
+
+            <p className="mt-5 max-w-xl mx-auto md:mx-0 text-base md:text-lg text-gray-400 leading-relaxed font-sans">
+              {t.heroTagline}
+            </p>
+
+            <div className="mt-8 flex flex-wrap justify-center md:justify-start gap-4">
+              <Link
+                href="#projects"
+                className="group inline-flex items-center gap-2 bg-[#22C55E] text-black font-mono font-bold text-sm py-3 px-6 hover:bg-green-400 transition-all hover:scale-[1.02] shadow-[0_0_20px_rgba(34,197,94,0.3)]"
+              >
+                {t.heroCtaProjects}
+                <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <a
+                href="/Curriculo_Anderson_Crush.pdf"
+                download
+                className="inline-flex items-center gap-2 border border-gray-700 text-gray-200 font-mono font-bold text-sm py-3 px-6 hover:border-[#22C55E] hover:text-[#22C55E] transition-all"
+              >
+                <FaDownload />
+                {t.heroCtaResume}
+              </a>
+              <Link
+                href="#contact"
+                className="inline-flex items-center gap-2 border border-gray-700 text-gray-200 font-mono font-bold text-sm py-3 px-6 hover:border-[#22C55E] hover:text-[#22C55E] transition-all"
+              >
+                <FaEnvelope />
+                {t.heroCtaContact}
+              </Link>
             </div>
           </motion.div>
 

@@ -1,18 +1,13 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { FaGithub, FaStar } from 'react-icons/fa';
-import { FiExternalLink, FiChevronLeft, FiChevronRight, FiTerminal, FiCode } from 'react-icons/fi';
-import ParticlesBackground from './ParticlesBackground';
+import { FiExternalLink, FiTerminal, FiCode, FiChevronDown, FiCheckCircle } from 'react-icons/fi';
 import RevealOnScroll from './RevealOnScroll';
+import ParticlesBackground from './ParticlesBackground';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
-import { Swiper as SwiperType } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/pagination';
 
-type ProjectCategory = 'Todos' | 'Full-stack' | 'Front-end' | 'Mobile' | 'Game Dev' | 'Hardware';
+type ProjectCategory = 'Full-stack' | 'Front-end' | 'Mobile' | 'Game Dev' | 'Hardware';
 
 interface Project {
   title: string;
@@ -21,10 +16,15 @@ interface Project {
   githubUrl: string;
   demoUrl: string | null;
   category: ProjectCategory;
+  /** Projetos flagship: entram na vitrine principal com estudo de caso. */
   highlight?: boolean;
+  /** Destaques de case study, exibidos apenas nos projetos flagship. */
+  metrics?: string[];
+  /** Link opcional para o artigo de bastidores no blog. */
+  caseStudySlug?: string;
 }
 
-const projectsDataMap: Record<string, Project[]> = {
+const flagshipProjectsMap: Record<string, Project[]> = {
   pt: [
     {
       title: 'CondoManage',
@@ -34,6 +34,13 @@ const projectsDataMap: Record<string, Project[]> = {
       demoUrl: 'https://sistemacondominio-nine.vercel.app/apresentacao',
       category: 'Full-stack',
       highlight: true,
+      metrics: [
+        'Multi-tenant real, com isolamento de dados por condomínio',
+        'IA (Google Gemini) para reservas em linguagem natural',
+        'Pagamentos PIX reais via Mercado Pago',
+        'Portaria com QR Code e botão de pânico em tempo real',
+      ],
+      caseStudySlug: 'condomanage-o-projeto-que-me-ensinou-full-stack-de-verdade',
     },
     {
       title: 'Site Portfólio Pessoal',
@@ -43,6 +50,11 @@ const projectsDataMap: Record<string, Project[]> = {
       demoUrl: null,
       category: 'Front-end',
       highlight: true,
+      metrics: [
+        'Next.js 15 + TypeScript + TailwindCSS',
+        'Internacionalização PT/EN e tema claro/escuro',
+        'Animações com Framer Motion e Swiper',
+      ],
     },
     {
       title: 'Smash Compendium',
@@ -52,7 +64,63 @@ const projectsDataMap: Record<string, Project[]> = {
       demoUrl: 'https://smashcompedium.vercel.app',
       category: 'Front-end',
       highlight: true,
+      metrics: [
+        'Base de dados de personagens e mecânicas do jogo',
+        'Interface responsiva com filtros dinâmicos',
+        'Deploy contínuo via Vercel',
+      ],
     },
+  ],
+  en: [
+    {
+      title: 'CondoManage',
+      description: 'Full condominium management platform with real authentication, multi-tenant data isolation, AI (Google Gemini) for natural-language booking, real PIX payments via Mercado Pago, and a front-desk module with QR Code access and a real-time panic button.',
+      technologies: ['Next.js', 'PostgreSQL', 'TypeScript', 'Google Gemini', 'Mercado Pago'],
+      githubUrl: 'https://github.com/ACrush14/SistemaCondominio',
+      demoUrl: 'https://sistemacondominio-nine.vercel.app/apresentacao',
+      category: 'Full-stack',
+      highlight: true,
+      metrics: [
+        'Real multi-tenant setup with per-building data isolation',
+        'AI (Google Gemini) for natural-language booking',
+        'Real PIX payments via Mercado Pago',
+        'Front desk with QR Code access and real-time panic button',
+      ],
+      caseStudySlug: 'condomanage-o-projeto-que-me-ensinou-full-stack-de-verdade',
+    },
+    {
+      title: 'Personal Portfolio',
+      description: 'This very website! Built with Next.js, TypeScript and TailwindCSS. Modern responsive design with light/dark mode and two-language support.',
+      technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
+      githubUrl: 'https://github.com/ACrush14/anderson-crush-dev',
+      demoUrl: null,
+      category: 'Front-end',
+      highlight: true,
+      metrics: [
+        'Next.js 15 + TypeScript + TailwindCSS',
+        'PT/EN i18n and light/dark theme',
+        'Framer Motion and Swiper animations',
+      ],
+    },
+    {
+      title: 'Smash Compendium',
+      description: 'A detailed compendium focused on the competitive Super Smash Bros scene. Features character data, movesets, and game mechanics.',
+      technologies: ['React', 'Next.js', 'TailwindCSS', 'TypeScript'],
+      githubUrl: 'https://github.com/ACrush14/smash-compendium',
+      demoUrl: 'https://smashcompedium.vercel.app',
+      category: 'Front-end',
+      highlight: true,
+      metrics: [
+        'Character and game-mechanics database',
+        'Responsive UI with dynamic filters',
+        'Continuous deploy via Vercel',
+      ],
+    },
+  ],
+};
+
+const academicProjectsMap: Record<string, Project[]> = {
+  pt: [
     {
       title: 'BiblioUnifor Dev AB',
       description: 'Aplicativo mobile para gestão de biblioteca universitária, desenvolvido como projeto acadêmico na UNIFOR.',
@@ -95,33 +163,6 @@ const projectsDataMap: Record<string, Project[]> = {
     },
   ],
   en: [
-    {
-      title: 'CondoManage',
-      description: 'Full condominium management platform with real authentication, multi-tenant data isolation, AI (Google Gemini) for natural-language booking, real PIX payments via Mercado Pago, and a front-desk module with QR Code access and a real-time panic button.',
-      technologies: ['Next.js', 'PostgreSQL', 'TypeScript', 'Google Gemini', 'Mercado Pago'],
-      githubUrl: 'https://github.com/ACrush14/SistemaCondominio',
-      demoUrl: 'https://sistemacondominio-nine.vercel.app/apresentacao',
-      category: 'Full-stack',
-      highlight: true,
-    },
-    {
-      title: 'Personal Portfolio',
-      description: 'This very website! Built with Next.js, TypeScript and TailwindCSS. Modern responsive design with light/dark mode and two-language support.',
-      technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
-      githubUrl: 'https://github.com/ACrush14/anderson-crush-dev',
-      demoUrl: null,
-      category: 'Front-end',
-      highlight: true,
-    },
-    {
-      title: 'Smash Compendium',
-      description: 'A detailed compendium focused on the competitive Super Smash Bros scene. Features character data, movesets, and game mechanics.',
-      technologies: ['React', 'Next.js', 'TailwindCSS', 'TypeScript'],
-      githubUrl: 'https://github.com/ACrush14/smash-compendium',
-      demoUrl: 'https://smashcompedium.vercel.app',
-      category: 'Front-end',
-      highlight: true,
-    },
     {
       title: 'BiblioUnifor Dev AB',
       description: 'Mobile app for university library management, developed as an academic project at UNIFOR.',
@@ -167,130 +208,135 @@ const projectsDataMap: Record<string, Project[]> = {
 
 export default function Projects() {
   const { t, language } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState<ProjectCategory>('Todos');
-  const swiperRef = useRef<SwiperType | null>(null);
+  const [showAcademic, setShowAcademic] = useState(false);
 
-  const categories: ProjectCategory[] = ['Todos', 'Full-stack', 'Front-end', 'Mobile', 'Game Dev', 'Hardware'];
-  const allProjects = projectsDataMap[language] ?? projectsDataMap['pt'];
-  const filteredProjects = activeCategory === 'Todos' ? allProjects : allProjects.filter(p => p.category === activeCategory);
-  const sortedProjects = [...filteredProjects].sort((a, b) => (b.highlight ? 1 : 0) - (a.highlight ? 1 : 0));
+  const flagshipProjects = flagshipProjectsMap[language] ?? flagshipProjectsMap['pt'];
+  const academicProjects = academicProjectsMap[language] ?? academicProjectsMap['pt'];
 
   return (
     <section id="projects" className="relative overflow-hidden">
       <ParticlesBackground id="particles-projects">
-        <div className="container mx-auto px-6 py-24 relative z-10">
+      <div className="container mx-auto px-6 py-24 relative z-10">
 
-          <RevealOnScroll>
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <FiTerminal className="text-[#22C55E]" size={32} />
-              <h2 className="text-4xl font-bold text-center font-heading text-[#22C55E]">
-                {t.projectsTitle}
-              </h2>
-            </div>
-          </RevealOnScroll>
+        <RevealOnScroll>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <FiTerminal className="text-[#22C55E]" size={32} />
+            <h2 className="text-4xl font-bold text-center font-heading text-[#22C55E]">
+              {t.projectsTitle}
+            </h2>
+          </div>
+          <p className="text-center text-gray-500 max-w-xl mx-auto mb-16 font-sans">
+            {t.projectsSubtitle}
+          </p>
+        </RevealOnScroll>
 
-          <RevealOnScroll delay={0.1}>
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`font-mono text-sm px-4 py-2 transition-all duration-300 border-b-2
-                    ${activeCategory === cat
-                      ? 'text-[#22C55E] border-[#22C55E] bg-[#22C55E]/10'
-                      : 'text-gray-500 border-transparent hover:text-gray-300 hover:border-gray-600'
-                    }`}
-                >
-                  {`> ${cat}`}
-                </button>
-              ))}
-            </div>
-          </RevealOnScroll>
-
-          <RevealOnScroll delay={0.2}>
-            <div className="relative group/slider px-4 md:px-14">
-              <Swiper
-                modules={[Navigation, Pagination, A11y, Autoplay]}
-                spaceBetween={24}
-                slidesPerView={1}
-                onBeforeInit={(swiper) => { swiperRef.current = swiper; }}
-                pagination={{ clickable: true, dynamicBullets: true }}
-                autoplay={{ delay: 6000, disableOnInteraction: true }}
-                breakpoints={{
-                  640: { slidesPerView: 1 },
-                  768: { slidesPerView: 2 },
-                  1280: { slidesPerView: 3 },
-                }}
-                className="pb-14 !px-4"
-              >
-                {sortedProjects.map((project, index) => (
-                  <SwiperSlide key={index} className="h-auto py-4">
-                    <div className="relative overflow-hidden flex flex-col h-full bg-[#111111]/90 backdrop-blur-sm border border-gray-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:border-[#22C55E]/50 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] group/card">
-                      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#22C55E] to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
-                      <div className="p-6 flex-grow flex flex-col relative z-10">
-                        <div className="flex justify-between items-start mb-6">
-                          <div className="p-2 bg-gray-900 text-[#22C55E] group-hover/card:text-green-300 transition-colors">
-                            <FiCode size={20} />
-                          </div>
-                          <div className="flex gap-3">
-                            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white hover:scale-110 transition-all p-1">
-                              <FaGithub size={20} />
-                            </a>
-                            {project.demoUrl && (
-                              <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#22C55E] hover:scale-110 transition-all p-1">
-                                <FiExternalLink size={20} />
-                              </a>
-                            )}
-                          </div>
-                        </div>
-                        <h3 className="text-xl text-white font-bold mb-3 font-heading tracking-tight group-hover/card:text-[#22C55E] transition-colors">
-                          {project.title}
-                        </h3>
-                        <div className="mb-4">
-                          <span className="text-[10px] uppercase font-bold tracking-widest text-[#22C55E]/80 font-mono">
-                            //{project.category}
-                          </span>
-                        </div>
-                        <p className="text-gray-400 text-sm mb-6 leading-relaxed flex-grow font-sans border-l-2 border-gray-800 pl-3">
-                          {project.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2 mt-auto">
-                          {project.technologies.map((tech) => (
-                            <span key={tech} className="px-2 py-1 text-[10px] bg-black text-green-300/80 font-mono border border-gray-800 group-hover/card:border-[#22C55E]/30 transition-colors">
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                      {project.highlight && (
-                        <div className="absolute top-4 right-4 animate-pulse">
-                          <FaStar className="text-[#22C55E]" size={12} />
-                        </div>
+        {/* Vitrine principal — projetos flagship com estudo de caso */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {flagshipProjects.map((project, index) => (
+            <RevealOnScroll key={project.title} delay={0.1 * index}>
+              <div className="relative overflow-hidden flex flex-col h-full bg-[#111111]/90 backdrop-blur-sm border border-gray-800 transition-all duration-500 ease-out hover:-translate-y-2 hover:border-[#22C55E]/50 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] group/card">
+                <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#22C55E] to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                <div className="p-6 flex-grow flex flex-col relative z-10">
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="p-2 bg-gray-900 text-[#22C55E] group-hover/card:text-green-300 transition-colors">
+                      <FiCode size={20} />
+                    </div>
+                    <div className="flex gap-3">
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white hover:scale-110 transition-all p-1">
+                        <FaGithub size={20} />
+                      </a>
+                      {project.demoUrl && (
+                        <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#22C55E] hover:scale-110 transition-all p-1">
+                          <FiExternalLink size={20} />
+                        </a>
                       )}
                     </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+                  </div>
+                  <h3 className="text-xl text-white font-bold mb-3 font-heading tracking-tight group-hover/card:text-[#22C55E] transition-colors">
+                    {project.title}
+                  </h3>
+                  <div className="mb-4">
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-[#22C55E]/80 font-mono">
+                      //{project.category}
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-sm mb-5 leading-relaxed font-sans border-l-2 border-gray-800 pl-3">
+                    {project.description}
+                  </p>
 
-              <button
-                onClick={() => swiperRef.current?.slidePrev()}
-                className="absolute top-1/2 -left-2 md:-left-4 z-20 -translate-y-1/2 p-3 text-[#22C55E] hover:text-green-300 transition-all bg-black border border-gray-800 hover:border-[#22C55E] shadow-lg hidden md:flex items-center justify-center group/btn"
-                aria-label="Anterior"
-              >
-                <FiChevronLeft size={24} className="group-hover/btn:-translate-x-1 transition-transform" />
-              </button>
-              <button
-                onClick={() => swiperRef.current?.slideNext()}
-                className="absolute top-1/2 -right-2 md:-right-4 z-20 -translate-y-1/2 p-3 text-[#22C55E] hover:text-green-300 transition-all bg-black border border-gray-800 hover:border-[#22C55E] shadow-lg hidden md:flex items-center justify-center group/btn"
-                aria-label="Próximo"
-              >
-                <FiChevronRight size={24} className="group-hover/btn:translate-x-1 transition-transform" />
-              </button>
-            </div>
-          </RevealOnScroll>
+                  {project.metrics && (
+                    <ul className="mb-5 space-y-2">
+                      {project.metrics.map((metric) => (
+                        <li key={metric} className="flex items-start gap-2 text-xs text-gray-400 font-sans">
+                          <FiCheckCircle className="text-[#22C55E] shrink-0 mt-0.5" size={14} />
+                          <span>{metric}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <div className="flex flex-wrap gap-2 mt-auto mb-4">
+                    {project.technologies.map((tech) => (
+                      <span key={tech} className="px-2 py-1 text-[10px] bg-black text-green-300/80 font-mono border border-gray-800 group-hover/card:border-[#22C55E]/30 transition-colors">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {project.caseStudySlug && (
+                    <a
+                      href={`/blog/${project.caseStudySlug}`}
+                      className="inline-flex items-center gap-1.5 text-[#22C55E] text-xs font-mono hover:gap-2.5 transition-all"
+                    >
+                      {t.projectsCaseStudyLink} →
+                    </a>
+                  )}
+                </div>
+                {project.highlight && (
+                  <div className="absolute top-4 right-4 animate-pulse">
+                    <FaStar className="text-[#22C55E]" size={12} />
+                  </div>
+                )}
+              </div>
+            </RevealOnScroll>
+          ))}
         </div>
-      </ParticlesBackground>
 
+        {/* Projetos acadêmicos — recolhidos, transparentes sobre a origem */}
+        <RevealOnScroll delay={0.2}>
+          <div className="max-w-3xl mx-auto">
+            <button
+              onClick={() => setShowAcademic((v) => !v)}
+              className="w-full flex items-center justify-between gap-3 font-mono text-sm text-gray-500 hover:text-gray-300 border border-gray-800 hover:border-gray-600 px-5 py-3 transition-all"
+            >
+              <span>{`${showAcademic ? t.projectsAcademicHide : t.projectsAcademicShow} (${academicProjects.length})`}</span>
+              <FiChevronDown className={`transition-transform duration-300 ${showAcademic ? 'rotate-180' : ''}`} />
+            </button>
+
+            {showAcademic && (
+              <div className="mt-4 grid sm:grid-cols-2 gap-4">
+                {academicProjects.map((project) => (
+                  <div key={project.title} className="p-4 bg-[#0c0c0c] border border-gray-900 hover:border-gray-700 transition-colors">
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="text-sm text-gray-300 font-bold font-heading">{project.title}</h4>
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-white transition-colors shrink-0 ml-2">
+                        <FaGithub size={16} />
+                      </a>
+                    </div>
+                    <span className="text-[9px] uppercase font-bold tracking-widest text-gray-600 font-mono">
+                      //{project.category}
+                    </span>
+                    <p className="text-gray-500 text-xs mt-2 leading-relaxed font-sans">
+                      {project.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </RevealOnScroll>
+      </div>
+      </ParticlesBackground>
     </section>
   );
 }

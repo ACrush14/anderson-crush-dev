@@ -6,15 +6,16 @@ import { FaDownload, FaCog, FaGraduationCap, FaUniversity, FaLaptopCode } from '
 import {
   SiPython, SiJavascript, SiReact, SiNodedotjs, SiExpress, SiTypescript,
   SiNextdotjs, SiHtml5, SiCss, SiTailwindcss, SiGit, SiGithub,
-  SiPostgresql, SiMysql, SiGodotengine, SiUnity, SiDocker,
+  SiPostgresql, SiMysql, SiGodotengine, SiUnity, SiDocker, SiGooglegemini,
 } from 'react-icons/si';
 import { FaTasks } from 'react-icons/fa';
 import ParticlesBackground from './ParticlesBackground';
 
+// Core stack (full-stack + IA aplicada) primeiro, ferramentas de apoio depois.
 const skills = [
-  'JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'Express.js',
-  'Python', 'HTML', 'CSS', 'TailwindCSS', 'Git', 'GitHub',
-  'PostgreSQL', 'MySQL', 'Godot', 'Unity', 'Docker', 'REST APIs',
+  'Next.js', 'TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Google Gemini API',
+  'JavaScript', 'Express.js', 'Python', 'TailwindCSS', 'REST APIs', 'Docker',
+  'Git', 'GitHub', 'MySQL', 'HTML', 'CSS', 'Godot', 'Unity',
   'Agile', 'Método Kanban', 'Método Scrum',
 ];
 
@@ -36,6 +37,7 @@ const skillIcons: Record<string, React.ElementType> = {
   'Godot': SiGodotengine,
   'Unity': SiUnity,
   'Docker': SiDocker,
+  'Google Gemini API': SiGooglegemini,
   'REST APIs': FaCog,
   'Agile': FaTasks,
   'Método Kanban': FaTasks,
