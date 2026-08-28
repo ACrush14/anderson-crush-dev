@@ -124,7 +124,7 @@ export default function Hero() {
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               >
                 <Image
-                  src="/profile.png"
+                  src="/profile.jpg"
                   alt="Anderson Crush"
                   width={420}
                   height={420}

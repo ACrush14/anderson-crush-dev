@@ -74,7 +74,7 @@ export default function ContactModal() {
                 <h2 className="text-3xl font-bold text-white mb-3 font-heading">Ficou com alguma dúvida?</h2>
                 <p className="text-gray-400 mb-6">Preencha as informações ao lado que em breve entrarei em contato com você.</p>
                 <div className="relative w-48 h-48 overflow-hidden self-center border-2 border-[#22C55E]/40">
-                  <Image src="/profile.png" alt="Anderson Crush" fill className="object-cover" />
+                  <Image src="/profile.jpg" alt="Anderson Crush" fill className="object-cover" />
                 </div>
               </div>
 
