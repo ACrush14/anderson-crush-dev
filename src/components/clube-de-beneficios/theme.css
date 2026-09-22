@@ -1,0 +1,57 @@
+/* Design tokens for the "Clube de Benefícios" prototype — scoped so they
+   never collide with the portfolio's own theme variables. */
+.cb-scope {
+  --cb-primary: #2e615f;
+  --cb-primary-hover: #234e4c;
+  --cb-secondary: #4aaca8;
+  --cb-tint: #dceeed;
+  --cb-tint-subtle: #f1f8f7;
+
+  --cb-bg: #f7fafa;
+  --cb-surface: #ffffff;
+  --cb-border: #e2e8e7;
+  --cb-border-strong: #c7d1d0;
+
+  --cb-text: #16211f;
+  --cb-text-secondary: #43494a;
+  --cb-text-tertiary: #78807f;
+  --cb-text-inverse: #ffffff;
+
+  --cb-success-bg: #dcfce7;
+  --cb-success-fg: #16a34a;
+  --cb-warning-bg: #fef3c7;
+  --cb-warning-fg: #d97706;
+  --cb-danger-bg: #fee2e2;
+  --cb-danger-fg: #dc2626;
+  --cb-neutral-bg: #f1f4f4;
+  --cb-neutral-fg: #43494a;
+
+  --cb-radius-sm: 6px;
+  --cb-radius-md: 10px;
+  --cb-radius-lg: 16px;
+
+  background: var(--cb-bg);
+  color: var(--cb-text);
+  font-family: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+}
+
+.cb-scope h1,
+.cb-scope h2,
+.cb-scope h3,
+.cb-scope h4 {
+  font-family: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+}
+
+.cb-scope ::selection {
+  background: var(--cb-tint);
+  color: var(--cb-primary);
+}
+
+.cb-scope button:focus-visible,
+.cb-scope input:focus-visible,
+.cb-scope textarea:focus-visible,
+.cb-scope select:focus-visible,
+.cb-scope a:focus-visible {
+  outline: 2px solid var(--cb-secondary);
+  outline-offset: 2px;
+}
