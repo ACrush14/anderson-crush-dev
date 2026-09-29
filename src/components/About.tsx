@@ -2,20 +2,29 @@
 
 import RevealOnScroll from './RevealOnScroll';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { FaDownload, FaCog, FaGraduationCap, FaUniversity, FaLaptopCode, FaCheckCircle } from 'react-icons/fa';
+import {
+  FaDownload, FaCog, FaGraduationCap, FaUniversity, FaLaptopCode, FaCheckCircle,
+  FaTasks, FaJava, FaSitemap, FaLanguage, FaVial, FaFlask,
+} from 'react-icons/fa';
+import { FiLayers } from 'react-icons/fi';
 import {
   SiPython, SiJavascript, SiReact, SiNodedotjs, SiExpress, SiTypescript,
   SiNextdotjs, SiHtml5, SiCss, SiTailwindcss, SiGit, SiGithub,
-  SiPostgresql, SiMysql, SiGodotengine, SiUnity, SiDocker, SiGooglegemini,
+  SiPostgresql, SiMysql, SiDocker, SiGooglegemini,
+  SiKotlin, SiCplusplus, SiC, SiLua, SiPrisma, SiVercel, SiClaude,
+  SiPandas, SiFigma, SiMaterialdesign, SiSupabase, SiFirebase,
 } from 'react-icons/si';
-import { FaTasks } from 'react-icons/fa';
 import ParticlesBackground from './ParticlesBackground';
 
-const techStack = [
-  'Next.js', 'TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Google Gemini API',
-  'JavaScript', 'Express.js', 'Python', 'TailwindCSS', 'REST APIs', 'Docker',
-  'Git', 'GitHub', 'MySQL', 'HTML', 'CSS', 'Godot', 'Unity',
-  'Agile', 'Método Kanban', 'Método Scrum',
+// Categorias e itens extraídos diretamente do currículo (LinkedIn Profile.pdf).
+const techStackCategories: { label: string; skills: string[] }[] = [
+  { label: 'Linguagens', skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'Kotlin', 'C++', 'C', 'Lua'] },
+  { label: 'Front End', skills: ['React', 'Next.js', 'TailwindCSS', 'HTML5', 'CSS'] },
+  { label: 'Back End', skills: ['Node.js', 'Express.js', 'REST APIs', 'Prisma', 'Docker', 'Git', 'GitHub', 'Vercel', 'Google Gemini API', 'Claude API', 'Pandas'] },
+  { label: 'UI/UX', skills: ['Figma', 'Design System', 'Prototipagem de Interfaces', 'Material Design 3'] },
+  { label: 'Banco de Dados', skills: ['PostgreSQL', 'MySQL', 'Supabase', 'Firebase'] },
+  { label: 'Metodologias', skills: ['Agile', 'Método Kanban', 'Método Scrum', 'Teste Unitário', 'Teste de Integração'] },
+  { label: 'Idiomas', skills: ['Português (Nativo)', 'Inglês (Fluente — C1)', 'Japonês (Básico)'] },
 ];
 
 type EducationStatus = 'em-curso' | 'concluido';
@@ -50,28 +59,53 @@ const educationData: EducationItem[] = [
 ];
 
 const skillIcons: Record<string, React.ElementType> = {
+  // Linguagens
   'JavaScript': SiJavascript,
   'TypeScript': SiTypescript,
+  'Python': SiPython,
+  'Java': FaJava,
+  'Kotlin': SiKotlin,
+  'C++': SiCplusplus,
+  'C': SiC,
+  'Lua': SiLua,
+  // Front End
   'React': SiReact,
   'Next.js': SiNextdotjs,
+  'TailwindCSS': SiTailwindcss,
+  'HTML5': SiHtml5,
+  'CSS': SiCss,
+  // Back End
   'Node.js': SiNodedotjs,
   'Express.js': SiExpress,
-  'Python': SiPython,
-  'HTML': SiHtml5,
-  'CSS': SiCss,
-  'TailwindCSS': SiTailwindcss,
+  'REST APIs': FaCog,
+  'Prisma': SiPrisma,
+  'Docker': SiDocker,
   'Git': SiGit,
   'GitHub': SiGithub,
+  'Vercel': SiVercel,
+  'Google Gemini API': SiGooglegemini,
+  'Claude API': SiClaude,
+  'Pandas': SiPandas,
+  // UI/UX
+  'Figma': SiFigma,
+  'Design System': FaSitemap,
+  'Prototipagem de Interfaces': FiLayers,
+  'Material Design 3': SiMaterialdesign,
+  // Banco de Dados
   'PostgreSQL': SiPostgresql,
   'MySQL': SiMysql,
-  'Godot': SiGodotengine,
-  'Unity': SiUnity,
-  'Docker': SiDocker,
-  'Google Gemini API': SiGooglegemini,
-  'REST APIs': FaCog,
+  'Supabase': SiSupabase,
+  'Firebase': SiFirebase,
+  // Metodologias
   'Agile': FaTasks,
   'Método Kanban': FaTasks,
   'Método Scrum': FaTasks,
+  'Teste Unitário': FaVial,
+  'Teste de Integração': FaFlask,
+  // Idiomas
+  'Português (Nativo)': FaLanguage,
+  'Inglês (Fluente — C1)': FaLanguage,
+  'Japonês (Básico)': FaLanguage,
 };
 
 export default function About() {
@@ -152,19 +186,28 @@ export default function About() {
                   <FaCog className="text-[#22C55E] animate-spin-slow" /> Tech Stack &amp; Tools
                 </h3>
 
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 max-w-4xl w-full">
-                  {techStack.map((skill) => {
-                    const IconComponent = skillIcons[skill] || FaCog;
-                    return (
-                      <div
-                        key={skill}
-                        className="group flex flex-col items-center justify-center gap-2 py-5 px-2 bg-[#111111] border border-gray-800 hover:border-[#22C55E]/70 hover:shadow-[0_0_20px_rgba(34,197,94,0.12)] transition-all cursor-default hover:-translate-y-1"
-                      >
-                        <IconComponent className="text-gray-400 text-xl group-hover:text-[#22C55E] transition-colors" />
-                        <span className="text-gray-300 text-[10px] font-mono text-center leading-tight group-hover:text-white transition-colors">{skill}</span>
+                <div className="w-full max-w-4xl flex flex-col gap-7">
+                  {techStackCategories.map((group) => (
+                    <div key={group.label} className="w-full">
+                      <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#22C55E]/70 mb-3 text-center">
+                        {group.label}
+                      </p>
+                      <div className="flex flex-wrap justify-center gap-2.5">
+                        {group.skills.map((skill) => {
+                          const IconComponent = skillIcons[skill] || FaCog;
+                          return (
+                            <div
+                              key={skill}
+                              className="group flex items-center gap-2 py-2.5 px-4 bg-[#111111] border border-gray-800 hover:border-[#22C55E]/70 hover:shadow-[0_0_20px_rgba(34,197,94,0.12)] transition-all cursor-default hover:-translate-y-0.5"
+                            >
+                              <IconComponent className="text-gray-400 text-base shrink-0 group-hover:text-[#22C55E] transition-colors" />
+                              <span className="text-gray-300 text-xs font-mono whitespace-nowrap group-hover:text-white transition-colors">{skill}</span>
+                            </div>
+                          );
+                        })}
                       </div>
-                    );
-                  })}
+                    </div>
+                  ))}
                 </div>
               </div>
             </RevealOnScroll>

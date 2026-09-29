@@ -358,7 +358,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Anderson Crush',
     date: '10 de Agosto de 2026',
     description: 'Cinco anos de faculdade, um mercado sem vagas suficientes pra quem se formava, e a decisão de recomeçar do zero em Ciência da Computação. Um relato honesto sobre pivotar de carreira — e sobre o que vim conquistando desde então.',
-    image: '',
+    image: '/blog/pivotagem-carreira/capa.webp',
     content: `
       <p>Passei cinco anos da minha vida na Arquitetura e Urbanismo. Entrei em 2017 na UNI7 cheio de vontade de desenhar espaços, resolver problemas urbanos, entender como as pessoas se relacionam com o que é construído ao redor delas. Terminei em 2022 com o diploma na mão e um problema que ninguém tinha me avisado antes de entrar no curso: o mercado de arquitetura simplesmente não tinha vagas suficientes pra absorver todo mundo que se formava comigo.</p>
       <br/>
@@ -384,7 +384,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Anderson Crush',
     date: '02 de Setembro de 2026',
     description: 'De monitor de Desenho Arquitetônico a monitor de Fundamentos de Sistemas Computacionais — por que ensinar continua sendo uma das formas mais rápidas de aprender de verdade.',
-    image: '',
+    image: '/blog/monitoria-fsc/capa.jpg',
     content: `
       <p>Essa não é a minha primeira vez numa sala de monitoria. Lá na arquitetura, fui monitor de Desenho Assistido por Computador, de Desenho Arquitetônico e de Desenho para a Engenharia — sempre gostei dessa posição de ponte entre quem já passou pelo conteúdo e quem está começando a se afogar nele agora. Então, quando surgiu a oportunidade de ser Monitor Bolsista na disciplina de Fundamentos de Sistemas Computacionais na UNIFOR, em parceria com o professor responsável, não pensei duas vezes.</p>
       <br/>
@@ -408,7 +408,7 @@ export const blogPosts: BlogPost[] = [
     author: 'Anderson Crush',
     date: '20 de Setembro de 2026',
     description: 'Recepção, logística e mentoria em hackathons de 72 horas: o que aprendi apoiando eventos de uma das comunidades de tecnologia mais ativas do Ceará.',
-    image: '',
+    image: '/blog/coda-ce/capa.jpg',
     content: `
       <p>Desde que decidi migrar pra tecnologia, uma coisa ficou clara rápido: comunidade é tudo. Ninguém constrói uma carreira nova sozinho, trancado em casa estudando sintaxe. Foi por isso que entrei como Voluntário de Eventos na CODA.CE (Comunidade de Desenvolvedores do Ceará), uma das comunidades de tecnologia mais ativas do estado, voltada a acelerar o aprendizado prático e o desenvolvimento profissional através de eventos, bootcamps e projetos reais.</p>
       <br/>
