@@ -67,8 +67,7 @@ export default function About() {
                 <div className="max-w-3xl pt-4">
                   <p className="mb-6 text-lg text-gray-300 leading-relaxed font-sans text-center">{t.aboutText1}</p>
                   <p className="mb-6 text-lg text-gray-300 leading-relaxed font-sans text-center">{t.aboutText2}</p>
-                  <p className="mb-6 text-lg text-gray-300 leading-relaxed font-sans text-center">{t.aboutText3}</p>
-                  <p className="text-lg text-gray-300 leading-relaxed font-sans text-center">{t.aboutText4}</p>
+                  <p className="text-lg text-gray-300 leading-relaxed font-sans text-center">{t.aboutText3}</p>
                 </div>
               </div>
             </RevealOnScroll>

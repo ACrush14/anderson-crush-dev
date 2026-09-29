@@ -3,16 +3,11 @@
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
-import { FaDownload, FaEnvelope } from 'react-icons/fa';
-import { FiArrowRight } from 'react-icons/fi';
 import InteractiveBackground from './InteractiveBackground';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Hero() {
   const { t } = useLanguage();
-
-  const proofPoints = [t.heroProof1, t.heroProof2, t.heroProof3];
 
   return (
     <section id="home" className="relative w-full pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden bg-black">
@@ -32,11 +27,6 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="relative z-20 order-2 lg:order-1 text-left"
           >
-            <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 border border-[#22C55E]/30 bg-[#22C55E]/5 font-mono text-xs text-[#22C55E]">
-              <span className="w-1.5 h-1.5 bg-[#22C55E] animate-pulse" />
-              {t.heroAvailability}
-            </div>
-
             <h1 className="font-heading font-extrabold text-[#E5E5E5] leading-[0.95] tracking-tight text-5xl sm:text-6xl lg:text-[4.5rem] -ml-0.5">
               {t.heroGreeting}
               <br />
@@ -60,44 +50,6 @@ export default function Hero() {
               />
             </div>
 
-            <p className="mt-5 max-w-xl text-base md:text-lg text-gray-400 leading-relaxed font-sans">
-              {t.heroTagline}
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="#projects"
-                className="group inline-flex items-center gap-2 bg-[#22C55E] text-black font-mono font-bold text-sm py-3 px-6 hover:bg-green-400 transition-all hover:scale-[1.02] shadow-[0_0_20px_rgba(34,197,94,0.3)]"
-              >
-                {t.heroCtaProjects}
-                <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <a
-                href="/Curriculo_Anderson_Crush.pdf"
-                download
-                className="inline-flex items-center gap-2 border border-gray-700 text-gray-200 font-mono font-bold text-sm py-3 px-6 hover:border-[#22C55E] hover:text-[#22C55E] transition-all"
-              >
-                <FaDownload />
-                {t.heroCtaResume}
-              </a>
-              <Link
-                href="#contact"
-                className="inline-flex items-center gap-2 border border-gray-700 text-gray-200 font-mono font-bold text-sm py-3 px-6 hover:border-[#22C55E] hover:text-[#22C55E] transition-all"
-              >
-                <FaEnvelope />
-                {t.heroCtaContact}
-              </Link>
-            </div>
-
-            {/* Faixa de prova — quebra a leitura tradicional de portfólio júnior */}
-            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t border-gray-800 pt-6">
-              {proofPoints.map((point) => (
-                <div key={point} className="flex items-center gap-2 font-mono text-xs text-gray-500">
-                  <span className="text-[#22C55E]">▸</span>
-                  {point}
-                </div>
-              ))}
-            </div>
           </motion.div>
 
           {/* Foto — deslocada, sangrando para a direita, com moldura assimétrica */}
