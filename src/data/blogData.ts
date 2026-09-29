@@ -321,4 +321,112 @@ export const blogPosts: BlogPost[] = [
       <p>Quem quiser ver o sistema rodando ao vivo, montei uma <a href="https://sistemacondominio-nine.vercel.app/apresentacao" target="_blank" rel="noopener noreferrer">página de apresentação completa</a>, e o código-fonte está aberto no <a href="https://github.com/ACrush14/SistemaCondominio" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
     `,
   },
+  {
+    category: 'tech',
+    slug: 'smash-compendium-paixao-por-games-e-engenharia-de-dados',
+    title: 'Unindo Paixão por Games e Engenharia de Dados: o Nascimento do Smash Compendium',
+    author: 'Anderson Crush',
+    date: '25 de Julho de 2026',
+    description: 'Como uma paixão antiga por catalogar tudo sobre Super Smash Bros. virou um pipeline de ETL de verdade, mapeando 90 lutadores, 54 franquias e mais de 1.400 títulos associados.',
+    image: '/projects/smash-compendium.jpg',
+    content: `
+      <p>Sempre gostei de catalogar coisas. Muito antes de saber o que era um banco de dados relacional, eu já enchia cadernos com listas de personagens, movesets, combos e franquias de Super Smash Bros. — o tipo de obsessão organizada que, sem eu perceber, já era um treino disfarçado de modelagem de dados. Era só uma questão de tempo até essas duas paixões, Smash Bros. e engenharia de dados, se encontrarem em forma de projeto. O resultado se chama <strong>Smash Compendium</strong>.</p>
+      <br/>
+      <p>A franquia tem uma história gigantesca e espalhada por dezenas de fontes diferentes: wikis, fóruns, planilhas feitas pela comunidade, vídeos de análise — cada uma com um pedaço da verdade e nenhuma com o quadro completo. Toda vez que eu ia procurar algo específico (quantas franquias já passaram pelo jogo? quantos troféus existem desde o Melee? em qual álbum está aquela trilha sonora?), eu terminava com seis abas abertas e nenhuma resposta definitiva. O Smash Compendium nasceu da vontade de resolver esse problema pra mim mesmo primeiro, e depois pra qualquer outro fã que sofresse do mesmo mal.</p>
+      <br/>
+      <h2>De fã organizador a pipeline de ETL</h2>
+      <br/>
+      <p>Assim que decidi levar a ideia a sério, tratei o projeto como eu trataria qualquer sistema de dados de verdade, não como uma lista feita à mão. Implementei um pipeline de ETL (Extract, Transform, Load) pra ingerir dados de diversas fontes, com destaque para a SSBWiki: extrair as informações brutas, normalizar as inconsistências de nomenclatura e formatação entre fontes diferentes, e carregar tudo numa estrutura de banco relacional pensada pra consulta rápida, não só pra armazenamento.</p>
+      <br/>
+      <p>O resultado hoje mapeia 90 lutadores, 54 franquias e mais de 1.400 títulos associados a esse universo — tudo relacionado entre si, então navegar de um personagem até o jogo original dele, ou de uma franquia até todos os lutadores que ela originou, é uma questão de clique, não de pesquisa manual.</p>
+      <br/>
+      <h2>Curadoria de troféus, spirits, stickers e trilhas sonoras</h2>
+      <br/>
+      <p>A parte mais trabalhosa não foi cadastrar os lutadores — foi organizar tudo que orbita em volta deles. Troféus do Melee, Spirits do Ultimate, stickers do Brawl e trilhas sonoras de gerações diferentes de jogos têm formatos de dados completamente diferentes entre si, e a plataforma precisa apresentar isso de forma coesa e com performance, mesmo com um volume grande de itens sendo filtrados e renderizados ao mesmo tempo. Foi um exercício real de pensar estrutura de dados e experiência do usuário como a mesma decisão, não como etapas separadas.</p>
+      <br/>
+      <h2>O que esse projeto pessoal me ensinou</h2>
+      <br/>
+      <p>O Smash Compendium é uma prova de como dá pra aplicar boas práticas de desenvolvimento — desde a modelagem de dados até a experiência do usuário — em projetos pessoais, sem precisar de um cliente ou de uma empresa por trás pra justificar o cuidado técnico. Convido a comunidade de desenvolvedores e os entusiastas de games a explorarem o acervo. E fica a pergunta que eu mesmo ainda estou tentando responder: como podemos melhorar ainda mais a integridade desses dados? Fico no aguardo de feedbacks técnicos.</p>
+      <br/>
+      <p>O projeto está no ar em <a href="https://smashcompendium.com/" target="_blank" rel="noopener noreferrer">smashcompendium.com</a>, e o código é aberto no <a href="https://github.com/ACrush14/smash-compendium" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+    `,
+  },
+  {
+    category: 'tech',
+    slug: 'por-que-deixei-a-arquitetura-pela-computacao',
+    title: 'Por Que Deixei a Arquitetura pela Computação (e as Vitórias que Vieram Depois)',
+    author: 'Anderson Crush',
+    date: '10 de Agosto de 2026',
+    description: 'Cinco anos de faculdade, um mercado sem vagas suficientes pra quem se formava, e a decisão de recomeçar do zero em Ciência da Computação. Um relato honesto sobre pivotar de carreira — e sobre o que vim conquistando desde então.',
+    image: '',
+    content: `
+      <p>Passei cinco anos da minha vida na Arquitetura e Urbanismo. Entrei em 2017 na UNI7 cheio de vontade de desenhar espaços, resolver problemas urbanos, entender como as pessoas se relacionam com o que é construído ao redor delas. Terminei em 2022 com o diploma na mão e um problema que ninguém tinha me avisado antes de entrar no curso: o mercado de arquitetura simplesmente não tinha vagas suficientes pra absorver todo mundo que se formava comigo.</p>
+      <br/>
+      <p>Não foi por falta de tentativa. Trabalhei com modelagem 3D e renderização arquitetônica — primeiro captando meus próprios clientes com o Anderson Crush Studio, depois em regime integral numa empresa remota, a Rendereasy 3D. Aprendi Unreal Engine 5, 3ds Max, Corona Renderer, entreguei projeto atrás de projeto. Só que o mercado de ArchViz pra clientes remotos é instável, mal remunerado na maior parte das vezes, e depende de um fluxo de encomendas que nem sempre existe. Em algum momento percebi que estava otimizando minha rotina pra sobreviver ao mês, não pra crescer numa carreira.</p>
+      <br/>
+      <h2>A decisão de recomeçar</h2>
+      <br/>
+      <p>Recomeçar do zero numa área nova depois de cinco anos de faculdade e mais alguns de experiência profissional dá medo, sem meias palavras. Mas alguns fatores pesaram na decisão: o mercado de tecnologia estava (e está) com uma demanda muito mais consistente por profissionais; boa parte das habilidades que eu já tinha — atenção a detalhe técnico, conforto em aprender ferramentas complexas, disciplina pra entregar projeto sob prazo — eram diretamente transferíveis; e, sendo honesto, a curiosidade por computação sempre esteve ali, só nunca tinha tido espaço pra virar prioridade. Em 2025 entrei em Ciência da Computação na UNIFOR.</p>
+      <br/>
+      <h2>As vitórias que vieram depois</h2>
+      <br/>
+      <p>O que aconteceu nos meses seguintes foi rápido de um jeito que eu não esperava. Fui pra um hackathon internacional e voltei com o Nebula.exe premiado no NASA Space Apps Challenge, certificado pela NASA. Virei Monitor Bolsista pouco depois de começar o curso. Fui atrás de certificações que reforçassem tanto a base técnica quanto a comunicação — EF SET (nível C1 de proficiência em inglês), CTE-IA pela UFC, certificações pela Geração Tech e pelo FullStackClub. Construí projetos de verdade, não só de portfólio: o CondoManage (um sistema full-stack real, com IA, PIX e multi-tenant), este site que você está lendo agora, e o Smash Compendium. E, o que mais importa no fim das contas, consegui oportunidades reais no mercado: Analista de TI na REVITAR, Web Design no Synapse Lab, UI/UX Júnior na Oryon System, além de uma posição de liderança voluntária de projetos na comunidade Coda.CE.</p>
+      <br/>
+      <p>Tudo isso aconteceu num período muito mais curto do que os cinco anos que levei pra conseguir minha primeira colocação estável em arquitetura. Isso não significa que os anos de arquitetura foram desperdiçados — a atenção a detalhe visual, o raciocínio espacial e a experiência de lidar com cliente vieram comigo e seguem sendo úteis todos os dias. Significa só que, às vezes, a decisão certa não é insistir onde não há demanda, é redirecionar o esforço pra onde ele realmente compensa.</p>
+      <br/>
+      <p>Se você está enxergando o mesmo tipo de teto num mercado saturado, o recado que eu queria ter ouvido antes é esse: pivotar não é desistir. É redirecionar.</p>
+    `,
+  },
+  {
+    category: 'tech',
+    slug: 'monitoria-fundamentos-de-sistemas-computacionais',
+    title: 'Virar Monitor Me Ensinou a Ensinar: Minha Experiência em Fundamentos de Sistemas Computacionais',
+    author: 'Anderson Crush',
+    date: '02 de Setembro de 2026',
+    description: 'De monitor de Desenho Arquitetônico a monitor de Fundamentos de Sistemas Computacionais — por que ensinar continua sendo uma das formas mais rápidas de aprender de verdade.',
+    image: '',
+    content: `
+      <p>Essa não é a minha primeira vez numa sala de monitoria. Lá na arquitetura, fui monitor de Desenho Assistido por Computador, de Desenho Arquitetônico e de Desenho para a Engenharia — sempre gostei dessa posição de ponte entre quem já passou pelo conteúdo e quem está começando a se afogar nele agora. Então, quando surgiu a oportunidade de ser Monitor Bolsista na disciplina de Fundamentos de Sistemas Computacionais na UNIFOR, em parceria com o professor responsável, não pensei duas vezes.</p>
+      <br/>
+      <p>Na prática, a monitoria se divide em algumas frentes: plantão de dúvidas pra apoio individual e em grupo aos alunos da disciplina; acompanhamento das aulas práticas e de laboratório, ajudando na aplicação dos conceitos teóricos; correção de exercícios e listas com retorno construtivo pra reforçar o aprendizado; e elaboração de material de apoio — listas de exercícios e resumos — pra reforçar o conteúdo dado em sala.</p>
+      <br/>
+      <h2>Explicar é a forma mais honesta de aprender</h2>
+      <br/>
+      <p>Tem um fenômeno clássico de quem já deu aula ou monitoria: você só entende de verdade um assunto quando precisa explicá-lo pra outra pessoa. Um aluno pergunta "mas por que funciona assim?" sobre algo que você achava óbvio, e de repente você percebe uma lacuna no seu próprio modelo mental que nunca tinha sido testada. Isso aconteceu comigo várias vezes explicando conceitos fundamentais de representação de dados e lógica de sistemas — coisas que eu "sabia" de forma automática, mas que só fixaram de verdade quando precisei decompor o raciocínio passo a passo pra outra pessoa.</p>
+      <br/>
+      <h2>O valor de estar do outro lado</h2>
+      <br/>
+      <p>Ter sido um aluno recomeçando do zero numa área nova — vindo da arquitetura pra computação — me deu uma paciência diferente com quem está travado numa dúvida que parece boba. Eu sei exatamente como é a sensação de olhar pra um conceito e não fazer ideia de por onde começar. E montar material de apoio, listas e resumos, force você a organizar o próprio entendimento antes de tentar organizar o entendimento de outra pessoa — é uma dupla revisão de conteúdo disfarçada de trabalho voluntário.</p>
+      <br/>
+      <p>No fim, a monitoria virou menos sobre "ajudar os outros" e mais sobre um exercício constante de reforçar minha própria base enquanto ainda estou construindo ela. Recomendo pra qualquer estudante que tenha a chance.</p>
+    `,
+  },
+  {
+    category: 'tech',
+    slug: 'voluntariado-na-coda-ce',
+    title: 'Bastidores do Voluntariado na CODA.CE',
+    author: 'Anderson Crush',
+    date: '20 de Setembro de 2026',
+    description: 'Recepção, logística e mentoria em hackathons de 72 horas: o que aprendi apoiando eventos de uma das comunidades de tecnologia mais ativas do Ceará.',
+    image: '',
+    content: `
+      <p>Desde que decidi migrar pra tecnologia, uma coisa ficou clara rápido: comunidade é tudo. Ninguém constrói uma carreira nova sozinho, trancado em casa estudando sintaxe. Foi por isso que entrei como Voluntário de Eventos na CODA.CE (Comunidade de Desenvolvedores do Ceará), uma das comunidades de tecnologia mais ativas do estado, voltada a acelerar o aprendizado prático e o desenvolvimento profissional através de eventos, bootcamps e projetos reais.</p>
+      <br/>
+      <p>Como voluntário, colaboro ativamente no planejamento, na organização e no suporte operacional de eventos que conectam centenas de desenvolvedores, estudantes e profissionais de tecnologia em Fortaleza.</p>
+      <br/>
+      <h2>FrontEnd Day Fortaleza: o evento visto de trás do palco</h2>
+      <br/>
+      <p>No FrontEnd Day Fortaleza, minha frente foi mais de logística e recepção: acolher os participantes, ajudar na condução das atividades, garantir que palestrantes e congressistas tivessem uma boa experiência do início ao fim. É um tipo de trabalho invisível pra quem está assistindo às palestras, mas que decide se o evento flui bem ou vira um caos silencioso.</p>
+      <br/>
+      <h2>72 horas de Hackathon CODA.CE</h2>
+      <br/>
+      <p>No Hackathon CODA.CE — na edição realizada no Unifor Hub — a atuação foi diferente: apoio na organização, mentoria e acompanhamento das equipes ao longo de uma maratona de desenvolvimento de 72 horas, ajudando os times a transformarem ideias soltas em projetos práticos de alto impacto. Acompanhar de perto o momento em que um grupo sai do "não sei nem por onde começar" pra um protótipo funcionando é, sinceramente, uma das partes mais gratificantes de estar do lado voluntário do evento.</p>
+      <br/>
+      <h2>O que fica: rede e aprendizado</h2>
+      <br/>
+      <p>Fora os grandes eventos, também ajudo a facilitar meetups, workshops práticos e integrações presenciais e híbridas menores, sempre com o mesmo objetivo: fomentar networking, colaboração técnica e troca de conhecimento dentro do ecossistema cearense de inovação e front-end. Estar do lado de quem organiza, e não só de quem participa, acelerou minhas próprias conexões e aprendizado muito mais rápido do que estudar sozinho em casa teria feito.</p>
+      <br/>
+      <p>Se você está em Fortaleza ou no Ceará e quer se aproximar da comunidade de desenvolvedores local, vale muito a pena acompanhar os próximos eventos da CODA.CE.</p>
+    `,
+  },
 ];

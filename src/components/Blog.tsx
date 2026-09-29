@@ -119,17 +119,22 @@ export default function Blog() {
                       href={`/blog/${post.slug}`}
                       className="group flex flex-col h-full bg-[#111111] border border-gray-800 hover:border-[#22C55E]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(34,197,94,0.12)] overflow-hidden"
                     >
-                      {/* Imagem de capa */}
+                      {/* Imagem de capa (ou fundo com grid de pontos quando não há imagem) */}
                       <div className="relative w-full h-48 overflow-hidden shrink-0">
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          fill
-                          sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 30vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                        {/* Overlay sutil no hover */}
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                        {post.image ? (
+                          <>
+                            <Image
+                              src={post.image}
+                              alt={post.title}
+                              fill
+                              sizes="(max-width: 768px) 85vw, (max-width: 1024px) 45vw, 30vw"
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                          </>
+                        ) : (
+                          <div className="absolute inset-0 bg-[radial-gradient(circle,#22C55E20_1px,transparent_1px)] bg-[length:20px_20px] bg-black" />
+                        )}
                       </div>
 
                       {/* Linha verde no topo do conteúdo */}
