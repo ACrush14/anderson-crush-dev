@@ -2,7 +2,7 @@
 
 import RevealOnScroll from './RevealOnScroll';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { FaDownload, FaCog, FaGraduationCap, FaUniversity, FaLaptopCode } from 'react-icons/fa';
+import { FaDownload, FaCog, FaGraduationCap, FaUniversity, FaLaptopCode, FaCheckCircle } from 'react-icons/fa';
 import {
   SiPython, SiJavascript, SiReact, SiNodedotjs, SiExpress, SiTypescript,
   SiNextdotjs, SiHtml5, SiCss, SiTailwindcss, SiGit, SiGithub,
@@ -11,13 +11,42 @@ import {
 import { FaTasks } from 'react-icons/fa';
 import ParticlesBackground from './ParticlesBackground';
 
-// Core stack (full-stack + IA aplicada) em destaque; o resto entra como apoio compacto.
-const coreStack = ['Next.js', 'TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Google Gemini API'];
-
-const secondaryStack = [
+const techStack = [
+  'Next.js', 'TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Google Gemini API',
   'JavaScript', 'Express.js', 'Python', 'TailwindCSS', 'REST APIs', 'Docker',
   'Git', 'GitHub', 'MySQL', 'HTML', 'CSS', 'Godot', 'Unity',
   'Agile', 'Método Kanban', 'Método Scrum',
+];
+
+type EducationStatus = 'em-curso' | 'concluido';
+
+interface EducationItem {
+  category: string;
+  title: string;
+  institution?: string;
+  status: EducationStatus;
+  period?: string;
+}
+
+const educationData: EducationItem[] = [
+  {
+    category: 'Graduação',
+    title: 'Ciência da Computação',
+    institution: 'UNIFOR',
+    status: 'em-curso',
+  },
+  {
+    category: 'Curso',
+    title: 'Full Stack Club',
+    status: 'em-curso',
+  },
+  {
+    category: 'Graduação',
+    title: 'Arquitetura e Urbanismo',
+    institution: 'UNI7',
+    status: 'concluido',
+    period: '2017 - 2022',
+  },
 ];
 
 const skillIcons: Record<string, React.ElementType> = {
@@ -74,29 +103,45 @@ export default function About() {
 
             {/* Formação */}
             <RevealOnScroll delay={0.2}>
-              <div className="w-full flex flex-col md:flex-row gap-6 mb-10 justify-center">
-                <div className="flex-1 bg-[#111111] p-8 border border-gray-800 hover:border-[#22C55E] transition-colors flex flex-col items-center justify-center text-center group relative overflow-hidden">
-                  <FaLaptopCode className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl text-white/5 pointer-events-none" />
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="bg-[#22C55E] p-4 text-black shadow-lg mb-4">
-                      <FaGraduationCap size={32} />
-                    </div>
-                    <span className="text-[#22C55E] font-mono text-xs uppercase tracking-[0.2em] mb-3 border-b border-[#22C55E]/20 pb-1">
-                      Graduação
-                    </span>
-                    <h3 className="text-white font-bold text-xl md:text-2xl font-heading mb-4 leading-tight">
-                      Ciência da Computação
-                    </h3>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-auto text-gray-400 text-sm font-mono">
-                      <span className="flex items-center gap-2 bg-black px-4 py-2 border border-gray-700">
-                        <FaUniversity className="text-[#22C55E]" /> UNIFOR
+              <div className="w-full grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                {educationData.map((item) => (
+                  <div
+                    key={item.title}
+                    className="bg-[#111111] p-8 border border-gray-800 hover:border-[#22C55E] transition-colors flex flex-col items-center justify-center text-center group relative overflow-hidden"
+                  >
+                    <FaLaptopCode className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-9xl text-white/5 pointer-events-none" />
+                    <div className="relative z-10 flex flex-col items-center">
+                      <div className="bg-[#22C55E] p-4 text-black shadow-lg mb-4">
+                        <FaGraduationCap size={32} />
+                      </div>
+                      <span className="text-[#22C55E] font-mono text-xs uppercase tracking-[0.2em] mb-3 border-b border-[#22C55E]/20 pb-1">
+                        {item.category}
                       </span>
-                      <span className="flex items-center gap-2 bg-green-500/10 text-green-400 px-4 py-2 border border-green-500/20">
-                        <span className="w-2 h-2 bg-green-500 animate-pulse" /> Em Curso
-                      </span>
+                      <h3 className="text-white font-bold text-xl md:text-2xl font-heading mb-4 leading-tight">
+                        {item.title}
+                      </h3>
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-auto text-gray-400 text-sm font-mono">
+                        {item.institution && (
+                          <span className="flex items-center gap-2 bg-black px-4 py-2 border border-gray-700">
+                            <FaUniversity className="text-[#22C55E]" /> {item.institution}
+                          </span>
+                        )}
+                        {item.status === 'em-curso' ? (
+                          <span className="flex items-center gap-2 bg-green-500/10 text-green-400 px-4 py-2 border border-green-500/20">
+                            <span className="w-2 h-2 bg-green-500 animate-pulse" /> Em Curso
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-2 bg-gray-500/10 text-gray-300 px-4 py-2 border border-gray-500/20">
+                            <FaCheckCircle className="text-gray-400" size={12} /> Concluído
+                          </span>
+                        )}
+                      </div>
+                      {item.period && (
+                        <span className="mt-3 text-xs text-gray-500 font-mono">{item.period}</span>
+                      )}
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
             </RevealOnScroll>
 
@@ -107,12 +152,8 @@ export default function About() {
                   <FaCog className="text-[#22C55E] animate-spin-slow" /> Tech Stack &amp; Tools
                 </h3>
 
-                {/* Core Stack — grid compacto e refinado, destaque máximo */}
-                <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#22C55E]/70 mb-4">
-                  {t.coreStackTitle}
-                </p>
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 max-w-3xl w-full mb-10">
-                  {coreStack.map((skill) => {
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 max-w-4xl w-full">
+                  {techStack.map((skill) => {
                     const IconComponent = skillIcons[skill] || FaCog;
                     return (
                       <div
@@ -121,22 +162,6 @@ export default function About() {
                       >
                         <IconComponent className="text-gray-400 text-xl group-hover:text-[#22C55E] transition-colors" />
                         <span className="text-gray-300 text-[10px] font-mono text-center leading-tight group-hover:text-white transition-colors">{skill}</span>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Ferramentas de apoio — compactas, peso visual menor */}
-                <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-gray-600 mb-4">
-                  {t.secondaryStackTitle}
-                </p>
-                <div className="flex flex-wrap justify-center gap-2 max-w-3xl">
-                  {secondaryStack.map((skill) => {
-                    const IconComponent = skillIcons[skill] || FaCog;
-                    return (
-                      <div key={skill} className="group flex items-center gap-1.5 px-3 py-1.5 bg-black border border-gray-900 hover:border-gray-700 transition-all cursor-default">
-                        <IconComponent className="text-gray-600 text-xs group-hover:text-gray-400 transition-colors shrink-0" />
-                        <span className="text-gray-600 text-[10px] font-mono group-hover:text-gray-300 transition-colors">{skill}</span>
                       </div>
                     );
                   })}

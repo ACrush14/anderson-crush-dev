@@ -27,8 +27,6 @@ const translations = {
     heroProof3: 'Full-stack de ponta a ponta',
 
     aboutTitle: 'Sobre Mim',
-    coreStackTitle: 'Core Stack',
-    secondaryStackTitle: 'Também uso',
     aboutText1: 'Desenvolvedor Full-Stack, focado em transformar problemas complexos em soluções computacionais automatizadas. Combino Design, Experiência, Infraestrutura, Arquitetura de Software e Desenvolvimento para entregar soluções escaláveis de alto impacto.',
     aboutText2: 'Atuo na interseção entre o Back-end, o Front-end e o UI/UX, criando sistemas que garantem inteligência e performance. Com uma visão técnica de ponta — do planejamento até a entrega da execução — meu objetivo é lhe entregar o complexo e gerar valor tangível através de tecnologia bem estruturada.',
     aboutText3: 'Sou nerd, estudioso e comprometido: chego cedo, saio tarde, e sempre dou meu melhor.',
@@ -90,8 +88,6 @@ const translations = {
     heroProof3: 'End-to-end full-stack',
 
     aboutTitle: 'About Me',
-    coreStackTitle: 'Core Stack',
-    secondaryStackTitle: 'Also using',
     aboutText1: 'Full-Stack Developer focused on turning complex problems into automated computational solutions. I combine Design, User Experience, Infrastructure, Software Architecture and Development to deliver scalable, high-impact solutions.',
     aboutText2: 'I work at the intersection of Back-end, Front-end and UI/UX, building systems that deliver intelligence and performance. With a sharp technical vision — from planning through execution — my goal is to hand you the complex made simple, and generate tangible value through well-structured technology.',
     aboutText3: "I'm a nerd, studious and committed: I show up early, stay late, and always give my best.",

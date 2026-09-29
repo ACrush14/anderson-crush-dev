@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import ParticlesBackground from './ParticlesBackground';
 import RevealOnScroll from './RevealOnScroll';
 import { FaBriefcase, FaGraduationCap, FaTrophy } from 'react-icons/fa';
@@ -102,6 +103,61 @@ export default function Journey() {
   const selectedData = journeyDataMap[language] ?? journeyDataMap['pt'];
   const journeyDisplayData = [...selectedData, ...selectedData];
 
+  const groupRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const offsetRef = useRef(0);
+  const halfWidthRef = useRef(0);
+  const isPausedRef = useRef(false);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    const group = groupRef.current;
+    if (!track || !group) return;
+
+    const measure = () => {
+      halfWidthRef.current = track.scrollWidth / 2;
+    };
+    measure();
+    window.addEventListener('resize', measure);
+
+    const pxPerSecond = () => halfWidthRef.current / 40; // mesma cadência do antigo marquee de 40s
+
+    let frameId: number;
+    let lastTime = performance.now();
+
+    const tick = (time: number) => {
+      const delta = (time - lastTime) / 1000;
+      lastTime = time;
+
+      if (!isPausedRef.current) {
+        offsetRef.current += pxPerSecond() * delta;
+      }
+
+      const half = halfWidthRef.current;
+      if (half > 0) {
+        offsetRef.current = ((offsetRef.current % half) + half) % half;
+      }
+
+      track.style.transform = `translateX(-${offsetRef.current}px)`;
+      frameId = requestAnimationFrame(tick);
+    };
+    frameId = requestAnimationFrame(tick);
+
+    // Listener nativo (não-passivo): só assim o preventDefault realmente
+    // bloqueia o scroll vertical da página enquanto o mouse está sobre a linha do tempo.
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      offsetRef.current += e.deltaY + e.deltaX;
+    };
+    group.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      window.removeEventListener('resize', measure);
+      group.removeEventListener('wheel', handleWheel);
+    };
+  }, [language]);
+
   return (
     <section id="journey" className="relative overflow-hidden">
       <ParticlesBackground id="particles-journey">
@@ -115,8 +171,13 @@ export default function Journey() {
           </div>
 
           <RevealOnScroll delay={0.2}>
-            <div className="group relative w-full overflow-hidden py-20">
-              <div className="relative inline-flex animate-marquee hover:[animation-play-state:paused]">
+            <div
+              ref={groupRef}
+              className="group relative w-full overflow-hidden py-20"
+              onMouseEnter={() => { isPausedRef.current = true; }}
+              onMouseLeave={() => { isPausedRef.current = false; }}
+            >
+              <div ref={trackRef} className="relative inline-flex will-change-transform">
                 <div className="absolute top-1/2 left-0 h-[2px] w-full bg-gray-800 -translate-y-1/2 z-0" />
                 <div className="absolute top-1/2 left-0 h-[2px] w-full bg-gradient-to-r from-transparent via-[#22C55E] to-transparent -translate-y-1/2 z-0 opacity-50 blur-sm" />
 
