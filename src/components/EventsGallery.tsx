@@ -3,13 +3,24 @@
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, FreeMode } from 'swiper/modules';
-import { FaRocket, FaMicrochip, FaBrain, FaMicrophone } from 'react-icons/fa';
+import { FaRocket, FaMicrochip, FaBrain, FaMicrophone, FaProjectDiagram } from 'react-icons/fa';
 import ParticlesBackground from './ParticlesBackground';
 import RevealOnScroll from './RevealOnScroll';
 import { useLanguage } from '@/contexts/LanguageContext';
 import 'swiper/css';
 
-const milestonesMap = {
+interface Milestone {
+  src: string;
+  alt: string;
+  icon: typeof FaRocket;
+  date: string;
+  title: string;
+  caption: string;
+  /** Posição do foco do object-cover (ex.: 'top' para imagens em pé). Padrão: 'center'. */
+  objectPosition?: string;
+}
+
+const milestonesMap: Record<'pt' | 'en', Milestone[]> = {
   pt: [
     {
       src: '/instagram-nasa.jpg',
@@ -42,6 +53,15 @@ const milestonesMap = {
       date: 'UNIFOR',
       title: 'Robô com Arduino',
       caption: 'Controle de motores e movimentação autônoma, projeto de Experimentação Orientada.',
+    },
+    {
+      src: '/circuito-logico-booleano.jpg',
+      alt: 'Exercício de álgebra booleana e portas lógicas',
+      icon: FaProjectDiagram,
+      date: 'UNIFOR',
+      title: 'Álgebra Booleana e Portas Lógicas',
+      caption: 'Exercício de simplificação de expressões booleanas e montagem de circuitos com portas lógicas.',
+      objectPosition: 'top',
     },
     {
       src: '/instagram-tech-talk.jpg',
@@ -84,6 +104,15 @@ const milestonesMap = {
       date: 'UNIFOR',
       title: 'Arduino Robot',
       caption: 'Motor control and autonomous movement, built for the Guided Experimentation course.',
+    },
+    {
+      src: '/circuito-logico-booleano.jpg',
+      alt: 'Boolean algebra and logic gates exercise',
+      icon: FaProjectDiagram,
+      date: 'UNIFOR',
+      title: 'Boolean Algebra and Logic Gates',
+      caption: 'Boolean expression simplification exercise and logic-gate circuit design.',
+      objectPosition: 'top',
     },
     {
       src: '/instagram-tech-talk.jpg',
@@ -138,6 +167,7 @@ export default function EventsGallery() {
                               alt={item.alt}
                               fill
                               sizes="(max-width: 768px) 85vw, (max-width: 1024px) 40vw, 25vw"
+                              style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
                               className="object-cover transition-transform duration-500 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
