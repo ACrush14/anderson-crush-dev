@@ -130,7 +130,7 @@ export default function EventsGallery() {
   const milestones = milestonesMap[language] ?? milestonesMap['pt'];
 
   return (
-    <section id="events">
+    <section id="events" className="relative overflow-hidden">
       <ParticlesBackground id="particles-events">
         <div className="py-20">
           <div className="container mx-auto">

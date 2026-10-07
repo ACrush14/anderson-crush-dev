@@ -1,6 +1,9 @@
 /* src/app/globals.css */
 @import "tailwindcss";
 
+/* O tema é controlado pela classe .dark/.light (next-themes), não pelo sistema operacional. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #F5F5F5;
   --foreground: #0A0A0A;
@@ -9,6 +12,7 @@
   --secondary-accent: #0A0A0A;
   --text-muted: #4B5563;
   --border-color: #D1D5DB;
+  color-scheme: light;
 }
 
 .dark {
@@ -19,23 +23,27 @@
   --secondary-accent: #E5E5E5;
   --text-muted: #9CA3AF;
   --border-color: #1A1A1A;
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0A0A0A;
-    --foreground: #E5E5E5;
-    --card-background: #111111;
-    --primary-accent: #22C55E;
-    --secondary-accent: #E5E5E5;
-    --text-muted: #9CA3AF;
+html, body {
+  overflow-x: clip;
+}
+
+html {
+  overscroll-behavior-x: none;
+}
+
+/* Safari/iOS anteriores ao 16 não suportam overflow: clip */
+@supports not (overflow: clip) {
+  html, body {
+    overflow-x: hidden;
   }
 }
 
 body {
   color: var(--foreground);
   background-color: var(--background);
-  color-scheme: light dark;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -66,6 +74,30 @@ input:focus, textarea:focus {
   outline: 2px solid var(--primary-accent);
   outline-offset: 2px;
 }
+
+/* ── Modo claro da home ───────────────────────────────────────────
+   Os componentes usam cores escuras fixas (feitas para o tema escuro, que é o padrão).
+   No modo claro, estas regras remapeiam superfícies e textos fixos das seções.
+   O hero (#home) e o header ficam de fora: o hero é escuro por design e o header usa dark:. */
+html.light .home-main > :not(#home):not(header) .text-white { color: #0A0A0A; }
+html.light .home-main > :not(#home):not(header) .text-gray-100,
+html.light .home-main > :not(#home):not(header) .text-gray-200 { color: #1F2937; }
+html.light .home-main > :not(#home):not(header) .text-gray-300 { color: #374151; }
+html.light .home-main > :not(#home):not(header) .text-gray-400 { color: #4B5563; }
+html.light .home-main > :not(#home):not(header) .text-gray-500 { color: #6B7280; }
+html.light .home-main > :not(#home):not(header) .bg-black,
+html.light .home-main > :not(#home):not(header) .bg-\[\#111111\],
+html.light .home-main > :not(#home):not(header) .bg-\[\#0a0a0a\],
+html.light .home-main > :not(#home):not(header) .bg-\[\#0c0c0c\],
+html.light .home-main > :not(#home):not(header) .bg-\[\#0d0d0d\] { background-color: #FFFFFF; }
+html.light .home-main > :not(#home):not(header) .bg-\[\#111111\]\/90 { background-color: rgb(255 255 255 / 0.92); }
+html.light .home-main > :not(#home):not(header) .bg-gray-900 { background-color: #F3F4F6; }
+html.light .home-main > :not(#home):not(header) .bg-gray-800 { background-color: #E5E7EB; }
+html.light .home-main > :not(#home):not(header) .bg-gray-700 { background-color: #D1D5DB; }
+html.light .home-main > :not(#home):not(header) .border-gray-900 { border-color: #E5E7EB; }
+html.light .home-main > :not(#home):not(header) .border-gray-800,
+html.light .home-main > :not(#home):not(header) .border-gray-700 { border-color: #D1D5DB; }
+html.light .home-main > :not(#home):not(header) .border-gray-600 { border-color: #9CA3AF; }
 
 @layer utilities {
   .animate-spin-slow {

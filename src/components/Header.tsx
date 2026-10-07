@@ -17,7 +17,7 @@ const FlagButton = ({ lang, current, onClick, label }: { lang: string; current: 
     className={`font-bold text-xs px-2 py-1 border transition-all ${
       current === lang
         ? 'bg-black text-[#22C55E] border-[#22C55E]'
-        : 'bg-transparent text-gray-700 border-transparent hover:bg-gray-300/50'
+        : 'bg-transparent text-gray-700 dark:text-gray-400 border-transparent hover:bg-gray-300/50 dark:hover:bg-gray-700/50'
     }`}
   >
     {label}
@@ -30,14 +30,14 @@ export default function Header() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  const navLinkClass = "font-bold px-3 py-2 text-gray-800 hover:text-[#22C55E] hover:-translate-y-1 transition-all";
+  const navLinkClass = "font-bold px-3 py-2 text-gray-800 dark:text-gray-300 hover:text-[#22C55E] dark:hover:text-[#22C55E] hover:-translate-y-1 transition-all";
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-[#E5E5E5] z-50 shadow-md transition-colors border-b border-gray-300">
+    <header className="fixed top-0 left-0 w-full bg-[#E5E5E5] dark:bg-[#0A0A0A]/95 dark:backdrop-blur-md z-50 shadow-md transition-colors border-b border-gray-300 dark:border-gray-800">
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
 
         <Link href="/" className="flex items-center" onClick={closeMenu}>
-          <span className="text-xl font-extrabold text-gray-900 font-heading tracking-tight">
+          <span className="text-xl font-extrabold text-gray-900 dark:text-white font-heading tracking-tight">
             Anderson<span className="text-[#22C55E]">.</span>
           </span>
         </Link>
@@ -51,29 +51,29 @@ export default function Header() {
         </div>
 
         <div className="hidden md:flex items-center space-x-3">
-          <div className="flex space-x-1 mr-2 bg-gray-300 p-1">
+          <div className="flex space-x-1 mr-2 bg-gray-300 dark:bg-gray-800 p-1">
             <FlagButton lang="pt" current={language} onClick={() => setLanguage('pt')} label="PT" />
             <FlagButton lang="en" current={language} onClick={() => setLanguage('en')} label="EN" />
           </div>
           <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <FaGithub className="w-6 h-6 text-gray-800 hover:text-[#22C55E] hover:-translate-y-1 transition-all" />
+            <FaGithub className="w-6 h-6 text-gray-800 dark:text-gray-300 hover:text-[#22C55E] hover:-translate-y-1 transition-all" />
           </a>
           <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <FaLinkedin className="w-6 h-6 text-gray-800 hover:text-[#22C55E] hover:-translate-y-1 transition-all" />
+            <FaLinkedin className="w-6 h-6 text-gray-800 dark:text-gray-300 hover:text-[#22C55E] hover:-translate-y-1 transition-all" />
           </a>
           <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <FaInstagram className="w-6 h-6 text-gray-800 hover:text-[#22C55E] hover:-translate-y-1 transition-all" />
+            <FaInstagram className="w-6 h-6 text-gray-800 dark:text-gray-300 hover:text-[#22C55E] hover:-translate-y-1 transition-all" />
           </a>
           <ThemeToggle />
         </div>
 
         <div className="md:hidden flex items-center gap-2">
-          <div className="flex space-x-1 bg-gray-300 p-1">
-            <button onClick={() => setLanguage('pt')} className={`text-xs font-bold p-1 ${language === 'pt' ? 'text-green-600' : 'text-gray-600'}`}>PT</button>
-            <button onClick={() => setLanguage('en')} className={`text-xs font-bold p-1 ${language === 'en' ? 'text-green-600' : 'text-gray-600'}`}>EN</button>
+          <div className="flex space-x-1 bg-gray-300 dark:bg-gray-800 p-1">
+            <button onClick={() => setLanguage('pt')} className={`text-xs font-bold p-1 ${language === 'pt' ? 'text-green-600 dark:text-[#22C55E]' : 'text-gray-600 dark:text-gray-400'}`}>PT</button>
+            <button onClick={() => setLanguage('en')} className={`text-xs font-bold p-1 ${language === 'en' ? 'text-green-600 dark:text-[#22C55E]' : 'text-gray-600 dark:text-gray-400'}`}>EN</button>
           </div>
           <ThemeToggle />
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-800 focus:outline-none p-2">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-800 dark:text-gray-200 focus:outline-none p-2">
             {isMenuOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
           </button>
         </div>
@@ -85,7 +85,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#E5E5E5] shadow-lg overflow-hidden border-t border-gray-300"
+            className="md:hidden bg-[#E5E5E5] dark:bg-[#0A0A0A] shadow-lg overflow-hidden border-t border-gray-300 dark:border-gray-800"
           >
             <div className="flex flex-col items-center py-4 space-y-2">
               {[
@@ -95,13 +95,13 @@ export default function Header() {
                 { href: '/#blog', label: t.blog },
                 { href: '/#contact', label: t.contact },
               ].map(({ href, label }) => (
-                <Link key={href} href={href} onClick={closeMenu} className="text-lg font-bold text-gray-800 hover:text-[#22C55E] w-full text-center py-2 border-b border-gray-200">
+                <Link key={href} href={href} onClick={closeMenu} className="text-lg font-bold text-gray-800 dark:text-gray-200 hover:text-[#22C55E] w-full text-center py-2 border-b border-gray-200 dark:border-gray-800">
                   {label}
                 </Link>
               ))}
               <div className="flex space-x-6 pt-4 w-full justify-center">
-                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer"><FaGithub className="w-8 h-8 text-gray-800 hover:text-[#22C55E]" /></a>
-                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer"><FaLinkedin className="w-8 h-8 text-gray-800 hover:text-[#22C55E]" /></a>
+                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer"><FaGithub className="w-8 h-8 text-gray-800 dark:text-gray-300 hover:text-[#22C55E]" /></a>
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer"><FaLinkedin className="w-8 h-8 text-gray-800 dark:text-gray-300 hover:text-[#22C55E]" /></a>
               </div>
             </div>
           </motion.div>

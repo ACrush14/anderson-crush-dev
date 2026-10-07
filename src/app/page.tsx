@@ -10,7 +10,7 @@ import EventsGallery from "@/components/EventsGallery";
 
 export default function Home() {
   return (
-    <main>
+    <main className="home-main">
       <Header />
       <Hero />
       <About />
