@@ -36,7 +36,7 @@ export default function Footer() {
               </div>
 
               <p className="text-sm text-gray-600 font-mono">
-                &copy; {currentYear} Anderson Crush. Todos os direitos reservados.
+                &copy; {currentYear} Anderson de Lima. Todos os direitos reservados.
               </p>
             </div>
           </RevealOnScroll>

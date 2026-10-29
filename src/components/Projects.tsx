@@ -136,7 +136,7 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       highlight: true,
       mockup: 'hero',
       screenshot: '/projects/portfolio.jpg',
-      screenshotAlt: 'Hero do site pessoal de Anderson Crush',
+      screenshotAlt: 'Hero do site pessoal de Anderson de Lima',
       urlLabel: 'anderson-crush-dev.vercel.app',
       metrics: [
         'Next.js 15 + TypeScript + TailwindCSS',
@@ -194,7 +194,7 @@ const flagshipProjectsMap: Record<string, Project[]> = {
       highlight: true,
       mockup: 'hero',
       screenshot: '/projects/portfolio.jpg',
-      screenshotAlt: "Anderson Crush's personal site hero section",
+      screenshotAlt: "Anderson de Lima's personal site hero section",
       urlLabel: 'anderson-crush-dev.vercel.app',
       metrics: [
         'Next.js 15 + TypeScript + TailwindCSS',

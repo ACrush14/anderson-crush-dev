@@ -16,7 +16,7 @@ export async function generateMetadata(
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return { title: 'Post não encontrado' };
   return {
-    title: `${post.title} | Anderson Crush`,
+    title: `${post.title} | Anderson de Lima`,
     description: post.description,
     openGraph: {
       title: post.title,

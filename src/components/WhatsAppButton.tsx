@@ -43,7 +43,7 @@ export default function WhatsAppButton() {
                   <FaWhatsapp className="text-green-500 text-2xl" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-800 text-sm">Anderson Crush</h3>
+                  <h3 className="font-bold text-gray-800 text-sm">Anderson de Lima</h3>
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                     <span className="text-xs text-green-600 font-medium">Online agora</span>

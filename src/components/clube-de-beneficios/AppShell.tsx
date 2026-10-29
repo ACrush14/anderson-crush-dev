@@ -44,9 +44,9 @@ export function AppShell({ children }: { children: ReactNode }) {
           ))}
         </nav>
         <div className="mt-auto flex items-center gap-2.5 border-t border-[var(--cb-border)] px-2 pt-4">
-          <CompanyAvatar name="Anderson Crush" size="sm" />
+          <CompanyAvatar name="Anderson de Lima" size="sm" />
           <div className="leading-tight">
-            <p className="text-[13px] font-medium text-[var(--cb-text)]">Anderson Crush</p>
+            <p className="text-[13px] font-medium text-[var(--cb-text)]">Anderson de Lima</p>
             <p className="text-xs text-[var(--cb-text-tertiary)]">Administrador</p>
           </div>
         </div>

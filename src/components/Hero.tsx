@@ -30,7 +30,7 @@ export default function Hero() {
             <h1 className="font-heading font-extrabold text-[#E5E5E5] leading-[0.95] tracking-tight text-5xl sm:text-6xl lg:text-[4.5rem] -ml-0.5">
               {t.heroGreeting}
               <br />
-              <span className="text-[#22C55E]">Anderson Crush</span>
+              <span className="text-[#22C55E]">Anderson de Lima</span>
             </h1>
 
             <div className="text-lg md:text-2xl font-semibold text-gray-300 h-10 md:h-12 mt-4">
@@ -77,7 +77,7 @@ export default function Hero() {
               >
                 <Image
                   src="/profile.jpg"
-                  alt="Anderson Crush"
+                  alt="Anderson de Lima"
                   width={420}
                   height={420}
                   className="object-contain hover:scale-105 transition-transform duration-500"

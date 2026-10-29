@@ -20,8 +20,8 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://anderson-crush-dev.vercel.app'),
-  title: "Anderson Crush | Developer",
-  description: "Portfólio de Anderson Crush, Desenvolvedor Full Stack.",
+  title: "Anderson de Lima | Developer",
+  description: "Portfólio de Anderson de Lima, Desenvolvedor Full Stack.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
